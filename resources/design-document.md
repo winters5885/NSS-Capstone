@@ -190,8 +190,16 @@ eventDetails // string
 
 ## 8. Pages
 
+### Member Views
+
 ![image](https://user-images.githubusercontent.com/66507929/214391575-044337b6-9e60-4f8e-b8ed-0a4310cf9877.png)
 ![image](https://user-images.githubusercontent.com/66507929/214393100-0f03ad6a-91ab-400b-b396-eb7fa15a40e0.png)
 ![image](https://user-images.githubusercontent.com/66507929/214395411-50c7e264-7543-498e-8944-73a289766e5e.png)
-![image](https://user-images.githubusercontent.com/66507929/214396406-8be7517c-9cb9-4a6d-b67f-cefbef55e30d.png)
+![image](https://user-images.githubusercontent.com/66507929/214410304-9f0330c5-fdc2-4c73-a583-13969930f082.png)
+
+### Employee Views
+
+![image](https://user-images.githubusercontent.com/66507929/214414859-17195d7b-1551-4313-acb9-d4398c1f50d7.png)
 ![image](https://user-images.githubusercontent.com/66507929/214397587-6259f527-3a9b-4980-8684-d6d5985ef239.png)
+![image](https://user-images.githubusercontent.com/66507929/214406192-c908f4ae-c72f-48bf-8724-41d8372839eb.png)
+![image](https://user-images.githubusercontent.com/66507929/214408028-6dfb5fab-42e6-46da-aa97-ad62c3f0af7d.png)
