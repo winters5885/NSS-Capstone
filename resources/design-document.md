@@ -158,3 +158,33 @@ String eventDetails;
 * Accepts `PUT` requests to `calendar/:calendarid`
 * Accepts data to update the calendar including day, month, year, and event details.
 
+## Tables
+
+### 7.1. `members`
+
+```
+memberid // partition key, string
+name // string
+age // number
+gender // string
+contactInfo // list
+type // string
+```
+
+### 7.2. `routes`
+
+```
+routeId // partition key, number
+difficultyRating // string
+type // string
+```
+### 7.3. `calendar`
+
+```
+calendarId // partition key, string
+day // number
+month // string
+year // number
+eventDetails // string
+```
+
