@@ -116,7 +116,7 @@ String eventDetails;
 ### 6.2. Get Member Endpoint
 
 * Accepts `GET` requests to `/members/:memberId`
-* Accepts a member ID and returns the corresponding MemberModel.
+* Accepts a member ID and returns the corresponding MemberModel including memberId, name, age, gender, contactInfo, type.
     * If member ID is not found, throws `MemberNotFoundException`
 
 ![image](https://user-images.githubusercontent.com/66507929/214466714-0fabb98e-4568-4cfe-b354-f77f24765487.png)
@@ -124,14 +124,14 @@ String eventDetails;
 ### 6.3. Create Member Endpoint
 
 * Accepts `POST` requests to `/members`
-* Accepts data to create a new member with a provided a name, member ID, age, gender, contact information, and type. Returns the new member profile, including the       customers assigned unique member Id.
+* Accepts data to create a new member with a provided a name, member ID, age, gender, contact information, and type. Returns the new MemberModel, including the           customers assigned unique member Id, name, age, gender, contactInfo, type.
 
 ![image](https://user-images.githubusercontent.com/66507929/214467402-331bcaa2-1bec-46b8-b5da-701f0d730cdd.png)
 
 ### 6.4. Update Member Endpoint
 
 * Accepts `PUT` requests to `/members/:memberId`
-* Accepts data to update a member including member name, age, gender, and contact information associated with the specific member. Returns the updated member profile.
+* Accepts data to update a member including member name, age, gender, and contact information associated with the specific member. Returns the updated MemberModel       including memberId, name, age, gender, contactInfo, type.
     * if the member ID is not found, throws `MemberNotFoundException`
 
 ![image](https://user-images.githubusercontent.com/66507929/214468023-7ecbfde0-19f5-45b1-ae34-f7d4cf3a8c90.png)
@@ -139,7 +139,7 @@ String eventDetails;
 ### 6.5. Get Route Endpoint
 
 * Accepts `GET` requests to `/routes/:routeId`
-* Accepts a route ID and returns the corresponding RouteModel.
+* Accepts a route ID and returns the corresponding RouteModel with routeID, difficulty rating, and type.
     * If route ID is not found, throws `RouteNotFoundException`
 
 ![image](https://user-images.githubusercontent.com/66507929/214468738-07c8be46-0d38-49e1-a25d-9df81f5f09eb.png)
@@ -147,17 +147,17 @@ String eventDetails;
 ### 6.6. Create Route Endpoint
 
 * Accepts `POST` requests to `/routes`
-* Accepts data to create a new route provided a route ID, difficulty rating, and route type. Returns the new route.
+* Accepts data to create a new route provided a route ID, difficulty rating, and route type. Returns the new RouteModel with route ID, difficulty rating, and type.
 
 ### 6.7. Update Route Endpoint
 
 * Accepts `PUT` requests to `routes/:routeId`
-* Accepts data to update a route including difficulty rating, and route type. Returns the updated route.
+* Accepts data to update a route including difficulty rating, and route type. Returns the updated RouteModel with route ID, difficulty rating, and type.
 
 ### 6.8. Get Calendar Endpoint
 
 * Accepts `GET` reqeusts to `calendar/:calendarId`
-* Accepts a calendar ID and returns the corresponding CalendarModel.
+* Accepts a calendar ID and returns the corresponding CalendarModel including calendar ID, date, and event details.
      * If calendar ID is not found, throws `CalendarNotFoundException`
 
 ![image](https://user-images.githubusercontent.com/66507929/214469089-0140dac0-ce07-4548-8662-1ed12ef1149e.png)
@@ -165,12 +165,12 @@ String eventDetails;
 ### 6.9. Create Calendar Endpoint
 
 * Accepts `POST` requests to `/calendar`
-* Accepts data to create a new calendar including calendar ID, day, month, year, and event details.
+* Accepts data to create a new calendar including calendar ID, day, month, year, and event details. Returns the corresponding CalendarModel including calendar ID,       date, and event details.
 
 ### 6.10. Update Calendar Endpoint
 
 * Accepts `PUT` requests to `calendar/:calendarid`
-* Accepts data to update the calendar including day, month, year, and event details.
+* Accepts data to update the calendar including day, month, year, and event details. Returns the corresponding CalendarModel including calendar ID, date, and event       details.
 
 ## Tables
 
