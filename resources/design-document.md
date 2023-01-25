@@ -82,6 +82,8 @@ Member/Employee account creation and access will be handled using the Amazon Cog
 
 We will provide a web interface for users to navigate with the option to login. The main page will contain the calendar, a link to a separate routes page, and a login prompt with the option to create an account. Customers will be provided with a new page after creating their account that includes the option to input their profile information. Once created, they will be able to view profile details once logged in. 
 
+![image](https://user-images.githubusercontent.com/66507929/214695579-07f1e4e4-5f86-480d-af4f-95d2ab4046c8.png)
+
 ## 6. API
 
 ### 6.1. Public Models
