@@ -26,27 +26,33 @@ A. Account will be created using the Amazon Cognito service. Employee and Member
 
 ## 3. Use Cases
 
-U1. As a customer, I want to be able to create an account.
+U1. As a customer, I want to be able to create an account in order to have access to submit my profile information.
 
-U2. As a customer, I want to be able to create create profile information within my account.
+U2. As a customer, I want to be able to create profile information within my account to become a member.
 
-U3. As a customer, I want to be able to edit my profile information.
+U3. As a customer, I want to be able to edit my profile information in the case that the information changes.
 
-U4. As a customer, I want to be able to view current climbing routes and difficulty ratings.
+U4. As a customer, I want to be able to view current climbing routes and difficulty ratings to determine which routes to climb.
 
-U5. As a customer, I want to be able to track which routes I have completed.
+U5. As a customer, I want to be able to track which routes I have completed to track my progress.
 
-u6. As a customer, I want to be able to view Ascend's current calendar of events.
+u6. As a customer, I want to be able to view Ascend's current calendar of events to see if I want to participate.
 
-U7. As an employee, I want to be able to create an account.
+U7. As an employee, I want to be able to create an account in order to access the business side of the webpage.
 
-u8. As an employee, I want to be able to view all current members.
+u8. As an employee, I want to be able to view member profiles in the case a customer needs assistance with their profile.
 
-U9. As an employee, I want to be able to view member profiles.
+u9. As an employee, I want to be able to view all current members to see the total members of our gym.
 
-U10. As an employee, I want to be able to set and display the current routes and difficulty for member viewing.
+u10. As an employee, I want to be able to create and display current routes available to our members.  
 
-U11. As an employee, I want the ability to create a calendar of eveents for member viewing. 
+u11. As an employee, I want to be able to view all current routes to ensure accuracy for member viewing.
+
+u12. As an employee, I want to be able to update any route as the routes change or if a mistake is made.
+
+U13. As an employee, I want the ability to create a calendar of events for member viewing. 
+
+U14. As an employee, I want to be able to update a calendar event for member viewing.
 
 ## 4. Project Scope
 
