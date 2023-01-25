@@ -93,8 +93,8 @@ String memberId;
 String name;
 Integer age;
 String gender;
-List<String> contactInfo;
-String type;
+List<String> contactInfo; (email, phone number,address)
+String type; (employee, member)
 ```
 
 ```
@@ -102,16 +102,14 @@ String type;
 
 Integer routeId;
 String difficultyRating;
-String type;
+String type; (boulder, top rope)
 ```
 
 ```
 // CalendarModel
 
 String calendarId;
-Integer day;
-String month;
-Integer year;
+Date date;
 String eventDetails;
 ```
 
