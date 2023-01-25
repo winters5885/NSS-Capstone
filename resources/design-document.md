@@ -115,10 +115,14 @@ String eventDetails;
 * Accepts a member ID and returns the corresponding MemberModel.
     * If member ID is not found, throws `MemberNotFoundException`
 
+![image](https://user-images.githubusercontent.com/66507929/214466714-0fabb98e-4568-4cfe-b354-f77f24765487.png)
+
 ### 6.3. Create Member Endpoint
 
 * Accepts `POST` requests to `/members`
 * Accepts data to create a new member with a provided a name, member ID, age, gender, contact information, and type. Returns the new member profile, including the       customers assigned unique member Id.
+
+![image](https://user-images.githubusercontent.com/66507929/214467402-331bcaa2-1bec-46b8-b5da-701f0d730cdd.png)
 
 ### 6.4. Update Member Endpoint
 
@@ -126,11 +130,15 @@ String eventDetails;
 * Accepts data to update a member including member name, age, gender, and contact information associated with the specific member. Returns the updated member profile.
     * if the member ID is not found, throws `MemberNotFoundException`
 
+![image](https://user-images.githubusercontent.com/66507929/214468023-7ecbfde0-19f5-45b1-ae34-f7d4cf3a8c90.png)
+
 ### 6.5. Get Route Endpoint
 
 * Accepts `GET` requests to `/routes/:routeId`
 * Accepts a route ID and returns the corresponding RouteModel.
     * If route ID is not found, throws `RouteNotFoundException`
+
+![image](https://user-images.githubusercontent.com/66507929/214468738-07c8be46-0d38-49e1-a25d-9df81f5f09eb.png)
 
 ### 6.6. Create Route Endpoint
 
@@ -147,6 +155,8 @@ String eventDetails;
 * Accepts `GET` reqeusts to `calendar/:calendarId`
 * Accepts a calendar ID and returns the corresponding CalendarModel.
      * If calendar ID is not found, throws `CalendarNotFoundException`
+
+![image](https://user-images.githubusercontent.com/66507929/214469089-0140dac0-ce07-4548-8662-1ed12ef1149e.png)
 
 ### 6.9. Create Calendar Endpoint
 
