@@ -60,7 +60,7 @@ U14. As an employee, I want to be able to update a calendar event for member vie
 
 * Creating, retrieving, and updating member/employee profile information
 * Creating, retrieving, and updating climbing routes
-* Creating, retrieving, and updading the calendar of events
+* Creating, retrieving, and updating the calendar of events
 * Employee ability to retrieve all members
 
 ### 4.2. Out of Scope
