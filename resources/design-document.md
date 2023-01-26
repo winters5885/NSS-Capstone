@@ -38,21 +38,25 @@ U5. As a customer, I want to be able to track which routes I have completed to t
 
 u6. As a customer, I want to be able to view Ascend's current calendar of events to see if I want to participate.
 
-U7. As an employee, I want to be able to create an account in order to access the business side of the webpage.
+u7. As a customer, I want to be able to rate routes I have climbed to share my experience with other climbers.
 
-u8. As an employee, I want to be able to view member profiles in the case a customer needs assistance with their profile.
+u8. As a customer, I want to be able to view the average member rating for each route.
 
-u9. As an employee, I want to be able to view all current members to see the total members of our gym.
+U9. As an employee, I want to be able to create an account in order to access the business side of the webpage.
 
-u10. As an employee, I want to be able to create and display current routes available to our members.  
+u10. As an employee, I want to be able to view member profiles in the case a customer needs assistance with their profile.
 
-u11. As an employee, I want to be able to view all current routes to ensure accuracy for member viewing.
+u11. As an employee, I want to be able to view all current members to see the total members of our gym.
 
-u12. As an employee, I want to be able to update any route as the routes change or if a mistake is made.
+u12. As an employee, I want to be able to create and display current routes available to our members.  
 
-U13. As an employee, I want the ability to create a calendar of events for member viewing. 
+u13. As an employee, I want to be able to view all current routes to ensure accuracy for member viewing.
 
-U14. As an employee, I want to be able to update a calendar event for member viewing.
+u14. As an employee, I want to be able to update any route as the routes change or if a mistake is made.
+
+U15. As an employee, I want the ability to create a calendar of events for member viewing. 
+
+U16. As an employee, I want to be able to update a calendar event for member viewing.
 
 ## 4. Project Scope
 
@@ -62,12 +66,12 @@ U14. As an employee, I want to be able to update a calendar event for member vie
 * Creating, retrieving, and updating climbing routes
 * Creating, retrieving, and updating the calendar of events
 * Employee ability to retrieve all members
+* Ability for members to rate current routes for all members to view
 
 ### 4.2. Out of Scope
 
 * Deleting members/employees
 * Community Chat/Blog feature
-* Ability for members to rate current routes for all members to view
 * Ability for employee/members to view billing information
 
 ## 5. Proposed Architecture Overview
@@ -84,7 +88,7 @@ We will provide a web interface for users to navigate with the option to login. 
 
 ![image](https://user-images.githubusercontent.com/66507929/214695579-07f1e4e4-5f86-480d-af4f-95d2ab4046c8.png)
 
-![image](https://user-images.githubusercontent.com/66507929/214700132-387d74f2-596a-44a1-89fa-99d8c4e93019.png)
+![image](https://user-images.githubusercontent.com/66507929/214729216-2a99db25-ddf4-46d3-a558-cff312ece5ea.png)
 
 ![image](https://user-images.githubusercontent.com/66507929/214724503-9ee8b22c-cdad-492b-bd21-cfacdbda4c8b.png)
 
@@ -109,6 +113,7 @@ String type; (employee, member)
 Integer routeId;
 String difficultyRating;
 String type; (boulder, top rope)
+Integer memberRating;
 ```
 
 ```
@@ -153,12 +158,12 @@ String eventDetails;
 ### 6.6. Create Route Endpoint
 
 * Accepts `POST` requests to `/routes`
-* Accepts data to create a new route provided a route ID, difficulty rating, and route type. Returns the new RouteModel with route ID, difficulty rating, and type.
+* Accepts data to create a new route provided a route ID, difficulty rating, memberRating, and route type. Returns the new RouteModel with route ID, difficulty rating,   memberRating, and type.
 
 ### 6.7. Update Route Endpoint
 
 * Accepts `PUT` requests to `routes/:routeId`
-* Accepts data to update a route including difficulty rating, and route type. Returns the updated RouteModel with route ID, difficulty rating, and type.
+* Accepts data to update a route including difficulty rating, memberRating, and route type. Returns the updated RouteModel with route ID, difficulty rating,             memberRating, and type.
 
 ### 6.8. Get Calendar Endpoint
 
@@ -183,7 +188,7 @@ String eventDetails;
 ### 7.1. `members`
 
 ```
-memberid // partition key, string
+memberId // partition key, string
 name // string
 age // number
 gender // string
@@ -197,8 +202,18 @@ type // string
 routeId // partition key, number
 difficultyRating // string
 type // string
+memberRating // number
 ```
-### 7.3. `calendar`
+
+### 7.3. `MemberRouteRatingsGSI`
+
+```
+routeId // partition key, number
+memberId // sort key, string
+memberRating // number
+```
+
+### 7.4. `calendar`
 
 ```
 calendarId // partition key, string
@@ -215,11 +230,13 @@ eventDetails // string
 ![image](https://user-images.githubusercontent.com/66507929/214391575-044337b6-9e60-4f8e-b8ed-0a4310cf9877.png)
 ![image](https://user-images.githubusercontent.com/66507929/214393100-0f03ad6a-91ab-400b-b396-eb7fa15a40e0.png)
 ![image](https://user-images.githubusercontent.com/66507929/214395411-50c7e264-7543-498e-8944-73a289766e5e.png)
-![image](https://user-images.githubusercontent.com/66507929/214410304-9f0330c5-fdc2-4c73-a583-13969930f082.png)
+![image](https://user-images.githubusercontent.com/66507929/214732800-39a07c38-b233-4d5c-8660-0ef77e125921.png)
+
 
 ### Employee Views
 
 ![image](https://user-images.githubusercontent.com/66507929/214414859-17195d7b-1551-4313-acb9-d4398c1f50d7.png)
 ![image](https://user-images.githubusercontent.com/66507929/214397587-6259f527-3a9b-4980-8684-d6d5985ef239.png)
-![image](https://user-images.githubusercontent.com/66507929/214406192-c908f4ae-c72f-48bf-8724-41d8372839eb.png)
-![image](https://user-images.githubusercontent.com/66507929/214408028-6dfb5fab-42e6-46da-aa97-ad62c3f0af7d.png)
+![image](https://user-images.githubusercontent.com/66507929/214733699-10746c05-9a6a-4617-a031-5432fc7c1f20.png)
+![image](https://user-images.githubusercontent.com/66507929/214733350-abacc027-cb74-490b-96d5-0fe7931af5d4.png)
+
