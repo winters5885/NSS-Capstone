@@ -86,6 +86,8 @@ We will provide a web interface for users to navigate with the option to login. 
 
 ![image](https://user-images.githubusercontent.com/66507929/214700132-387d74f2-596a-44a1-89fa-99d8c4e93019.png)
 
+![image](https://user-images.githubusercontent.com/66507929/214724503-9ee8b22c-cdad-492b-bd21-cfacdbda4c8b.png)
+
 ## 6. API
 
 ### 6.1. Public Models
