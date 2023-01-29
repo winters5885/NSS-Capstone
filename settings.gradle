@@ -9,3 +9,6 @@
 
 rootProject.name = 'NSS-Capstone'
 include('app')
+include 'AscendNashville'
+include 'AscendNashville'
+
