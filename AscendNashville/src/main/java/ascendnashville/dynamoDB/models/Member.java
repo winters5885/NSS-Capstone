@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.List;
+import java.util.Objects;
 
 @DynamoDBTable(tableName = "members")
 public class Member {
@@ -15,6 +16,17 @@ public class Member {
     private List<String> contactInfo;
     private String type;
 
+
+    public Member() {}
+
+    public Member(String memberId, String name, Integer age, String gender, List<String> contactInfo,String type) {
+        this.memberId = memberId;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.contactInfo = contactInfo;
+        this.type = type;
+    }
     @DynamoDBHashKey(attributeName = "memberId")
     public String getMemberId() {
         return memberId;
@@ -67,5 +79,30 @@ public class Member {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Member member = (Member) o;
+        return Objects.equals(memberId, member.memberId) && Objects.equals(name, member.name) && Objects.equals(age, member.age) && Objects.equals(gender, member.gender) && Objects.equals(contactInfo, member.contactInfo) && Objects.equals(type, member.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memberId, name, age, gender, contactInfo, type);
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberId='" + memberId + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", contactInfo=" + contactInfo +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
