@@ -19,7 +19,7 @@ public class MemberModel {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.contactInfo = new ArrayList<>();
+        this.contactInfo = contactInfo;
         this.type = type;
 
     }

@@ -1,4 +1,4 @@
-package ascendnashville.exceptions;
+package ascendnashville.Exceptions;
 
 public class RouteNotFoundException {
 }
