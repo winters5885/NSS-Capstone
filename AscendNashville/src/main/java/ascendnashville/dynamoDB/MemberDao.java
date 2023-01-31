@@ -27,4 +27,4 @@ public class MemberDao {
         this.dynamoDBMapper.save(member);
         return member;
     }
-    }
+}
