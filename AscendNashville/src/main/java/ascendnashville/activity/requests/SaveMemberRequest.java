@@ -1,4 +1,4 @@
 package ascendnashville.activity.requests;
 
-public class GetMembersRequest {
+public class SaveMemberRequest {
 }

@@ -1,4 +1,4 @@
 package ascendnashville.activity;
 
-public class CreateMembersActivity {
+public class SaveMemberActivity {
 }
