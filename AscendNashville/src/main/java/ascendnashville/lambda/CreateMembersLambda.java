@@ -1,4 +1,4 @@
 package ascendnashville.lambda;
 
-public class SaveMembersLambda {
+public class CreateMembersLambda {
 }

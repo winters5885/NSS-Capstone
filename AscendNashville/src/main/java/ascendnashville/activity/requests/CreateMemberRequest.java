@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.List;
 
-@JsonDeserialize(builder = GetMemberRequest.Builder.class)
-public class GetMemberRequest {
+@JsonDeserialize(builder = CreateMemberRequest.Builder.class)
+public class CreateMemberRequest {
 
     private final String memberId;
     private final String name;
@@ -15,7 +15,7 @@ public class GetMemberRequest {
     private final List<String> contactInfo;
     private final String type;
 
-    private GetMemberRequest(String memberId, String name, Integer age, String gender, List<String> contactInfo, String type) {
+    public CreateMemberRequest(String memberId, String name, Integer age, String gender, List<String> contactInfo, String type) {
         this.memberId = memberId;
         this.name = name;
         this.age = age;
@@ -51,7 +51,7 @@ public class GetMemberRequest {
 
     @Override
     public String toString() {
-        return "GetMemberRequest{" +
+        return "CreateMemberRequest{" +
                 "memberId='" + memberId + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
@@ -65,7 +65,6 @@ public class GetMemberRequest {
     public static Builder builder() {
         return new Builder();
     }
-
     @JsonPOJOBuilder
     public static class Builder {
         private String memberId;
@@ -75,8 +74,7 @@ public class GetMemberRequest {
         private List<String> contactInfo;
         private String type;
 
-
-        public Builder withMember(String memberId) {
+        public Builder withMemberId(String memberId) {
             this.memberId = memberId;
             return this;
         }
@@ -106,8 +104,8 @@ public class GetMemberRequest {
             return this;
         }
 
-        public GetMemberRequest build() {
-            return new GetMemberRequest(memberId, name, age, gender, contactInfo, type);
+        public CreateMemberRequest build() {
+            return new CreateMemberRequest(memberId, name, age, gender, contactInfo, type);
         }
     }
 }
