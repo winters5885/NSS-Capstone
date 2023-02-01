@@ -1,4 +1,4 @@
 package ascendnashville.activity;
 
-public class UpdateMembersActivity {
+public class UpdateMemberActivity {
 }

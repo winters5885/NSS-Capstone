@@ -64,7 +64,11 @@ public class MemberModel {
     public int hashCode() {
         return Objects.hash(memberId, name, age, gender, contactInfo, type);
     }
+    //CHECKSTYLE:OFF:Builder
 
+    public static Builder builder() {
+        return new Builder();
+    }
     public static class Builder {
         private String memberId;
         private String name;
@@ -72,7 +76,6 @@ public class MemberModel {
         private String gender;
         private List<String> contactInfo;
         private String type;
-
         public Builder withMemberId(String memberId) {
             this.memberId = memberId;
             return this;
