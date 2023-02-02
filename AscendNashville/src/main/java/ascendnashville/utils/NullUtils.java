@@ -1,4 +1,4 @@
-package utils;
+package ascendnashville.utils;
 
 import java.util.function.Supplier;
 
