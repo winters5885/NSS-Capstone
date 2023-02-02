@@ -1,4 +1,4 @@
 package ascendnashville.activityTest;
 
-public class GetMembersActivityTest {
+public class GetMemberActivityTest {
 }
