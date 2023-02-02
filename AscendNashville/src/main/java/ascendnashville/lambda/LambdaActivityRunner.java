@@ -1,5 +1,6 @@
 package ascendnashville.lambda;
 
+import ascendnashville.dependency.DaggerServiceComponent;
 import ascendnashville.dependency.ServiceComponent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
