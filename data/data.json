@@ -7,8 +7,10 @@
           "name": {"S":  "Steve Winters" },
           "age": {"N": "100"},
           "gender": {"S": "M" },
-          "contactInfo": {"SS":  ["steve@gmail.com", "456789000", "51st Ave NE", "Destin FL, 75234"]},
-            "type": {"S": "Member"}
+          "phoneNumber": {"S":  "456789000"},
+          "address": {"S":  "51st Ave NE Destin FL, 75234"},
+          "emailAddress": {"S": "steve@gmail.com"},
+          "type": {"S": "Member"}
           }
         }
       }

@@ -21,7 +21,9 @@ public class ModelConverter {
                 .withName(member.getName())
                 .withAge(member.getAge())
                 .withGender(member.getGender())
-                .withContactInfo(member.getContactInfo())
+                .withPhoneNumber(member.getPhoneNumber())
+                .withAddress(member.getAddress())
+                .withEmailAddress(member.getEmailAddress())
                 .withType(member.getType())
                 .build();
     }
