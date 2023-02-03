@@ -5,6 +5,10 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.List;
 
+/**
+ * Instantiates a new SaveFavoritesRequest object.
+ *
+ */
 @JsonDeserialize(builder = CreateMemberRequest.Builder.class)
 public class CreateMemberRequest {
 
@@ -15,7 +19,18 @@ public class CreateMemberRequest {
     private final List<String> contactInfo;
     private final String type;
 
-    public CreateMemberRequest(String memberId, String name, Integer age, String gender, List<String> contactInfo, String type) {
+    /**
+     * Instantiates a new GetFavoritesRequest object.
+     *
+     * @param memberId A userId tied to a Favorites list.
+     * @param name The customer entered name.
+     * @param age The customr entered age.
+     * @param gender The customer entered gender.
+     * @param contactInfo The customer entered contact information.
+     * @param type The customer type.
+     */
+    public CreateMemberRequest(String memberId, String name, Integer age,
+                               String gender, List<String> contactInfo, String type) {
         this.memberId = memberId;
         this.name = name;
         this.age = age;

@@ -12,7 +12,10 @@ import java.util.function.Function;
 
 import static ascendnashville.utils.NullUtils.ifNull;
 
-
+/**
+ * Represents a generic "APIGateway" request made to a lambda function.
+ * @param <T> The type of the concrete request that should be created from this LambdaRequest
+ */
 public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();

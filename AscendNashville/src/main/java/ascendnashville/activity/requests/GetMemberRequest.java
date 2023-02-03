@@ -5,6 +5,11 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.List;
 
+/**
+ * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
+ *
+ * This API allows the customer to get a list of destinations.
+ */
 @JsonDeserialize(builder = GetMemberRequest.Builder.class)
 public class GetMemberRequest {
 
@@ -15,7 +20,18 @@ public class GetMemberRequest {
     private final List<String> contactInfo;
     private final String type;
 
-    private GetMemberRequest(String memberId, String name, Integer age, String gender, List<String> contactInfo, String type) {
+    /**
+     * Instantiates a new GetDestinationsActivity object.
+     *
+     * @param memberId  to access the destinations table.
+     * @param name The name entered by customer.
+     * @param age The age entered by customer
+     * @param gender The gender entered by customer
+     * @param contactInfo The contact information entered by customer
+     * @param type The type of member
+     */
+    private GetMemberRequest(String memberId, String name, Integer age,
+                             String gender, List<String> contactInfo, String type) {
         this.memberId = memberId;
         this.name = name;
         this.age = age;

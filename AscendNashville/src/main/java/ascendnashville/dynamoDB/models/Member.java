@@ -7,6 +7,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a record in the member table.
+ */
 @DynamoDBTable(tableName = "members")
 public class Member {
     private String memberId;
@@ -16,10 +19,22 @@ public class Member {
     private List<String> contactInfo;
     private String type;
 
-
+    /**
+     * Empty constructor for Category POJO.
+     */
     public Member() {}
 
-    public Member(String memberId, String name, Integer age, String gender, List<String> contactInfo,String type) {
+    /**
+     * Non-empty constructor for Category POJO.
+     * @param memberId memberId parameter
+     * @param name name parameter
+     * @param age age parameter
+     * @param gender gender parameter
+     * @param contactInfo contact information parameter
+     * @param type type parameter
+     */
+    public Member(String memberId, String name, Integer age,
+                  String gender, List<String> contactInfo, String type) {
         this.memberId = memberId;
         this.name = name;
         this.age = age;
@@ -83,10 +98,17 @@ public class Member {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Member member = (Member) o;
-        return Objects.equals(memberId, member.memberId) && Objects.equals(name, member.name) && Objects.equals(age, member.age) && Objects.equals(gender, member.gender) && Objects.equals(contactInfo, member.contactInfo) && Objects.equals(type, member.type);
+        return Objects.equals(memberId, member.memberId) &&
+                Objects.equals(name, member.name) && Objects.equals(age, member.age) &&
+                Objects.equals(gender, member.gender) &&
+                Objects.equals(contactInfo, member.contactInfo) && Objects.equals(type, member.type);
     }
 
     @Override

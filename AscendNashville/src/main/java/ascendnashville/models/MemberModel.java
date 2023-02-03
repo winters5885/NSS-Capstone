@@ -3,6 +3,9 @@ package ascendnashville.models;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * MemberModel class.
+ */
 public class MemberModel {
 
     private final String memberId;
@@ -49,23 +52,24 @@ public class MemberModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         MemberModel that = (MemberModel) o;
-        return Objects.equals(memberId, that.memberId)
-                && Objects.equals(name, that.name)
-                && Objects.equals(age, that.age)
-                && Objects.equals(gender, that.gender)
-                && Objects.equals(contactInfo, that.contactInfo)
-                && Objects.equals(type, that.type);
+        return Objects.equals(memberId, that.memberId) && Objects.equals(name, that.name) &&
+                Objects.equals(age, that.age) && Objects.equals(gender, that.gender) &&
+                Objects.equals(contactInfo, that.contactInfo) && Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(memberId, name, age, gender, contactInfo, type);
     }
-    //CHECKSTYLE:OFF:Builder
 
+    //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }

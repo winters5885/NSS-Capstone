@@ -7,9 +7,11 @@ import ascendnashville.dynamoDB.MemberDao;
 
 import ascendnashville.dynamoDB.models.Member;
 import ascendnashville.models.MemberModel;
+
+import ascendnashville.utils.AscendNashvilleUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ascendnashville.utils.AscendNashvilleUtils;
 
 import javax.inject.Inject;
 

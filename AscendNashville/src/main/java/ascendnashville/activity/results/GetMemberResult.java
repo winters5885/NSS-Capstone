@@ -2,6 +2,11 @@ package ascendnashville.activity.results;
 
 import ascendnashville.models.MemberModel;
 
+/**
+ * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
+ *
+ * This API allows the customer to get a list of destinations.
+ */
 public class GetMemberResult {
     private final MemberModel member;
 
