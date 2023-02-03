@@ -157,7 +157,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: AscendNashville
-      Handler: com.nashss.se.ascendnashville.lambda.SaveMembersLambda::handleRequest
+      Handler: com.nashss.se.ascendnashville.lambda.SaveMemberLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64

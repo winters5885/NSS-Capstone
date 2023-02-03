@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * Represents a record in the member table.
  */
-@DynamoDBTable(tableName = "members")
+@DynamoDBTable(tableName = "member")
 public class Member {
     private String memberId;
     private String name;

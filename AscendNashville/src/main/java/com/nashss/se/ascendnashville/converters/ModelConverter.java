@@ -18,6 +18,7 @@ public class ModelConverter {
 
         return MemberModel.builder()
                 .withMemberId(member.getMemberId())
+                .withName(member.getName())
                 .withAge(member.getAge())
                 .withGender(member.getGender())
                 .withContactInfo(member.getContactInfo())
