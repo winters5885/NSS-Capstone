@@ -152,12 +152,12 @@ Resources:
             Method: get
 
 
-  SaveMemberLambda:
+  CreateMemberLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: AscendNashville
-      Handler: com.nashss.se.ascendnashville.lambda.SaveMemberLambda::handleRequest
+      Handler: com.nashss.se.ascendnashville.lambda.CreateMemberLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
@@ -169,7 +169,7 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: /member/{memberId}
+            Path: /member
             Method: post
 
 
