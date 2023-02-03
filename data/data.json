@@ -1,0 +1,16 @@
+{
+  "member": [
+    {
+      "PutRequest": {
+        "Item": {
+          "memberId": {"S":  "123456" },
+          "name": {"S":  "Steve Winters" },
+          "age": {"N": "100"},
+          "gender": {"S": "M" },
+          "contactInfo": {"SS":  ["steve@gmail.com", "456789000", "51st Ave NE", "Destin FL, 75234"]},
+            "type": {"S": "Member"}
+          }
+        }
+      }
+  ]
+}

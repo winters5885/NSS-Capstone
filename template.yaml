@@ -115,7 +115,7 @@ Resources:
                   - logs:PutLogEvents
                   - cloudwatch:PutMetricData
                 Resource: '*'
-        - PolicyName: 'members'
+        - PolicyName: 'member'
           PolicyDocument:
             Version: '2012-10-17'
             Statement:
@@ -128,29 +128,15 @@ Resources:
                       - !Ref 'AWS::Region'
                       - ':'
                       - !Ref 'AWS::AccountId'
-                      - ':table/members'
-        - PolicyName: 'DestinationsGSIIndex'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: Allow
-                Action: dynamodb:*
-                Resource:
-                  Fn::Join:
-                    - ''
-                    - - 'arn:aws:dynamodb:'
-                      - !Ref 'AWS::Region'
-                      - ':'
-                      - !Ref 'AWS::AccountId'
-                      - ':table/destinations/index/DestinationsGSIIndex'
+                      - ':table/member'
 
 
-  GetMembersLambda:
+  GetMemberLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: AscendNashville
-      Handler: com.nashss.se.ascendnashville.lambda.GetMembersLambda::handleRequest
+      Handler: com.nashss.se.ascendnashville.lambda.GetMemberLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
@@ -162,11 +148,11 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: /members/{memberId}
+            Path: /member/{memberId}
             Method: get
 
 
-  SaveMembersLambda:
+  SaveMemberLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
@@ -183,14 +169,14 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: /members/{memberId]
+            Path: /member/{memberId}
             Method: post
 
 
 
   #-----------------------------------------------------------------
 
-  MembersTable:
+  MemberTable:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
@@ -200,6 +186,6 @@ Resources:
         - AttributeName: "memberId"
           KeyType: "HASH"
       BillingMode: "PAY_PER_REQUEST"
-      TableName: "members"
+      TableName: "member"
 
 
