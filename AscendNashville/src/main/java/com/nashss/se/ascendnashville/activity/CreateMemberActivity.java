@@ -55,7 +55,9 @@ public class CreateMemberActivity {
         newMember.setName(createMemberRequest.getName());
         newMember.setAge(createMemberRequest.getAge());
         newMember.setGender(createMemberRequest.getGender());
-        newMember.setContactInfo(createMemberRequest.getContactInfo());
+        newMember.setPhoneNumber(createMemberRequest.getPhoneNumber());
+        newMember.setAddress(createMemberRequest.getAddress());
+        newMember.setEmailAddress(createMemberRequest.getEmailAddress());
         newMember.setType(createMemberRequest.getType());
 
         memberDao.saveMember(newMember);

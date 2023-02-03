@@ -1,10 +1,7 @@
 package com.nashss.se.ascendnashville.dynamoDB.models;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,30 +13,36 @@ public class Member {
     private String name;
     private Integer age;
     private String gender;
-    private List<String> contactInfo;
+    private String phoneNumber;
+    private String address;
+    private String emailAddress;
     private String type;
 
     /**
-     * Empty constructor for Category POJO.
+     * Empty constructor for Member POJO.
      */
     public Member() {}
 
     /**
-     * Non-empty constructor for Category POJO.
+     * Non-empty constructor for Member POJO.
      * @param memberId memberId parameter
      * @param name name parameter
      * @param age age parameter
      * @param gender gender parameter
-     * @param contactInfo contact information parameter
+     * @param phoneNumber contact information parameter
+     * @param address address for customer
+     * @param emailAddress email for customer
      * @param type type parameter
      */
     public Member(String memberId, String name, Integer age,
-                  String gender, List<String> contactInfo, String type) {
+                  String gender, String phoneNumber, String address, String emailAddress, String type) {
         this.memberId = memberId;
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.contactInfo = contactInfo;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.emailAddress = emailAddress;
         this.type = type;
     }
     @DynamoDBHashKey(attributeName = "memberId")
@@ -78,13 +81,31 @@ public class Member {
         this.gender = gender;
     }
 
-    @DynamoDBAttribute(attributeName = "contactInfo")
-    public List<String> getContactInfo() {
-        return contactInfo;
+    @DynamoDBAttribute(attributeName = "phoneNumber")
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setContactInfo(List<String> contactInfo) {
-        this.contactInfo = contactInfo;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @DynamoDBAttribute(attributeName = "address")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @DynamoDBAttribute(attributeName = "emailAddress")
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     @DynamoDBAttribute(attributeName = "type")
@@ -107,13 +128,14 @@ public class Member {
         Member member = (Member) o;
         return Objects.equals(memberId, member.memberId) &&
                 Objects.equals(name, member.name) && Objects.equals(age, member.age) &&
-                Objects.equals(gender, member.gender) &&
-                Objects.equals(contactInfo, member.contactInfo) && Objects.equals(type, member.type);
+                Objects.equals(gender, member.gender) && Objects.equals(phoneNumber, member.phoneNumber) &&
+                Objects.equals(address, member.address) && Objects.equals(emailAddress, member.emailAddress) &&
+                Objects.equals(type, member.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(memberId, name, age, gender, contactInfo, type);
+        return Objects.hash(memberId, name, age, gender, phoneNumber, address, emailAddress, type);
     }
 
     @Override
@@ -123,7 +145,9 @@ public class Member {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", contactInfo=" + contactInfo +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
                 ", type='" + type + '\'' +
                 '}';
     }
