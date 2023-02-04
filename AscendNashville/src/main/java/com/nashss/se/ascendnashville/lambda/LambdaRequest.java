@@ -1,8 +1,10 @@
 package com.nashss.se.ascendnashville.lambda;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,7 +20,7 @@ import static com.nashss.se.ascendnashville.utils.NullUtils.ifNull;
  */
 public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    protected static final ObjectMapper MAPPER = new ObjectMapper();
     private final Logger log = LogManager.getLogger();
 
     /**
