@@ -1,33 +1,33 @@
-import MusicPlaylistClient from '../api/ascendNashvilleClient';
+import AscendNashvilleClient from '../api/ascendNashvilleClient';
 import Header from '../components/header';
 import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
 /**
- * Logic needed for the create playlist page of the website.
+ * Logic needed for the create home page of the website.
  */
-class CreatePlaylist extends BindingClass {
+class AscendNashville extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToViewPlaylist'], this);
+        this.bindClassMethods(['mount', 'submit', 'redirectToCreateProfile'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.redirectToViewPlaylist);
+        this.dataStore.addChangeListener(this.redirectToCreateProfile);
         this.header = new Header(this.dataStore);
     }
 
     /**
-     * Add the header to the page and load the MusicPlaylistClient.
+     * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
         document.getElementById('create').addEventListener('click', this.submit);
 
         this.header.addHeaderToPage();
 
-        this.client = new MusicPlaylistClient();
+        this.client = new AscendNashville();
     }
 
     /**
-     * Method to run when the create playlist submit button is pressed. Call the MusicPlaylistService to create the
+     * Method to run when the create playlist submit button is pressed. Call AscendNashville to create the
      * playlist.
      */
     async submit(evt) {
@@ -62,7 +62,7 @@ class CreatePlaylist extends BindingClass {
     /**
      * When the playlist is updated in the datastore, redirect to the view playlist page.
      */
-    redirectToViewPlaylist() {
+    redirectToCreateProfile() {
         const playlist = this.dataStore.get('playlist');
         if (playlist != null) {
             window.location.href = `/playlist.html?id=${playlist.id}`;

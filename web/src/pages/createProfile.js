@@ -44,13 +44,6 @@ class CreateMemberProfile extends BindingClass {
         const memberName = document.getElementById('member-name').value;
         const tagsText = document.getElementById('tags').value;
 
-        let tags;
-        if (tagsText.length < 1) {
-            tags = null;
-        } else {
-            tags = tagsText.split(/\s*,\s*/);
-        }
-
         const member = await this.client.createMember(memberName, age, gender, phoneNumber, address, emailAddress, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
