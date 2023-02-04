@@ -5,5 +5,5 @@ package com.nashss.se.ascendnashville.activity;
  * <p>
  * This API allows the customer to create a new playlist with no songs.
  */
-public class GetCAlendarActivity {
+public class GetCalendarActivity {
 }
