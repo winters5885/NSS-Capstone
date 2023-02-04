@@ -1,4 +1,4 @@
-import MusicPlaylistClient from '../api/ascendNashvilleClient';
+import AscendNashvilleClient from '../api/ascendNashvilleClient';
 import BindingClass from "../util/bindingClass";
 
 /**
@@ -14,7 +14,7 @@ export default class Header extends BindingClass {
         ];
         this.bindClassMethods(methodsToBind, this);
 
-        this.client = new MusicPlaylistClient();
+        this.client = new AscendNashvilleClient();
     }
 
     /**
