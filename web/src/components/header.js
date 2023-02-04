@@ -1,4 +1,4 @@
-import MusicPlaylistClient from '../api/musicPlaylistClient';
+import MusicPlaylistClient from '../api/ascendNashvilleClient';
 import BindingClass from "../util/bindingClass";
 
 /**
