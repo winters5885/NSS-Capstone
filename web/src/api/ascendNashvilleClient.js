@@ -89,7 +89,7 @@ export default class AscendNashvilleClient extends BindingClass {
 
     /**
      * Create a new member.
-     * @param memberName The name of the playlist to create.
+     * @param name The name of the playlist to create.
      * @param age
      * @param gender
      * @param phoneNumber
@@ -98,11 +98,11 @@ export default class AscendNashvilleClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The member that has been created.
      */
-    async createMember(memberName, age, gender, phoneNumber, address, emailAddress, errorCallback) {
+    async createMember(name, age, gender, phoneNumber, address, emailAddress, errorCallback) {
         try {
             const token = await this.getTokenOrThrow("Only authenticated users can create playlists.");
             const response = await this.axiosClient.post(`member`, {
-                memberName: memberName,
+                name: name,
                 age: age,
                 gender: gender,
                 phoneNumber: phoneNumber,
