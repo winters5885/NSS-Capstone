@@ -41,10 +41,14 @@ class CreateMemberProfile extends BindingClass {
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
 
-        const memberName = document.getElementById('member-name').value;
-        const tagsText = document.getElementById('tags').value;
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const address = document.getElementById('address').value;
+        const emailAddress = document.getElementById('emailAddress').value;
 
-        const member = await this.client.createMember(memberName, age, gender, phoneNumber, address, emailAddress, (error) => {
+        const member = await this.client.createMember(name, age, gender, phoneNumber, address, emailAddress, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');

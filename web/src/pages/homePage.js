@@ -63,9 +63,9 @@ class AscendNashville extends BindingClass {
      * When the playlist is updated in the datastore, redirect to the view playlist page.
      */
     redirectToCreateProfile() {
-        const playlist = this.dataStore.get('playlist');
-        if (playlist != null) {
-            window.location.href = `/playlist.html?id=${playlist.id}`;
+        const member = this.dataStore.get('member');
+        if (member != null) {
+            window.location.href = `/createMemberProfile.html?id=${member.id}`;
         }
     }
 }
