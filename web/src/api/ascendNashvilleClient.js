@@ -80,7 +80,8 @@ export default class AscendNashvilleClient extends BindingClass {
      */
     async getMember(memberId, errorCallback) {
         try {
-            const response = await this.axiosClient.get(`member/${memberId}`);
+            const response = await this.axiosClient.get(`/member/${memberId}`);
+            console.log("Inside the client getMember method, response: " + response);
             return response.data.member;
         } catch (error) {
             this.handleError(error, errorCallback)

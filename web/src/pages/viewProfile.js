@@ -31,30 +31,32 @@ class ViewProfile extends BindingClass {
 
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
-        const memberId = urlParams.get('memberId');
-        document.getElementById('memberId').innerText = "Loading Member ...";
+        const memberId = urlParams.get('id');
+        console.log("Inside clientLoaded viewProfile.js memberId: " + memberId);
+        document.getElementById('id').innerText = "Loading Member ...";
         const member = await this.client.getMember(memberId);
+        console.log("Inside clientLoaded viewProfile.js member: " + member);
         this.dataStore.set('member', member);
     }
 
     async displayMemberProfile() {
-        const urlParams = new URLSearchParams(window.location.search);
-        var member = await this.client.getMember();
-
-        var memberProfile = urlParams.get('memberId');
-
-        if (!member.includes(memberProfile)) {
-            document.getElementById("member").innerHTML = "Not a valid member.";
-        } else {
-            document.getElementById("member").innerHTML = categoryChosen;
-        }
-    }
-    // addMemberProfileDetailsToPage() {
-    //     const member = this.dataStore.get('member');
-
-    //     document.getElementById(
         
-    //     )
+        const urlParams = new URLSearchParams(window.location.search);
+        const memberIdFromURL = urlParams.get('id');
+       
+        console.log("Inside displayMemberProfile method in viewProfile.js, memberIdFromURL: " + memberIdFromURL);
+
+        document.getElementById("member").innerHTML += "<br>" + "http://localhost:8000/memberProfile.html?id=" +
+                        memberIdFromURL + "</br>";
+        console.log("viewProfile.js line 49.")
+        const jsonList = await this.client.getMember(memberIdFromURL);
+        console.log("jsonList: " + jsonList);
+        //var memberProfile = urlParams.get('memberId');
+
+
+        document.getElementById("member").innerHTML += "<br>"+ member + ", " + 
+                member +"</br>";
+    }
     }
 
 

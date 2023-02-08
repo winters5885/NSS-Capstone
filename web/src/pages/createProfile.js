@@ -63,7 +63,7 @@ class CreateMemberProfile extends BindingClass {
         console.log("Inside redirectToViewMemberProfile method.")
         const member = this.dataStore.get('member');
         if (member != null) {
-            window.location.href = `/memberProfile.html?id=${member.id}`;
+            window.location.href = `/memberProfile.html?id=${member.memberId}`;
         }
     }
 }
