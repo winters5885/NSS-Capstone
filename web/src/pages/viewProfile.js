@@ -9,37 +9,55 @@ import DataStore from "../util/DataStore";
 class ViewProfile extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayMemberProfile'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         console.log("viewmember constructor");
     }
 
-    /**
-     * Once the client is loaded, get the playlist metadata and song list.
+        /**
+     * Add the header to the page and load the AscendNashvilleClient.
      */
+        mount() {
+            this.header.addHeaderToPage();
+            this.client = new AscendNashvilleClient();
+            this.clientLoaded();
+            this.displayMemberProfile();
+        }
+
+    /**
+     * Once the client is loaded, get the member metadata and member information.
+     */
+
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
         const memberId = urlParams.get('memberId');
         document.getElementById('memberId').innerText = "Loading Member ...";
         const member = await this.client.getMember(memberId);
         this.dataStore.set('member', member);
-        document.getElementById('songs').innerText = "(loading songs...)";
-        const songs = await this.client.getPlaylistSongs(playlistId);
-        this.dataStore.set('songs', songs);
     }
 
-    /**
-     * Add the header to the page and load the MusicPlaylistClient.
-     */
-    mount() {
-        this.header.addHeaderToPage();
+    async displayMemberProfile() {
+        const urlParams = new URLSearchParams(window.location.search);
+        var member = await this.client.getMember();
 
-        this.client = new AscendNashvilleClient();
-        this.clientLoaded();
+        var memberProfile = urlParams.get('memberId');
+
+        if (!member.includes(memberProfile)) {
+            document.getElementById("member").innerHTML = "Not a valid member.";
+        } else {
+            document.getElementById("member").innerHTML = categoryChosen;
+        }
+    }
+    // addMemberProfileDetailsToPage() {
+    //     const member = this.dataStore.get('member');
+
+    //     document.getElementById(
+        
+    //     )
     }
 
-}
+
 
 /**
  * Main method to run when the page contents have loaded.

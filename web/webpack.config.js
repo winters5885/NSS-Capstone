@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
 
 // Get the name of the appropriate environment variable (`.env`) file for this build/run of the app
-const dotenvFile = process.env.API_LOCATION ? `.env.${process.env.API_LOCATION}` : '.env.local';
+const dotenvFile = process.env.API_LOCATION ? `.env.${process.env.API_LOCATION}` : '.env';
 
 module.exports = {
   plugins: [
@@ -24,8 +24,8 @@ module.exports = {
   },
   entry: {
     homePage: path.resolve(__dirname, 'src', 'pages', 'homePage.js'),
-    createMemberProfile:path.resolve(__dirname, 'src', 'pages', 'createProfile.js'),
-    viewMemberProfile:path.resolve(__dirname, 'src', 'pages', 'viewProfile.js')
+    createProfile:path.resolve(__dirname, 'src', 'pages', 'createProfile.js'),
+    viewProfile:path.resolve(__dirname, 'src', 'pages', 'viewProfile.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

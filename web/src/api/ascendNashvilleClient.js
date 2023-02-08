@@ -113,7 +113,7 @@ export default class AscendNashvilleClient extends BindingClass {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.memberModel;
+            return response.data.member;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

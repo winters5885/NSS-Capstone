@@ -60,6 +60,7 @@ class CreateMemberProfile extends BindingClass {
      * When the member is updated in the datastore, redirect to the view member profile page.
      */
     redirectToViewMemberProfile() {
+        console.log("Inside redirectToViewMemberProfile method.")
         const member = this.dataStore.get('member');
         if (member != null) {
             window.location.href = `/memberProfile.html?id=${member.id}`;
