@@ -100,7 +100,7 @@ export default class AscendNashvilleClient extends BindingClass {
      */
     async createMember(name, age, gender, phoneNumber, address, emailAddress, errorCallback) {
         try {
-            const token = await this.getTokenOrThrow("Only authenticated users can create playlists.");
+            const token = await this.getTokenOrThrow("Only authenticated users can create a profile.");
             const response = await this.axiosClient.post(`member`, {
                 name: name,
                 age: age,
