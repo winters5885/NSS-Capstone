@@ -15,14 +15,14 @@ class ViewProfile extends BindingClass {
         console.log("viewmember constructor");
     }
 
-        /**
+    /**
      * Add the header to the page and load the AscendNashvilleClient.
      */
         mount() {
             this.header.addHeaderToPage();
             this.client = new AscendNashvilleClient();
             this.clientLoaded();
-            this.displayMemberProfile();
+           // this.displayMemberProfile();
         }
 
     /**
@@ -32,34 +32,37 @@ class ViewProfile extends BindingClass {
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
         const memberId = urlParams.get('id');
-        console.log("Inside clientLoaded viewProfile.js memberId: " + memberId);
-        document.getElementById('loading').innerText = "Loading Member ...";
+        console.log("Inside clientLoaded viewProfile.js memberId: ", memberId);
         const member = await this.client.getMember(memberId);
-        console.log("Inside clientLoaded viewProfile.js member: " + member);
-        this.dataStore.set('member', member);
+        console.log("Inside clientLoaded viewProfile.js member: ", member);
+        this.displayMemberProfile(member);
     }
 
-    async displayMemberProfile() {
+     displayMemberProfile(member) {
+        if (member == null) {
+            return;
+        }
+
+        let memberHtml = '';
+            memberHtml += `
+                <li class="song">
+                    <span class="attribute">${"Name: " + member.name }<br>
+                    <span class="attribute"></br>${"Age: " + member.age} <br></span>
+                    <span class="attribute"></br>${"Gender: " + member.gender}<br></span>
+                    <span class="attribute"></br>${"Address: " + member.address}<br></span>
+                    <span class="attribute"></br>${"Email Address: " + member.emailAddress}<br></span>
+                    <span class="attribute"></br>${"Phone Number: " + member.phoneNumber}</span>
+                </li>
+            `;
+
+        document.getElementById('member').innerHTML = memberHtml;
+     
+        // document.getElementById('member').innerText = member.name;
+        // document.getElementById('member').innerText = member.age;
+         console.log("Inside displayMemberProfile method member: ", member);
         
-        const urlParams = new URLSearchParams(window.location.search);
-        const memberIdFromURL = urlParams.get('id');
-       
-        console.log("Inside displayMemberProfile method in viewProfile.js, memberIdFromURL: " + memberIdFromURL);
-
-        document.getElementById("member").innerHTML += "<br>" + "http://localhost:8000/memberProfile.html?id=" +
-                        memberIdFromURL + "</br>";
-        console.log("viewProfile.js line 49.")
-        const jsonList = await this.client.getMember(memberIdFromURL);
-        console.log("jsonList: " + jsonList);
-        //var memberProfile = urlParams.get('memberId');
-
-
-        document.getElementById("member").innerHTML += "<br>"+ member + ", " + 
-                member +"</br>";
-    }
-    }
-
-
+     }
+}
 
 /**
  * Main method to run when the page contents have loaded.
