@@ -1,18 +1,17 @@
-package com.nashss.se.ascendnashville.models;
+package com.nashss.se.ascendnashville.activity.requests;
 
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-/**
- * RouteModel Class.
- */
-public class RouteModel {
-
+@JsonDeserialize(builder = CreateRouteRequest.class)
+public class CreateRouteRequest {
     private final String routeId;
     private final String difficultyRating;
     private final String routeType;
     private final Integer memberRating;
 
-    private RouteModel(String routeId, String difficultyRating, String routeType, Integer memberRating) {
+    public CreateRouteRequest (String routeId, String difficultyRating,
+                               String routeType, Integer memberRating) {
         this.routeId = routeId;
         this.difficultyRating = difficultyRating;
         this.routeType = routeType;
@@ -37,23 +36,21 @@ public class RouteModel {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RouteModel that = (RouteModel) o;
-        return Objects.equals(routeId, that.routeId) && Objects.equals(difficultyRating, that.difficultyRating) && Objects.equals(routeType, that.routeType) && Objects.equals(memberRating, that.memberRating);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(routeId, difficultyRating, routeType, memberRating);
+    public String toString() {
+        return "CreateRouteRequest{" +
+                "routeId='" + routeId + '\'' +
+                ", difficultyRating='" + difficultyRating + '\'' +
+                ", routeType='" + routeType + '\'' +
+                ", memberRating=" + memberRating +
+                '}';
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static RouteModel.Builder builder() {
-        return new RouteModel.Builder();
+    public static CreateMemberRequest.Builder builder() {
+        return new CreateMemberRequest.Builder();
     }
 
+    @JsonPOJOBuilder
     public static class Builder {
         private String routeId;
         private String difficultyRating;
@@ -75,13 +72,13 @@ public class RouteModel {
             return this;
         }
 
-        public Builder withMemberRating(Integer memberRating) {
+        public Builder withMemberRating(Integer memberRating)  {
             this.memberRating = memberRating;
             return this;
         }
 
-        public RouteModel build() {
-            return new RouteModel(routeId, difficultyRating, routeType, memberRating);
+        public CreateRouteRequest build() {
+            return new CreateRouteRequest(routeId, difficultyRating, routeType, memberRating);
         }
     }
 }

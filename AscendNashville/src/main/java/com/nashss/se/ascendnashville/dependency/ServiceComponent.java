@@ -1,6 +1,7 @@
 package com.nashss.se.ascendnashville.dependency;
 
 import com.nashss.se.ascendnashville.activity.CreateMemberActivity;
+import com.nashss.se.ascendnashville.activity.CreateRouteActivity;
 import com.nashss.se.ascendnashville.activity.GetMemberActivity;
 
 import dagger.Component;
@@ -25,4 +26,6 @@ public interface ServiceComponent {
      * @return CreatePlaylistActivity
      */
     CreateMemberActivity provideCreateMemberActivity();
+
+    CreateRouteActivity provideCreateRouteActivity();
 }
