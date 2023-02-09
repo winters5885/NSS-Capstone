@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 /**
  * Logic needed for the create home page of the website.
  */
-class AscendNashville extends BindingClass {
+class HomePage extends BindingClass {
     constructor() {
         super();
         this.bindClassMethods(['mount', 'submit', 'redirectToCreateProfile'], this);
@@ -19,11 +19,11 @@ class AscendNashville extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        //document.getElementById('create').addEventListener('click', this.submit);
 
         this.header.addHeaderToPage();
 
-        this.client = new AscendNashville();
+        this.client = new AscendNashvilleClient();
     }
 
     /**
@@ -74,8 +74,8 @@ class AscendNashville extends BindingClass {
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const createPlaylist = new CreatePlaylist();
-    createPlaylist.mount();
+    const homePage = new HomePage();
+    homePage.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);

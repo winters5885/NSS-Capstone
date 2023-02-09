@@ -24,8 +24,8 @@ module.exports = {
   },
   entry: {
     homePage: path.resolve(__dirname, 'src', 'pages', 'homePage.js'),
-    createMemberProfile:path.resolve(__dirname, 'src', 'pages', 'createProfile.js'),
-    viewMemberProfile:path.resolve(__dirname, 'src', 'pages', 'viewProfile.js')
+    createProfile:path.resolve(__dirname, 'src', 'pages', 'createProfile.js'),
+    viewProfile:path.resolve(__dirname, 'src', 'pages', 'viewProfile.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

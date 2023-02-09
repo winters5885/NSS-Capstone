@@ -97,11 +97,7 @@
     display: flex;
 }
 
-.song .title {
-    flex: 20%;
-}
-
-.song .album {
+.song .t.attribute {
     flex: 80%;
 }
 

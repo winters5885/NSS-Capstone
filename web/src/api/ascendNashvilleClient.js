@@ -81,6 +81,7 @@ export default class AscendNashvilleClient extends BindingClass {
     async getMember(memberId, errorCallback) {
         try {
             const response = await this.axiosClient.get(`member/${memberId}`);
+            console.log("Inside the client getMember method, response: ",response);
             return response.data.member;
         } catch (error) {
             this.handleError(error, errorCallback)
@@ -100,20 +101,20 @@ export default class AscendNashvilleClient extends BindingClass {
      */
     async createMember(name, age, gender, phoneNumber, address, emailAddress, errorCallback) {
         try {
-            const token = await this.getTokenOrThrow("Only authenticated users can create playlists.");
+            const token = await this.getTokenOrThrow("Only authenticated users can create a profile.");
             const response = await this.axiosClient.post(`member`, {
                 name: name,
                 age: age,
                 gender: gender,
                 phoneNumber: phoneNumber,
                 address: address,
-                emailAddress: emailAddress,
+                emailAddress: emailAddress
             }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.memberModel;
+            return response.data.member;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

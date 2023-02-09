@@ -10,7 +10,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
  */
 public class CreateMemberLambda
         extends LambdaActivityRunner<CreateMemberRequest, CreateMemberResult>
-        implements RequestHandler<LambdaRequest<CreateMemberRequest>, LambdaResponse> {
+        implements RequestHandler<AuthenticatedLambdaRequest<CreateMemberRequest>, LambdaResponse> {
 
     /**
      *
@@ -19,7 +19,7 @@ public class CreateMemberLambda
      * @return LambdaResponse
      */
     @Override
-    public LambdaResponse handleRequest(LambdaRequest<CreateMemberRequest> input, Context context) {
+    public LambdaResponse handleRequest(AuthenticatedLambdaRequest<CreateMemberRequest> input, Context context) {
         return super.runActivity(() -> input.fromBody(CreateMemberRequest.class), (request, serviceComponent) ->
                 serviceComponent.provideCreateMemberActivity().handleRequest(request));
     }
