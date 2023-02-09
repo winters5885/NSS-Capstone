@@ -33,7 +33,7 @@ class ViewProfile extends BindingClass {
         const urlParams = new URLSearchParams(window.location.search);
         const memberId = urlParams.get('id');
         console.log("Inside clientLoaded viewProfile.js memberId: " + memberId);
-        document.getElementById('id').innerText = "Loading Member ...";
+        document.getElementById('loading').innerText = "Loading Member ...";
         const member = await this.client.getMember(memberId);
         console.log("Inside clientLoaded viewProfile.js member: " + member);
         this.dataStore.set('member', member);
