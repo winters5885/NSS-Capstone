@@ -3,7 +3,7 @@ package com.nashss.se.ascendnashville.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-@JsonDeserialize(builder = CreateRouteRequest.class)
+@JsonDeserialize(builder = CreateRouteRequest.Builder.class)
 public class CreateRouteRequest {
     private final String routeId;
     private final String difficultyRating;
@@ -19,21 +19,13 @@ public class CreateRouteRequest {
     }
 
 
-    public String getRouteId() {
-        return routeId;
-    }
+    public String getRouteId() {return routeId;}
 
-    public String getDifficultyRating() {
-        return difficultyRating;
-    }
+    public String getDifficultyRating() {return difficultyRating;}
 
-    public String getRouteType() {
-        return routeType;
-    }
+    public String getRouteType() {return routeType;}
 
-    public Integer getMemberRating() {
-        return memberRating;
-    }
+    public Integer getMemberRating() {return memberRating;}
 
     @Override
     public String toString() {
@@ -46,8 +38,8 @@ public class CreateRouteRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static CreateRouteRequest.Builder builder() {
-        return new CreateRouteRequest.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     @JsonPOJOBuilder
