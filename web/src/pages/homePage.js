@@ -40,23 +40,6 @@ class HomePage extends BindingClass {
         const createButton = document.getElementById('create');
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
-
-        const playlistName = document.getElementById('playlist-name').value;
-        const tagsText = document.getElementById('tags').value;
-
-        let tags;
-        if (tagsText.length < 1) {
-            tags = null;
-        } else {
-            tags = tagsText.split(/\s*,\s*/);
-        }
-
-        const playlist = await this.client.createPlaylist(playlistName, tags, (error) => {
-            createButton.innerText = origButtonText;
-            errorMessageDisplay.innerText = `Error: ${error.message}`;
-            errorMessageDisplay.classList.remove('hidden');
-        });
-        this.dataStore.set('playlist', playlist);
     }
 
     /**

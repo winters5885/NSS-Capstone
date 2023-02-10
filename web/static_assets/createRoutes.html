@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="assets/createRoutes.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    </link>
+</head>
+
+<body class="background">
+    <header class="header" id="header"></header>
+    <div class="card">
+        <h2>Create Profile</h2>
+        <form class="card-content" id="create-playlist-form">
+            <p class="hidden error" id="error-message"> </p>
+            <p class="form-field">
+                <label>Name</label>
+                <input type="text" required class="validated-field" id="name" placeholder="enter full name..."
+                    autofocus>
+            </p>
+            <p class="form-field">
+                <label>RouteId</label>
+                <input type="text" id="routeId" class="tags" placeholder="enter routeId...">
+            </p>
+            <p class="form-field">
+                <label>Difficulty Rating</label>
+                <input type="text" id="difficultyRating" class="tags" placeholder="enter difficultyRating...">
+            </p>
+            <p class="form-field">
+                <label>Route Type</label>
+                <input type="text" id="routeType" class="tags" placeholder="enter routeType...">
+            </p>
+            <p>
+                <a href="viewRoutes.html" class="button" id="create">Submit</a>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
