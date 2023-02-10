@@ -14,11 +14,9 @@ public class CreateMemberRequest {
     private final String name;
     private final Integer age;
     private final String gender;
-
     private final String phoneNumber;
     private final String address;
     private final String emailAddress;
-
     private final String type;
 
     /**
@@ -75,9 +73,7 @@ public class CreateMemberRequest {
         return address;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
+    public String getEmailAddress() {return emailAddress;}
 
     @Override
     public String toString() {
@@ -104,7 +100,6 @@ public class CreateMemberRequest {
         private String name;
         private Integer age;
         private String gender;
-
         private String phoneNumber;
         private String address;
         private String emailAddress;
