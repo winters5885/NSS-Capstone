@@ -43,12 +43,19 @@ class HomePage extends BindingClass {
     }
 
     /**
-     * When the playlist is updated in the datastore, redirect to the view playlist page.
+     * When the member is updated in the datastore, redirect to the view profile page.
      */
     redirectToCreateProfile() {
         const member = this.dataStore.get('member');
         if (member != null) {
             window.location.href = `/createMemberProfile.html?id=${member.id}`;
+        }
+    }
+
+    redirectToCreateProfile() {
+        const route = this.dataStore.get('route');
+        if (route != null) {
+            window.location.href = `/createRoutes.html?id=${route.id}`;
         }
     }
 }

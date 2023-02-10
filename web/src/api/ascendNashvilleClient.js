@@ -16,7 +16,8 @@ export default class AscendNashvilleClient extends BindingClass {
         super();
 
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 
-                                'logout', 'getMember', 'createMember'];
+                                'logout', 'getMember', 'createMember', 
+                                'getRoutes', 'createRoutes'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -120,6 +121,49 @@ export default class AscendNashvilleClient extends BindingClass {
         }
     }
 
+        /**
+     * Gets the route for the given ID.
+     * @param routeId Unique identifier for a route
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The routes metadata.
+     */
+    async getRoutes(routeId, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`route/${routeId}`);
+            console.log("Inside the client getRoutes method, response: ",response);
+            return response.data.routeModel;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    /**
+     * Create a new route.
+     * @param routeId The routeId of the route to create.
+     * @param difficultyRating
+     * @param routeType
+     * @param memberRating
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The route that has been created.
+     */
+    async createRoutes(routeId, difficultyRating, routeType, memberRating, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can create a route.");
+            const response = await this.axiosClient.post(`route`, {
+                routeId: routeId,
+                difficultyRating: difficultyRating,
+                routeType: routeType,
+                memberRating: memberRating,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.routeModel;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.
