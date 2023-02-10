@@ -5,6 +5,9 @@ import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 import com.nashss.se.ascendnashville.models.MemberModel;
 import com.nashss.se.ascendnashville.models.RouteModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Converts between Data and API models.
  */
@@ -38,5 +41,13 @@ public class ModelConverter {
                 .withRouteType(route.getRouteType())
                 .withMemberRating(route.getMemberRating())
                 .build();
+    }
+
+    public List<RouteModel> toRoutesModelList(List<Route> routes) {
+        List<RouteModel> routeModels = new ArrayList<>();
+        for (Route route: routes) {
+            routeModels.add(toRouteModel(route));
+        }
+        return routeModels;
     }
 }

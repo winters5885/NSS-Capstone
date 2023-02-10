@@ -35,24 +35,43 @@ class ViewRoutes extends BindingClass {
         console.log("Inside clientLoaded viewRoutes.js routeId: ", routeId);
         const route = await this.client.getRoutes(routeId);
         console.log("Inside clientLoaded viewRoutes.js route: ", route);
+        this.dataStore.set('route', route);
         this.displayRoutes(route);
     }
 
      displayRoutes(route) {
-        if (route == null) {
+        const routes = this.dataStore.get('route')
+
+        if (routes == null) {
             return;
         }
 
         let routeHtml = '';
+        //let route;
+        for (route of routes) {
             routeHtml += `
-                <li class="song">
-                    <span class="attribute">${"RouteId: " + route.routeId }<br>
-                    <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
-                    <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>   
+                <li class="route">
+                        <span class="attribute">${"RouteId: " + route.routeId }<br>
+                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+                        <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>  
                 </li>
             `;
+        }
 
-        document.getElementById('route').innerHTML = routeHtml;
+        // if (route == null) {
+        //     return;
+        // }
+
+        // let routeHtml = '';
+        //     routeHtml += `
+        //         <li class="song">
+        //             <span class="attribute">${"RouteId: " + route.routeId }<br>
+        //             <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+        //             <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>   
+        //         </li>
+        //     `;
+
+        // document.getElementById('route').innerHTML = routeHtml;
      
          console.log("Inside displayRoutes method route: ", route);
         

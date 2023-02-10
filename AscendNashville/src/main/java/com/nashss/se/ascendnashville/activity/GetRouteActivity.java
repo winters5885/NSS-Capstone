@@ -10,6 +10,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implementation of the CreatePlaylistActivity for the MusicPlaylistService's CreatePlaylist API.
@@ -29,12 +31,15 @@ public class GetRouteActivity {
 
     public GetRouteResult handleRequest(final GetRouteRequest getRouteRequest) {
         log.info("In the GetRouteActivity handleRequest.");
-        String requestedRouteId = getRouteRequest.getRouteId();
-        Route route = routeDao.getRoute(requestedRouteId);
-        RouteModel routeModel = new ModelConverter().toRouteModel(route);
+        List<Route> routes = routeDao.getRoutes(getRouteRequest.getRouteId());
+        List<RouteModel> routeModels= new ModelConverter().toRoutesModelList(routes);
+
+//        String requestedRouteId = getRouteRequest.getRouteId();
+//        Route route = routeDao.getRoute(requestedRouteId);
+//        RouteModel routeModel = new ModelConverter().toRouteModel(route);
 
         return GetRouteResult.builder()
-                .withRoute(routeModel)
+                .withRouteList(routeModels)
                 .build();
     }
 }

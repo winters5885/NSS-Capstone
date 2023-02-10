@@ -1,11 +1,14 @@
 package com.nashss.se.ascendnashville.dynamoDB;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.nashss.se.ascendnashville.Exceptions.RouteNotFoundException;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.List;
 
 /**
  * Accesses data for a playlist using {@link RouteDao} to represent the model in DynamoDB.
@@ -19,14 +22,18 @@ public class RouteDao {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public Route getRoute(String routeId) {
-        Route route = this.dynamoDBMapper.load(Route.class, routeId);
+    public List<Route> getRoutes(String routeId) {
+//        Route route = this.dynamoDBMapper.load(Route.class, routeId);
+//
+//        if (route == null) {
+//            throw new RouteNotFoundException("Could not find route with id " + routeId);
+//        }
+        Route route = new Route();
+        route.setRouteId(routeId);
 
-        if (route == null) {
-            throw new RouteNotFoundException("Could not find route with id " + routeId);
-        }
-
-        return route;
+        DynamoDBQueryExpression<Route> queryExpression = new DynamoDBQueryExpression<Route>()
+                .withHashKeyValues(route);
+        return dynamoDBMapper.query(Route.class, queryExpression);
     }
 
     public Route saveRoute(Route route) {
