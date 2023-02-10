@@ -131,7 +131,7 @@ export default class AscendNashvilleClient extends BindingClass {
         try {
             const response = await this.axiosClient.get(`route/${routeId}`);
             console.log("Inside the client getRoutes method, response: ",response);
-            return response.data.routeModel;
+            return response.data.route;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
@@ -159,7 +159,7 @@ export default class AscendNashvilleClient extends BindingClass {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.routeModel;
+            return response.data.route;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

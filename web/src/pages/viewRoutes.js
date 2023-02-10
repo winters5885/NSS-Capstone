@@ -48,8 +48,7 @@ class ViewRoutes extends BindingClass {
                 <li class="song">
                     <span class="attribute">${"RouteId: " + route.routeId }<br>
                     <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
-                    <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>
-                    <span class="attribute"></br>${"Member Rating: " + route.memberRating}<br></span>
+                    <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>   
                 </li>
             `;
 

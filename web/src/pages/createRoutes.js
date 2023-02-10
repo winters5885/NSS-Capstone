@@ -44,9 +44,9 @@ class CreateRoutes extends BindingClass {
         const routeId = document.getElementById('routeId').value;
         const difficultyRating = document.getElementById('difficultyRating').value;
         const routeType = document.getElementById('routeType').value;
-        const memberRating = document.getElementById('memberRating').value;
+        const memberRating = 1; //document.getElementById('memberRating').value;
 
-        const route = await this.client.createMember(routeId, difficultyRating, routeType, memberRating, (error) => {
+        const route = await this.client.createRoutes(routeId, difficultyRating, routeType, memberRating, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
