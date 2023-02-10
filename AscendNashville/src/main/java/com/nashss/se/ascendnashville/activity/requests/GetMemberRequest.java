@@ -44,11 +44,9 @@ public class GetMemberRequest {
         this.type = type;
     }
 
-
     public String getMemberId() {
         return memberId;
     }
-
     public String getName() {
         return name;
     }

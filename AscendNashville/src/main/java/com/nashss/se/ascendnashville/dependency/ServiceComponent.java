@@ -3,8 +3,8 @@ package com.nashss.se.ascendnashville.dependency;
 import com.nashss.se.ascendnashville.activity.CreateMemberActivity;
 import com.nashss.se.ascendnashville.activity.CreateRouteActivity;
 import com.nashss.se.ascendnashville.activity.GetMemberActivity;
-
 import com.nashss.se.ascendnashville.activity.GetRouteActivity;
+
 import dagger.Component;
 
 import javax.inject.Singleton;

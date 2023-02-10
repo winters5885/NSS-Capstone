@@ -46,8 +46,8 @@ public class CreateRouteRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static CreateMemberRequest.Builder builder() {
-        return new CreateMemberRequest.Builder();
+    public static CreateRouteRequest.Builder builder() {
+        return new CreateRouteRequest.Builder();
     }
 
     @JsonPOJOBuilder

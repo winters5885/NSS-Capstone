@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Represents a record in the route table.
  */
-@DynamoDBTable(tableName = "routes")
+@DynamoDBTable(tableName = "route")
 public class Route {
     private String routeId;
     private String difficultyRating;
