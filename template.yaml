@@ -215,6 +215,20 @@ Resources:
                       - ':'
                       - !Ref 'AWS::AccountId'
                       - ':table/route'
+        - PolicyName: 'RouteDifficultyGSI'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/route/index/RouteDifficultyGSI'
 
   GetMemberLambda:
     Type: AWS::Serverless::Function
@@ -319,12 +333,22 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "routeId"
           AttributeType: "S"
+        - AttributeName: "difficultyRating"
+          AttributeType: "S"
       KeySchema:
         - AttributeName: "routeId"
           KeyType: "HASH"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "route"
-
+      GlobalSecondaryIndexes:
+        - IndexName: "RouteDifficultyGSI"
+          KeySchema:
+            - AttributeName: "routeId"
+              KeyType: "HASH"
+            - AttributeName: "difficultyRating"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
 
 #-----------------------------------------------------
 # The outputs defined below will be printed

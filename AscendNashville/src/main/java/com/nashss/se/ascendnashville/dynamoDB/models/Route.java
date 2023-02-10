@@ -1,8 +1,6 @@
 package com.nashss.se.ascendnashville.dynamoDB.models;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 import java.util.Objects;
 
@@ -15,6 +13,7 @@ public class Route {
     private String difficultyRating;
     private String routeType;
     private Integer memberRating;
+    public static final String Route_Difficulty_GSI = "RouteDifficultyGSI";
 
     public Route() {}
 
@@ -26,6 +25,7 @@ public class Route {
     }
 
     @DynamoDBHashKey(attributeName = "routeId")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = Route_Difficulty_GSI, attributeName = "routeId")
     public String getRouteId() {
         return routeId;
     }
@@ -35,6 +35,7 @@ public class Route {
     }
 
     @DynamoDBAttribute(attributeName = "difficultyRating")
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = Route_Difficulty_GSI, attributeName = "difficultyRating")
     public String getDifficultyRating() {
         return difficultyRating;
     }
