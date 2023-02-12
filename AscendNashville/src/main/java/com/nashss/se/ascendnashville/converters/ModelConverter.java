@@ -1,7 +1,9 @@
 package com.nashss.se.ascendnashville.converters;
 
+import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 import com.nashss.se.ascendnashville.dynamoDB.models.Member;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
+import com.nashss.se.ascendnashville.models.EventModel;
 import com.nashss.se.ascendnashville.models.MemberModel;
 import com.nashss.se.ascendnashville.models.RouteModel;
 
@@ -60,5 +62,32 @@ public class ModelConverter {
             routeModels.add(toRouteModel(route));
         }
         return routeModels;
+    }
+
+    /**
+     * Converts a provided {@link Event} into a {@link EventModel} representation.
+     *
+     * @param event the event to convert
+     * @return the converted event
+     */
+    public EventModel toEventModel(Event event) {
+
+        return EventModel.builder()
+                .withEventId(event.getEventId())
+                .withDate(event.getDate())
+                .withEventDetails(event.getEventDetails())
+                .build();
+    }
+    /**
+     * Converts a list of event to a list of EventModels.
+     * @param events The Events to convert to EventModels
+     * @return The converted list of EventModels
+     */
+    public List<EventModel> toEventsModelList(List<Event> events) {
+        List<EventModel> eventModels = new ArrayList<>();
+        for (Event event: events) {
+            eventModels.add(toEventModel(event));
+        }
+        return eventModels;
     }
 }
