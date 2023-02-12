@@ -127,11 +127,11 @@ export default class AscendNashvilleClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The routes metadata.
      */
-    async getRoutes(routeId, errorCallback) {
+    async getRoutes(errorCallback) {
         try {
-            const response = await this.axiosClient.get(`route/${routeId}`);
+            const response = await this.axiosClient.get(`route`);
             console.log("Inside the client getRoutes method, response: ",response);
-            return response.data.routesList;
+            return response.data.routes;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

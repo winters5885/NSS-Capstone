@@ -33,22 +33,21 @@ class ViewRoutes extends BindingClass {
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id');
         console.log("Inside clientLoaded viewRoutes.js routeId: ", routeId);
-        const route = await this.client.getRoutes(routeId);
-        console.log("Inside clientLoaded viewRoutes.js route: ", route);
-        this.dataStore.set('route', route);
-        this.displayRoutes(route);
+        //const route = await this.client.getRoutes(routeId);
+        //console.log("Inside clientLoaded viewRoutes.js route: ", route);
+        //this.dataStore.set('route', route);
     }
 
-     displayRoutes(route) {
-        const routes = this.dataStore.get('route')
-
-        if (routes == null) {
-            return;
-        }
-
+    async displayRoutes() {
+        //const routes = this.dataStore.get('route')
+        var routesList = await this.client.getRoutes();
+        // if (routes == null) {
+        //     return;
+        // }
+  
         let routeHtml = '';
-        //let route;
-        for (route of routes) {
+        let route;
+        for (route of routesList) {
             routeHtml += `
                 <li class="route">
                         <span class="attribute">${"RouteId: " + route.routeId }<br>
@@ -57,24 +56,8 @@ class ViewRoutes extends BindingClass {
                 </li>
             `;
         }
-
-        // if (route == null) {
-        //     return;
-        // }
-
-        // let routeHtml = '';
-        //     routeHtml += `
-        //         <li class="song">
-        //             <span class="attribute">${"RouteId: " + route.routeId }<br>
-        //             <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
-        //             <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>   
-        //         </li>
-        //     `;
-
-        // document.getElementById('route').innerHTML = routeHtml;
-     
+         document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
-        
      }
 }
 

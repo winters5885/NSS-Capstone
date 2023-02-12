@@ -13,10 +13,18 @@ public class GetRouteLambda extends LambdaActivityRunner<GetRouteRequest, GetRou
 
     @Override
     public LambdaResponse handleRequest(LambdaRequest<GetRouteRequest> input, Context context) {
-        return super.runActivity(() -> input.fromPathAndQuery((path, query) ->
+        return super.runActivity(() -> input.fromPath(path->
                 GetRouteRequest.builder()
-                        .withRouteId(path.get("routeId"))
                         .build()), (request, serviceComponent) ->
                 serviceComponent.provideGetRouteActivity().handleRequest(request));
     }
+
+//    @Override
+//    public LambdaResponse handleRequest(LambdaRequest<GetRouteRequest> input, Context context) {
+//        return super.runActivity(() -> input.fromPathAndQuery((path, query) ->
+//                GetRouteRequest.builder()
+//                        .withRouteId(path.get("routeId"))
+//                        .build()), (request, serviceComponent) ->
+//                serviceComponent.provideGetRouteActivity().handleRequest(request));
+//    }
 }
