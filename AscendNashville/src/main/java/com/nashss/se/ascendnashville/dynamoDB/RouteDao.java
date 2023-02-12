@@ -23,11 +23,6 @@ public class RouteDao {
     }
 
     public List<Route> getRoutes(String routeId) {
-//        Route route = this.dynamoDBMapper.load(Route.class, routeId);
-//
-//        if (route == null) {
-//            throw new RouteNotFoundException("Could not find route with id " + routeId);
-//        }
         Route route = new Route();
         route.setRouteId(routeId);
 
