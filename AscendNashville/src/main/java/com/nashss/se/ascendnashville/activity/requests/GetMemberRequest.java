@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
+ * Instantiates a new GetMemberRequest object.
  *
- * This API allows the customer to get a list of destinations.
  */
 @JsonDeserialize(builder = GetMemberRequest.Builder.class)
 public class GetMemberRequest {
@@ -21,16 +20,16 @@ public class GetMemberRequest {
     private final String type;
 
     /**
-     * Instantiates a new GetDestinationsActivity object.
+     * Instantiates a new GetMemberRequest object.
      *
-     * @param memberId  to access the destinations table.
-     * @param name The name entered by customer.
-     * @param age The age entered by customer
-     * @param gender The gender entered by customer
-     * @param phoneNumber The contact information entered by customer
-     * @param address customer address
-     * @param emailAddress cusotmer email.
-     * @param type The type of member
+     * @param memberId A memberId tied to a member.
+     * @param name The name submitted by member input.
+     * @param age The age submitted by member input.
+     * @param gender The gender submitted by the member.
+     * @param phoneNumber The phone number submitted by the member.
+     * @param address The address submitted by the customer.
+     * @param emailAddress The email address submitted by the customer.
+     * @param type The user type, either "member" or "employee."
      */
     private GetMemberRequest(String memberId, String name, Integer age,
                              String gender, String phoneNumber, String address, String emailAddress, String type) {

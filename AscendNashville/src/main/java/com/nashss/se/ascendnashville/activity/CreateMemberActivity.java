@@ -36,15 +36,19 @@ public class CreateMemberActivity {
 
     /**
      * This method handles the incoming request by persisting a new member
-     * with the provided playlist name and customer ID from the request.
+     * with the provided memberId, name, age, gender, phone number, address,
+     * email address, and type from the request.
      * <p>
-     * It then returns the newly created playlist.
+     * It then returns the newly created member.
      * <p>
-     * If the provided playlist name or customer ID has invalid characters, throws an
+     * If the provided memberId, name, age, gender, phone number, address,
+     * email address, or type has invalid characters, throws an
      * InvalidAttributeValueException
      *
-     * @param createMemberRequest request object containing the playlist name and customer ID
-     *                              associated with it
+     * @param createMemberRequest request object containing the memberId,
+     *                            name, age, gender, phone number, address,
+     *                            email address, and type
+     *                            associated with it
      * @return createMemberResult result object containing the API defined {@link MemberModel}
      */
     public CreateMemberResult handleRequest(final CreateMemberRequest createMemberRequest) {

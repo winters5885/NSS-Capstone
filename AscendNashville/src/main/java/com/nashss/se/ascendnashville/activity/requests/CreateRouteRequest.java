@@ -3,6 +3,10 @@ package com.nashss.se.ascendnashville.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+/**
+ * Instantiates a new CreateRouteRequest object.
+ *
+ */
 @JsonDeserialize(builder = CreateRouteRequest.Builder.class)
 public class CreateRouteRequest {
     private final String routeId;
@@ -10,6 +14,14 @@ public class CreateRouteRequest {
     private final String routeType;
     private final Integer memberRating;
 
+    /**
+     * Instantiates a new CreateRouteRequest object.
+     *
+     * @param routeId A routeId tied to a route.
+     * @param difficultyRating Rated difficulty of the route.
+     * @param routeType Type of route.
+     * @param memberRating Rating of route based on member input.
+     */
     public CreateRouteRequest (String routeId, String difficultyRating,
                                String routeType, Integer memberRating) {
         this.routeId = routeId;

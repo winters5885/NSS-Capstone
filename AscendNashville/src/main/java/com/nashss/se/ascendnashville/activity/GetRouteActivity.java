@@ -12,21 +12,33 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
- * Implementation of the CreatePlaylistActivity for the MusicPlaylistService's CreatePlaylist API.
+ * Implementation of the GetRouteActivity for Ascend Nashville's GetRoute API.
  * <p>
- * This API allows the customer to create a new playlist with no songs.
+ * This API allows the customer to retrieve the routes.
  */
 public class GetRouteActivity {
-
     private final Logger log = LogManager.getLogger();
-
     private final RouteDao routeDao;
 
+    /**
+     * Instantiates a new GetRouteActivity object.
+     *
+     * @param routeDao RouteDao to access the route table.
+     */
     @Inject
     public GetRouteActivity(RouteDao routeDao) {
         this.routeDao = routeDao;
     }
 
+    /**
+     * This method handles the incoming request by retrieving the routes from the database.
+     * <p>
+     * It then returns the routes.
+     * <p>
+     * If the route does not exist, this should throw a RouteNotFoundException.
+     *
+     * @return getRouteResult result object containing the API defined {@link RouteModel}
+     */
     public GetRouteResult handleRequest() {
         log.info("In the GetRouteActivity handleRequest.");
         List<Route> routes = routeDao.getRoutes();

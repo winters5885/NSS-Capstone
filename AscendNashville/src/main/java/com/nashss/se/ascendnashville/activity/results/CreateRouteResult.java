@@ -3,9 +3,13 @@ package com.nashss.se.ascendnashville.activity.results;
 import com.nashss.se.ascendnashville.models.RouteModel;
 
 public class CreateRouteResult {
-
     private final RouteModel route;
 
+    /**
+     * Constructor for CreateRouteResult
+     *
+     * @param route to covert.
+     */
     private CreateRouteResult(RouteModel route) {
         this.route = route;
     }
