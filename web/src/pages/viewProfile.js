@@ -22,7 +22,7 @@ class ViewProfile extends BindingClass {
             this.header.addHeaderToPage();
             this.client = new AscendNashvilleClient();
             this.clientLoaded();
-           // this.displayMemberProfile();
+            this.displayMemberProfile();
         }
 
     /**

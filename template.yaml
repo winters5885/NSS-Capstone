@@ -309,7 +309,7 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: /route/{routeId}
+            Path: /route
             Method: get
 
 

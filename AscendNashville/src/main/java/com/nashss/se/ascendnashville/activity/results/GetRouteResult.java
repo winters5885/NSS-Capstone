@@ -2,6 +2,9 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.RouteModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
  *
@@ -9,20 +12,20 @@ import com.nashss.se.ascendnashville.models.RouteModel;
  */
 public class GetRouteResult {
 
-    private final RouteModel routeModel;
+    private final List<RouteModel> routesList;
 
-    private GetRouteResult(RouteModel routeModel) {
-        this.routeModel = routeModel;
+    private GetRouteResult(List<RouteModel> routesList) {
+        this.routesList = routesList;
     }
 
-    public RouteModel getRoute() {
-        return routeModel;
+    public List<RouteModel> getRoutes() {
+        return new ArrayList<>(routesList);
     }
 
     @Override
     public String toString() {
         return "GetRouteResult{" +
-                "routeModel=" + routeModel +
+                "routesList=" + routesList +
                 '}';
     }
 
@@ -32,15 +35,15 @@ public class GetRouteResult {
     }
 
     public static class Builder {
-        private RouteModel routeModel;
+        private List<RouteModel> routesList;
 
-        public Builder withRoute(RouteModel routeModel) {
-            this.routeModel = routeModel;
+        public Builder withRouteList(List<RouteModel> routesList) {
+            this.routesList = new ArrayList<>(routesList);
             return this;
         }
 
         public GetRouteResult build() {
-            return new GetRouteResult(routeModel);
+            return new GetRouteResult(routesList);
         }
     }
 }

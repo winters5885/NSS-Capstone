@@ -92,12 +92,12 @@
     border-radius: 16px;
 }
 
-.song {
-    padding: 2px;
+.route {
+    padding: 50px;
     display: flex;
 }
 
-.song .t.attribute {
+.route .t.attribute {
     flex: 80%;
 }
 
@@ -106,9 +106,7 @@ Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
 */
-.song:before {
-    counter-increment: section;
-    content: counter(section) ".";
+.route:before {
     position: absolute;
     margin-left: -40px;
 }

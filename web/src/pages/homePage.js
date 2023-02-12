@@ -40,32 +40,22 @@ class HomePage extends BindingClass {
         const createButton = document.getElementById('create');
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
-
-        const playlistName = document.getElementById('playlist-name').value;
-        const tagsText = document.getElementById('tags').value;
-
-        let tags;
-        if (tagsText.length < 1) {
-            tags = null;
-        } else {
-            tags = tagsText.split(/\s*,\s*/);
-        }
-
-        const playlist = await this.client.createPlaylist(playlistName, tags, (error) => {
-            createButton.innerText = origButtonText;
-            errorMessageDisplay.innerText = `Error: ${error.message}`;
-            errorMessageDisplay.classList.remove('hidden');
-        });
-        this.dataStore.set('playlist', playlist);
     }
 
     /**
-     * When the playlist is updated in the datastore, redirect to the view playlist page.
+     * When the member is updated in the datastore, redirect to the view profile page.
      */
     redirectToCreateProfile() {
         const member = this.dataStore.get('member');
         if (member != null) {
             window.location.href = `/createMemberProfile.html?id=${member.id}`;
+        }
+    }
+
+    redirectToCreateProfile() {
+        const route = this.dataStore.get('route');
+        if (route != null) {
+            window.location.href = `/createRoutes.html?id=${route.id}`;
         }
     }
 }
