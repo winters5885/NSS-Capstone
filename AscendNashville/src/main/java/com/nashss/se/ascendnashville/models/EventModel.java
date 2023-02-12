@@ -1,6 +1,5 @@
 package com.nashss.se.ascendnashville.models;
 
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -9,10 +8,10 @@ import java.util.Objects;
 public class EventModel {
 
     private final String eventId;
-    private final Date date;
+    private final String date;
     private final String eventDetails;
 
-    private EventModel(String eventId, Date date, String eventDetails) {
+    private EventModel(String eventId, String date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
@@ -22,7 +21,7 @@ public class EventModel {
         return eventId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -54,7 +53,7 @@ public class EventModel {
 
     public static class Builder {
         private String eventId;
-        private Date date;
+        private String date;
         private String eventDetails;
 
         public Builder withEventId(String eventId) {
@@ -62,7 +61,7 @@ public class EventModel {
             return this;
         }
 
-        public Builder withDate(Date date) {
+        public Builder withDate(String date) {
             this.date = date;
             return this;
         }

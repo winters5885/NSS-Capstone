@@ -3,8 +3,6 @@ package com.nashss.se.ascendnashville.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-import java.util.Date;
-
 /**
  * Instantiates a new CreateMemberRequest object.
  *
@@ -12,7 +10,7 @@ import java.util.Date;
 @JsonDeserialize(builder = CreateEventRequest.Builder.class)
 public class CreateEventRequest {
     private final String eventId;
-    private final Date date;
+    private final String date;
     private final String eventDetails;
 
     /**
@@ -22,7 +20,7 @@ public class CreateEventRequest {
      * @param date The date of the event.
      * @param eventDetails Event details submitted by user.
      */
-    public CreateEventRequest(String eventId, Date date, String eventDetails) {
+    public CreateEventRequest(String eventId, String date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
@@ -32,7 +30,7 @@ public class CreateEventRequest {
         return eventId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -57,7 +55,7 @@ public class CreateEventRequest {
     @JsonPOJOBuilder
     public static class Builder{
         private String eventId;
-        private Date date;
+        private String date;
         private String eventDetails;
 
         public Builder withEventId(String eventId) {
@@ -65,7 +63,7 @@ public class CreateEventRequest {
             return this;
         }
 
-        public Builder withDate(Date date) {
+        public Builder withDate(String date) {
             this.date = date;
             return this;
         }

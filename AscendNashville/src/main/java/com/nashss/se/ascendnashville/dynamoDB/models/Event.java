@@ -4,7 +4,6 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -13,7 +12,7 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "event")
 public class Event {
     private String eventId;
-    private Date date;
+    private String date;
     private String eventDetails;
 
     /**
@@ -27,7 +26,7 @@ public class Event {
      * @param date Date of the event.
      * @param eventDetails Details provided for the event.
      */
-    public Event(String eventId, Date date, String eventDetails) {
+    public Event(String eventId, String date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
@@ -43,11 +42,11 @@ public class Event {
     }
 
     @DynamoDBAttribute(attributeName = "date")
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
