@@ -2,8 +2,6 @@ package com.nashss.se.ascendnashville.dynamoDBTest;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import com.nashss.se.ascendnashville.activity.GetRouteActivity;
-import com.nashss.se.ascendnashville.activity.results.GetRouteResult;
 import com.nashss.se.ascendnashville.dynamoDB.RouteDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
