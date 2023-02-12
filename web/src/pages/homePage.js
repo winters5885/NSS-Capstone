@@ -20,15 +20,13 @@ class HomePage extends BindingClass {
      */
     mount() {
         //document.getElementById('create').addEventListener('click', this.submit);
-
         this.header.addHeaderToPage();
-
         this.client = new AscendNashvilleClient();
     }
 
     /**
-     * Method to run when the create playlist submit button is pressed. Call AscendNashville to create the
-     * playlist.
+     * Method to run when the create member submit button is pressed. Call AscendNashville to create the
+     * member.
      */
     async submit(evt) {
         evt.preventDefault();
@@ -52,6 +50,9 @@ class HomePage extends BindingClass {
         }
     }
 
+    /**
+     * When the route is updated in the datastore, redirect to the view routes page.
+     */
     redirectToCreateProfile() {
         const route = this.dataStore.get('route');
         if (route != null) {

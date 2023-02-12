@@ -4,7 +4,7 @@ import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
 /**
- * Logic needed for the view member page of the website.
+ * Logic needed for the view routes page of the website.
  */
 class ViewRoutes extends BindingClass {
     constructor() {
@@ -26,7 +26,7 @@ class ViewRoutes extends BindingClass {
         }
 
     /**
-     * Once the client is loaded, get the member metadata and member information.
+     * Once the client is loaded, get the route metadata and route information.
      */
 
     async clientLoaded() {

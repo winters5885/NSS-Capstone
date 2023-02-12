@@ -91,7 +91,7 @@ export default class AscendNashvilleClient extends BindingClass {
 
     /**
      * Create a new member.
-     * @param name The name of the playlist to create.
+     * @param name The name of the member to create.
      * @param age
      * @param gender
      * @param phoneNumber
