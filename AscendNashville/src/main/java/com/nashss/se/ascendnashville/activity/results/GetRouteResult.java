@@ -5,11 +5,14 @@ import com.nashss.se.ascendnashville.models.RouteModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GetRouteResult Class.
+ */
 public class GetRouteResult {
     private final List<RouteModel> routesList;
 
     /**
-     * Constructor for GetRouteResult
+     * Constructor for GetRouteResult.
      *
      * @param routesList to covert.
      */

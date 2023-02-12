@@ -2,6 +2,7 @@ package com.nashss.se.ascendnashville.dynamoDB;
 
 import com.nashss.se.ascendnashville.Exceptions.MemberNotFoundException;
 import com.nashss.se.ascendnashville.dynamoDB.models.Member;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;

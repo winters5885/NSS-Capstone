@@ -22,7 +22,7 @@ public class CreateRouteRequest {
      * @param routeType Type of route.
      * @param memberRating Rating of route based on member input.
      */
-    public CreateRouteRequest (String routeId, String difficultyRating,
+    public CreateRouteRequest(String routeId, String difficultyRating,
                                String routeType, Integer memberRating) {
         this.routeId = routeId;
         this.difficultyRating = difficultyRating;
@@ -31,13 +31,17 @@ public class CreateRouteRequest {
     }
 
 
-    public String getRouteId() {return routeId;}
+    public String getRouteId() {
+        return routeId; }
 
-    public String getDifficultyRating() {return difficultyRating;}
+    public String getDifficultyRating() {
+        return difficultyRating; }
 
-    public String getRouteType() {return routeType;}
+    public String getRouteType() {
+        return routeType; }
 
-    public Integer getMemberRating() {return memberRating;}
+    public Integer getMemberRating() {
+        return memberRating; }
 
     @Override
     public String toString() {

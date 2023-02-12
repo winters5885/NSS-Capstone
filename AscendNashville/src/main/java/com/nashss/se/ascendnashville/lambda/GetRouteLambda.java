@@ -1,9 +1,10 @@
 package com.nashss.se.ascendnashville.lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.ascendnashville.activity.requests.GetRouteRequest;
 import com.nashss.se.ascendnashville.activity.results.GetRouteResult;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 /**
  * Generates a LambdaResponse.
@@ -19,7 +20,7 @@ public class GetRouteLambda extends LambdaActivityRunner<GetRouteRequest, GetRou
      */
     @Override
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetRouteRequest> input, Context context) {
-        return super.runActivity(() -> input.fromPath(path->
+        return super.runActivity(() -> input.fromPath(path ->
                 GetRouteRequest.builder()
                         .build()), (request, serviceComponent) ->
                 serviceComponent.provideGetRouteActivity().handleRequest());

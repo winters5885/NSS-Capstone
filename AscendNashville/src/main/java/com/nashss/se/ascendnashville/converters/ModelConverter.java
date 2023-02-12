@@ -39,7 +39,7 @@ public class ModelConverter {
      * @param route the route to convert
      * @return the converted route
      */
-    public RouteModel toRouteModel (Route route) {
+    public RouteModel toRouteModel(Route route) {
 
         return RouteModel.builder()
                 .withRouteId(route.getRouteId())

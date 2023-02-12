@@ -73,7 +73,8 @@ public class CreateMemberRequest {
         return address;
     }
 
-    public String getEmailAddress() {return emailAddress;}
+    public String getEmailAddress() {
+        return emailAddress; }
 
     @Override
     public String toString() {

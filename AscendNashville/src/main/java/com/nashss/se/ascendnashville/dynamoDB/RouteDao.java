@@ -1,23 +1,22 @@
 package com.nashss.se.ascendnashville.dynamoDB;
 
+import com.nashss.se.ascendnashville.dynamoDB.models.Route;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
-import com.nashss.se.ascendnashville.dynamoDB.models.Member;
-import com.nashss.se.ascendnashville.dynamoDB.models.Route;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import static com.nashss.se.ascendnashville.dynamoDB.models.Route.Route_Difficulty_GSI;
 
@@ -58,6 +57,7 @@ public class RouteDao {
      * <p>
      * If not found, throws RouteNotFoundException.
      *
+     * @param difficultyRating difficulty rating for a particular route.
      * @return List of routes from the GSI route table
      */
     public List<Route> getRoutesByDifficulty(String difficultyRating) {

@@ -2,12 +2,13 @@ package com.nashss.se.ascendnashville.utils;
 
 import java.util.function.Supplier;
 
+/**
+ * Various utilities to deal with null.
+ */
 public class NullUtils {
 
     private NullUtils() {
     }
-
-
 
     /**
      * If obj is null, return valIfNull, otherwise return obj.

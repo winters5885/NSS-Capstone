@@ -2,11 +2,14 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.MemberModel;
 
+/**
+ * GetMemberResult Class.
+ */
 public class GetMemberResult {
     private final MemberModel member;
 
     /**
-     * Constructor for GetMemberResult
+     * Constructor for GetMemberResult.
      *
      * @param member member model to covert.
      */

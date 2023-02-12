@@ -7,6 +7,7 @@ import com.nashss.se.ascendnashville.dynamoDB.MemberDao;
 
 import com.nashss.se.ascendnashville.dynamoDB.models.Member;
 import com.nashss.se.ascendnashville.models.MemberModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

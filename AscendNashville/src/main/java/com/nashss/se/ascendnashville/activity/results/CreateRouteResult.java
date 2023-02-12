@@ -2,11 +2,14 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.RouteModel;
 
+/**
+ * CreateRouteResult Class.
+ */
 public class CreateRouteResult {
     private final RouteModel route;
 
     /**
-     * Constructor for CreateRouteResult
+     * Constructor for CreateRouteResult.
      *
      * @param route to covert.
      */

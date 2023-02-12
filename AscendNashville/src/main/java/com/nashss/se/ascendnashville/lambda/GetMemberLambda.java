@@ -2,6 +2,7 @@ package com.nashss.se.ascendnashville.lambda;
 
 import com.nashss.se.ascendnashville.activity.requests.GetMemberRequest;
 import com.nashss.se.ascendnashville.activity.results.GetMemberResult;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
