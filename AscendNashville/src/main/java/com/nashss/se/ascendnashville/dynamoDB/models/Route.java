@@ -17,6 +17,13 @@ public class Route {
 
     public Route() {}
 
+    /**
+     * Non-empty constructor for Route POJO.
+     * @param routeId randomized numeric six digit string
+     * @param difficultyRating difficulty rating for the route
+     * @param routeType type of route
+     * @param memberRating rating provided by member input
+     */
     public Route(String routeId, String difficultyRating, String routeType, Integer memberRating) {
         this.routeId = routeId;
         this.difficultyRating = difficultyRating;

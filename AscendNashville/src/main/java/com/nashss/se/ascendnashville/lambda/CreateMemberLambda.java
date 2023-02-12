@@ -14,7 +14,7 @@ public class CreateMemberLambda
 
     /**
      *
-     * @param input The Lambda Function input
+     * @param input The Authenticated Lambda Function input
      * @param context The Lambda execution environment context object.
      * @return LambdaResponse
      */

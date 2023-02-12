@@ -6,13 +6,19 @@ import com.nashss.se.ascendnashville.activity.requests.GetRouteRequest;
 import com.nashss.se.ascendnashville.activity.results.GetRouteResult;
 
 /**
- * GetRoutesLambda function.
+ * Generates a LambdaResponse.
  */
 public class GetRouteLambda extends LambdaActivityRunner<GetRouteRequest, GetRouteResult>
-        implements RequestHandler<LambdaRequest<GetRouteRequest>, LambdaResponse> {
+        implements RequestHandler<AuthenticatedLambdaRequest<GetRouteRequest>, LambdaResponse> {
 
+    /**
+     *
+     * @param input The Authenticated Lambda Function input
+     * @param context The Lambda execution environment context object.
+     * @return LambdaResponse
+     */
     @Override
-    public LambdaResponse handleRequest(LambdaRequest<GetRouteRequest> input, Context context) {
+    public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetRouteRequest> input, Context context) {
         return super.runActivity(() -> input.fromPath(path->
                 GetRouteRequest.builder()
                         .build()), (request, serviceComponent) ->
