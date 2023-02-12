@@ -2,13 +2,18 @@ package com.nashss.se.ascendnashville.dynamoDB;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+import com.amazonaws.services.lambda.runtime.events.models.dynamodb.AttributeValue;
 import com.nashss.se.ascendnashville.Exceptions.RouteNotFoundException;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Accesses data for a playlist using {@link RouteDao} to represent the model in DynamoDB.
@@ -29,6 +34,15 @@ public class RouteDao {
         DynamoDBQueryExpression<Route> queryExpression = new DynamoDBQueryExpression<Route>()
                 .withHashKeyValues(route);
         return dynamoDBMapper.query(Route.class, queryExpression);
+    }
+
+    public List<Route> getRoutesList(String routeId) {
+        Map<String, AttributeValue> valueMap = new HashMap<>();
+        valueMap.put(":routeId", new AttributeValue().withS("routeId"));
+        valueMap.put(":difficultyRating", new AttributeValue().withS("difficultyRating"));
+
+        DynamoDBQueryExpression<Route> queryExpression = new DynamoDBQueryExpression<Route>()
+                .withIndexName(RouteGSI)
     }
 
     public Route saveRoute(Route route) {
