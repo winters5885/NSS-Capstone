@@ -1,15 +1,15 @@
 package com.nashss.se.ascendnashville.Exceptions;
 
 /**
- * Exception to throw when a given CalendarId is not found
+ * Exception to throw when a given EventId is not found
  * in the database.
  */
-public class CalendarNotFoundException extends RuntimeException {
+public class EventNotFoundException extends RuntimeException {
 
     /**
      * Exception with no message or cause.
      */
-    public CalendarNotFoundException() {
+    public EventNotFoundException() {
         super();
     }
 
@@ -17,7 +17,7 @@ public class CalendarNotFoundException extends RuntimeException {
      * Exception with a message, but no cause.
      * @param message A descriptive message for this exception.
      */
-    public CalendarNotFoundException(String message) {
+    public EventNotFoundException(String message) {
         super(message);
     }
 
@@ -25,7 +25,7 @@ public class CalendarNotFoundException extends RuntimeException {
      * Exception with no message, but with a cause.
      * @param cause The original throwable resulting in this exception.
      */
-    public CalendarNotFoundException(Throwable cause) {
+    public EventNotFoundException(Throwable cause) {
         super(cause);
     }
 
@@ -34,7 +34,7 @@ public class CalendarNotFoundException extends RuntimeException {
      * @param message A descriptive message for this exception.
      * @param cause The original throwable resulting in this exception.
      */
-    public CalendarNotFoundException(String message, Throwable cause) {
+    public EventNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 }
