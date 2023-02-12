@@ -2,6 +2,7 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.RouteModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,8 +18,8 @@ public class GetRouteResult {
         this.routesList = routesList;
     }
 
-    public List<RouteModel> getRoute() {
-        return routesList;
+    public List<RouteModel> getRoutes() {
+        return new ArrayList<>(routesList);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class GetRouteResult {
         private List<RouteModel> routesList;
 
         public Builder withRouteList(List<RouteModel> routesList) {
-            this.routesList = routesList;
+            this.routesList = new ArrayList<>(routesList);
             return this;
         }
 
