@@ -1,7 +1,7 @@
 package com.nashss.se.ascendnashville.Exceptions;
 
 /**
- * Exception to throw when a given CalendarId is not found
+ * Exception to throw when a given EventId is not found
  * in the database.
  */
 public class EventNotFoundException extends RuntimeException {

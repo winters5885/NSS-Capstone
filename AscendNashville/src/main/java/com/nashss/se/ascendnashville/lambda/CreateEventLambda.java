@@ -1,11 +1,14 @@
 package com.nashss.se.ascendnashville.lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.ascendnashville.activity.requests.CreateEventRequest;
-import com.nashss.se.ascendnashville.activity.requests.CreateRouteRequest;
 import com.nashss.se.ascendnashville.activity.results.CreateEventResult;
 
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+/**
+* Generates a LambdaResponse.
+* */
 public class CreateEventLambda extends LambdaActivityRunner<CreateEventRequest, CreateEventResult>
         implements RequestHandler<AuthenticatedLambdaRequest<CreateEventRequest>, LambdaResponse> {
 
