@@ -16,7 +16,7 @@ public class GetRouteLambda extends LambdaActivityRunner<GetRouteRequest, GetRou
         return super.runActivity(() -> input.fromPath(path->
                 GetRouteRequest.builder()
                         .build()), (request, serviceComponent) ->
-                serviceComponent.provideGetRouteActivity().handleRequest(request));
+                serviceComponent.provideGetRouteActivity().handleRequest());
     }
 
 //    @Override

@@ -12,6 +12,7 @@ import org.mockito.Mock;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
@@ -27,6 +28,29 @@ public class GetRouteActivityTest {
         getRouteActivity = new GetRouteActivity(routeDao);
     }
 
+
+//    @Test
+//    void getRoutes_queriesDynamoDbRouteTable_returnsRoutes() {
+//        //GIVEN
+//        Route route1 = new Route("route1", "difficultyRating1", "routeType1", 1);
+//        Route route2 = new Route("route2", "difficultyRating2", "routeType2", 1);
+//        Route route3 = new Route("route3", "difficultyRating3", "routeType3", 1);
+//
+//        List<Route> routesList = new ArrayList<>();
+//        routesList.add(route1);
+//        routesList.add(route2);
+//        routesList.add(route3);
+//
+//        when(routeDao.getRoutes()).thenReturn(routesList);
+//
+//        String testString = "[route1, route2, route3]";
+//
+//        GetRouteResult result = getRouteActivity.handleRequest();
+//
+//        assertEquals(3, result.getRoutes().size());
+//        assertEquals(testString, result.getRoutes().toString());
+//
+//    }
     @Test
     public void handleRequest_savedRouteFound_returnsRoute() {
         // GIVEN
@@ -46,12 +70,8 @@ public class GetRouteActivityTest {
 
         when(routeDao.getRoutes()).thenReturn(routesList);
 
-        GetRouteRequest request = GetRouteRequest.builder()
-                .withRouteId(routeId)
-                .build();
-
         // WHEN
-        GetRouteResult result = getRouteActivity.handleRequest(request);
+        GetRouteResult result = getRouteActivity.handleRequest();
 
         // THEN
         Assertions.assertEquals(routeId, result.getRoutes().get(0).getRouteId());

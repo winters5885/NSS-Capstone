@@ -29,7 +29,7 @@ public class GetRouteActivity {
         this.routeDao = routeDao;
     }
 
-    public GetRouteResult handleRequest(final GetRouteRequest getRouteRequest) {
+    public GetRouteResult handleRequest() {
         log.info("In the GetRouteActivity handleRequest.");
         List<Route> routes = routeDao.getRoutes();//(getRouteRequest.getRouteId());
         List<RouteModel> routeModels= new ModelConverter().toRoutesModelList(routes);
