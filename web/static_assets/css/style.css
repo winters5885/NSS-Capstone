@@ -93,7 +93,7 @@
 }
 
 .route {
-    padding: 2px;
+    padding: 50px;
     display: flex;
 }
 
@@ -107,8 +107,6 @@ https://stackoverflow.com/a/34316093
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
 */
 .route:before {
-    counter-increment: section;
-    content: counter(section) ".";
     position: absolute;
     margin-left: -40px;
 }

@@ -33,17 +33,10 @@ class ViewRoutes extends BindingClass {
         const urlParams = new URLSearchParams(window.location.search);
         const routeId = urlParams.get('id');
         console.log("Inside clientLoaded viewRoutes.js routeId: ", routeId);
-        //const route = await this.client.getRoutes(routeId);
-        //console.log("Inside clientLoaded viewRoutes.js route: ", route);
-        //this.dataStore.set('route', route);
     }
 
     async displayRoutes() {
-        //const routes = this.dataStore.get('route')
         var routesList = await this.client.getRoutes();
-        // if (routes == null) {
-        //     return;
-        // }
   
         let routeHtml = '';
         let route;
