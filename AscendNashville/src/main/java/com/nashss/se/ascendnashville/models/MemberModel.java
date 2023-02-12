@@ -63,8 +63,12 @@ public class MemberModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         MemberModel that = (MemberModel) o;
         return Objects.equals(memberId, that.memberId) && Objects.equals(name, that.name) &&
                 Objects.equals(age, that.age) && Objects.equals(gender, that.gender) &&

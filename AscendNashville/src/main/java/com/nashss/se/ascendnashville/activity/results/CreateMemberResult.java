@@ -3,13 +3,16 @@ package com.nashss.se.ascendnashville.activity.results;
 import com.nashss.se.ascendnashville.models.MemberModel;
 
 /**
- * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
- *
- * This API allows the customer to get a list of destinations.
+ * CreateMemberResult Class.
  */
 public class CreateMemberResult {
     private final MemberModel member;
 
+    /**
+     * Constructor for CreateMemberResult.
+     *
+     * @param member member model to covert.
+     */
     private CreateMemberResult(MemberModel member) {
         this.member = member;
     }

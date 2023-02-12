@@ -2,6 +2,7 @@ package com.nashss.se.ascendnashville.lambda;
 
 import com.nashss.se.ascendnashville.activity.requests.CreateMemberRequest;
 import com.nashss.se.ascendnashville.activity.results.CreateMemberResult;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
@@ -14,7 +15,7 @@ public class CreateMemberLambda
 
     /**
      *
-     * @param input The Lambda Function input
+     * @param input The Authenticated Lambda Function input
      * @param context The Lambda execution environment context object.
      * @return LambdaResponse
      */

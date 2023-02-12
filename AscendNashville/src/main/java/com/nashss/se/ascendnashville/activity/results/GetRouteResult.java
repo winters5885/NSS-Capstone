@@ -6,14 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
- *
- * This API allows the customer to get a list of destinations.
+ * GetRouteResult Class.
  */
 public class GetRouteResult {
-
     private final List<RouteModel> routesList;
 
+    /**
+     * Constructor for GetRouteResult.
+     *
+     * @param routesList to covert.
+     */
     private GetRouteResult(List<RouteModel> routesList) {
         this.routesList = routesList;
     }

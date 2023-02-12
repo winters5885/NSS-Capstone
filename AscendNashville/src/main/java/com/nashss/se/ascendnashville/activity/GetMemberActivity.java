@@ -7,15 +7,16 @@ import com.nashss.se.ascendnashville.dynamoDB.MemberDao;
 
 import com.nashss.se.ascendnashville.dynamoDB.models.Member;
 import com.nashss.se.ascendnashville.models.MemberModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 
 /**
- * Implementation of the CreatePlaylistActivity for the MusicPlaylistService's CreatePlaylist API.
+ * Implementation of the GetMemberActivity for Ascend Nashville's GetMember API.
  * <p>
- * This API allows the customer to create a new playlist with no songs.
+ * This API allows the customer to retrieve their member profile informaton.
  */
 public class GetMemberActivity {
 
@@ -23,9 +24,9 @@ public class GetMemberActivity {
     private final MemberDao memberDao;
 
     /**
-     * Instantiates a new GetPlaylistActivity object.
+     * Instantiates a new GetMemberActivity object.
      *
-     * @param memberDao MemberDao to access the playlist table.
+     * @param memberDao MemberDao to access the member table.
      */
     @Inject
     public GetMemberActivity(MemberDao memberDao) {
@@ -33,11 +34,11 @@ public class GetMemberActivity {
     }
 
     /**
-     * This method handles the incoming request by retrieving the categories from the database.
+     * This method handles the incoming request by retrieving the member from the database.
      * <p>
-     * It then returns the categories.
+     * It then returns the member.
      * <p>
-     * If the category does not exist, this should throw a CategoryNotFoundException.
+     * If the member does not exist, this should throw a MemberNotFoundException.
      *
      * @param getMemberRequest request object containing memberId.
      * @return GetMemberResult result object

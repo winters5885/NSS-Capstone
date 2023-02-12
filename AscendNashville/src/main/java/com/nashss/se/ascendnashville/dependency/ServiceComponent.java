@@ -10,7 +10,7 @@ import dagger.Component;
 import javax.inject.Singleton;
 
 /**
- * Dagger component for providing dependency injection in the Music Playlist Service.
+ * Dagger component for providing dependency injection in the Ascend Nashville Service.
  */
 @Singleton
 @Component(modules = {DynamoDBModule.class, MetricsModule.class})
@@ -18,15 +18,25 @@ public interface ServiceComponent {
 
     /**
      * Provides the relevant activity.
-     * @return AddSongToPlaylistActivity
+     * @return GetMemberActivity
      */
     GetMemberActivity provideGetMemberActivity();
 
     /**
      * Provides the relevant activity.
-     * @return CreatePlaylistActivity
+     * @return CreateMemberActivity
      */
     CreateMemberActivity provideCreateMemberActivity();
+
+    /**
+     * Provides the relevant activity.
+     * @return GetRouteActivity
+     */
     GetRouteActivity provideGetRouteActivity();
+
+    /**
+     * Provides the relevant activity.
+     * @return CreateRouteActivity
+     */
     CreateRouteActivity provideCreateRouteActivity();
 }

@@ -38,10 +38,17 @@ public class RouteModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         RouteModel that = (RouteModel) o;
-        return Objects.equals(routeId, that.routeId) && Objects.equals(difficultyRating, that.difficultyRating) && Objects.equals(routeType, that.routeType) && Objects.equals(memberRating, that.memberRating);
+        return Objects.equals(routeId, that.routeId) &&
+                Objects.equals(difficultyRating, that.difficultyRating) &&
+                Objects.equals(routeType, that.routeType) &&
+                Objects.equals(memberRating, that.memberRating);
     }
 
     @Override

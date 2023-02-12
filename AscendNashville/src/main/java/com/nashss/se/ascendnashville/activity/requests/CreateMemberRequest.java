@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Instantiates a new SaveFavoritesRequest object.
+ * Instantiates a new CreateMemberRequest object.
  *
  */
 @JsonDeserialize(builder = CreateMemberRequest.Builder.class)
@@ -20,16 +20,16 @@ public class CreateMemberRequest {
     private final String type;
 
     /**
-     * Instantiates a new GetFavoritesRequest object.
+     * Instantiates a new CreateMemberRequest object.
      *
-     * @param memberId A userId tied to a Favorites list.
-     * @param name The customer entered name.
-     * @param age The customr entered age.
-     * @param gender The customer entered gender.
-     * @param phoneNumber The customer entered contact information.
-     * @param address address for customer
-     * @param emailAddress email address for customer
-     * @param type The customer type.
+     * @param memberId A memberId tied to a member.
+     * @param name The name submitted by member input.
+     * @param age The age submitted by member input.
+     * @param gender The gender submitted by the member.
+     * @param phoneNumber The phone number submitted by the member.
+     * @param address The address submitted by the customer.
+     * @param emailAddress The email address submitted by the customer.
+     * @param type The user type, either "member" or "employee."
      */
     public CreateMemberRequest(String memberId, String name, Integer age,
                                String gender, String phoneNumber, String address, String emailAddress,
@@ -73,7 +73,8 @@ public class CreateMemberRequest {
         return address;
     }
 
-    public String getEmailAddress() {return emailAddress;}
+    public String getEmailAddress() {
+        return emailAddress; }
 
     @Override
     public String toString() {

@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
+ * Instantiates a new GetRouteRequest object.
  *
- * This API allows the customer to get a list of destinations.
  */
 @JsonDeserialize(builder = GetRouteRequest.Builder.class)
 public class GetRouteRequest {
@@ -15,6 +14,14 @@ public class GetRouteRequest {
     private final String routeType;
     private final Integer memberRating;
 
+    /**
+     * Instantiates a new GetRouteRequest object.
+     *
+     * @param routeId A routeId tied to a route.
+     * @param difficultyRating Rated difficulty of the route.
+     * @param routeType Type of route.
+     * @param memberRating Rating of route based on member input.
+     */
     private GetRouteRequest(String routeId, String difficultyRating, String routeType, Integer memberRating) {
         this.routeId = routeId;
         this.difficultyRating = difficultyRating;

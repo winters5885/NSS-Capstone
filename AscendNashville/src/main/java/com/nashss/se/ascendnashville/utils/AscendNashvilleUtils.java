@@ -6,12 +6,16 @@ import org.apache.commons.lang3.RandomStringUtils;
  * Utility to create a random memberId.
  */
 public class AscendNashvilleUtils {
-        static final int MEMBER_ID_LENGTH = 6;
+    static final int MEMBER_ID_LENGTH = 6;
 
-        private AscendNashvilleUtils() {
-        }
+    private AscendNashvilleUtils() {
+    }
 
-        public static String generateMemberId() {
-            return RandomStringUtils.randomNumeric(6);
-        }
+    /**
+     * Method to generate a random memberId.
+     * @return randomly generated numberic string.
+     */
+    public static String generateMemberId() {
+        return RandomStringUtils.randomNumeric(6);
+    }
 }
