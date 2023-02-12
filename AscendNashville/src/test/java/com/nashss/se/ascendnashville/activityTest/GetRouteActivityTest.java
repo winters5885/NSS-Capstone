@@ -44,7 +44,7 @@ public class GetRouteActivityTest {
         List<Route> routesList = new ArrayList<>();
         routesList.add(firstRoute);
 
-        when(routeDao.getRoutes(routeId)).thenReturn(routesList);
+        when(routeDao.getRoutes()).thenReturn(routesList);
 
         GetRouteRequest request = GetRouteRequest.builder()
                 .withRouteId(routeId)

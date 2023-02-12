@@ -31,7 +31,7 @@ public class GetRouteActivity {
 
     public GetRouteResult handleRequest(final GetRouteRequest getRouteRequest) {
         log.info("In the GetRouteActivity handleRequest.");
-        List<Route> routes = routeDao.getRoutes(getRouteRequest.getRouteId());
+        List<Route> routes = routeDao.getRoutes();//(getRouteRequest.getRouteId());
         List<RouteModel> routeModels= new ModelConverter().toRoutesModelList(routes);
 
 //        String requestedRouteId = getRouteRequest.getRouteId();
