@@ -5,5 +5,5 @@ package com.nashss.se.ascendnashville.activity.results;
  *
  * This API allows the customer to get a list of destinations.
  */
-public class GetCalendarResult {
+public class GetEventResult {
 }
