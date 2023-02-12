@@ -56,9 +56,6 @@ class ViewProfile extends BindingClass {
             `;
 
         document.getElementById('member').innerHTML = memberHtml;
-     
-        // document.getElementById('member').innerText = member.name;
-        // document.getElementById('member').innerText = member.age;
          console.log("Inside displayMemberProfile method member: ", member);
         
      }

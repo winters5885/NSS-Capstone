@@ -4,7 +4,7 @@ import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
 /**
- * Logic needed for the create member profile page of the website.
+ * Logic needed for the create routes page of the website.
  */
 class CreateRoutes extends BindingClass {
     constructor() {
@@ -27,8 +27,8 @@ class CreateRoutes extends BindingClass {
     }
 
     /**
-     * Method to run when the create profile submit button is pressed. Call the AscendNashville service to create the
-     * member profile.
+     * Method to run when the create route submit button is pressed. Call the AscendNashville service to create the
+     * route.
      */
     async submit(evt) {
         evt.preventDefault();
@@ -44,7 +44,7 @@ class CreateRoutes extends BindingClass {
         const routeId = document.getElementById('routeId').value;
         const difficultyRating = document.getElementById('difficultyRating').value;
         const routeType = document.getElementById('routeType').value;
-        const memberRating = 1; //document.getElementById('memberRating').value;
+        const memberRating = 1;
 
         const route = await this.client.createRoutes(routeId, difficultyRating, routeType, memberRating, (error) => {
             createButton.innerText = origButtonText;
@@ -55,7 +55,7 @@ class CreateRoutes extends BindingClass {
     }
 
     /**
-     * When the member is updated in the datastore, redirect to the view member profile page.
+     * When the route is updated in the datastore, redirect to the view view routes page.
      */
     redirectToViewRoutes() {
         console.log("Inside redirectToViewRoutes method.")
