@@ -59,6 +59,8 @@ class HomePage extends BindingClass {
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes method route: ", event);
      }
+
+     
     /**
      * When the member is updated in the datastore, redirect to the view profile page.
      */

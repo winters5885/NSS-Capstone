@@ -164,6 +164,16 @@ export default class AscendNashvilleClient extends BindingClass {
         }
     }
 
+    async getFilteredRoutesList(displayDifficulty, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`route/${displayDifficulty}`);
+            console.log("Inside the client getRoutes method, response: ",response);
+            return response.data.routes;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+
+    }
     /**
      * Gets the events from the database.
      * @param errorCallback (Optional) A function to execute if the call fails.

@@ -9,7 +9,7 @@ import DataStore from "../util/DataStore";
 class ViewRoutes extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayRoutes'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayRoutes', 'populateRouteDifficultyDropdown'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         console.log("viewRoutes constructor");
@@ -23,6 +23,7 @@ class ViewRoutes extends BindingClass {
             this.client = new AscendNashvilleClient();
             this.clientLoaded();
             this.displayRoutes();
+            this.populateRouteDifficultyDropdown();
         }
 
     /**
@@ -52,6 +53,36 @@ class ViewRoutes extends BindingClass {
          document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
      }
+
+    async populateRouteDifficultyDropdown() {
+       var html = [];
+        
+        var staticChoose = document.createElement("option");
+        staticChoose.value = "Choose";
+        staticChoose.text = "Difficulty Rating";
+        staticChoose.selected = true;
+        staticChoose.disabled = true;
+        staticChoose.hidden = true;
+
+        var routesList = await this.client.getRoutes();
+        console.log("Inside populateRouteDifficultyDropdown routesList:" + routesList)
+        
+        for (var i = 0; i < routesList.length; i++) {
+            var chooseRoute = routesList[i];
+            console.log("Inside populateRouteDifficultyDropdown loop chooseRoute:" + chooseRoute)
+               html.push("<option>" + chooseRoute.difficultyRating + "</option>");
+        }
+
+        document.getElementById("displayDifficulty").innerHTML = html.join("");
+        document.getElementById("displayDifficulty").appendChild(staticChoose);
+     }
+
+    
+    async submit() {
+        document.getElementById('theButton').innerText = 'Loading...';
+        var difficultyRating = document.getElementById("displayDifficulty").value;
+        window.location.href = '/viewFilteredRoutes.html?difficultyRating=' + difficultyRating + '';
+    }
 }
 
 /**
