@@ -6,12 +6,12 @@ import DataStore from '../util/DataStore';
 /**
  * Logic needed for the create routes page of the website.
  */
-class CreateRoutes extends BindingClass {
+class CreateEvents extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToViewRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'redirectToHomePage'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.redirectToViewRoutes);
+        this.dataStore.addChangeListener(this.redirectToHomePage);
         this.header = new Header(this.dataStore);
     }
 
@@ -20,15 +20,13 @@ class CreateRoutes extends BindingClass {
      */
     mount() {
         document.getElementById('create').addEventListener('click', this.submit);
-
         this.header.addHeaderToPage();
-
         this.client = new AscendNashvilleClient();
     }
 
     /**
-     * Method to run when the create route submit button is pressed. Call the AscendNashville service to create the
-     * route.
+     * Method to run when the Add Event submit button is pressed. Call the AscendNashville service to create the
+     * event.
      */
     async submit(evt) {
         evt.preventDefault();
@@ -41,27 +39,25 @@ class CreateRoutes extends BindingClass {
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
 
-        const routeId = document.getElementById('routeId').value;
-        const difficultyRating = document.getElementById('difficultyRating').value;
-        const routeType = document.getElementById('routeType').value;
-        const memberRating = 1;
+        const date = document.getElementById('date').value;
+        const eventDetails = document.getElementById('eventDetails').value;
 
-        const route = await this.client.createRoutes(routeId, difficultyRating, routeType, memberRating, (error) => {
+        const event = await this.client.createEvent(date, eventDetails,(error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
         });
-        this.dataStore.set('route', route);
+        this.dataStore.set('event', event);
     }
 
     /**
-     * When the route is updated in the datastore, redirect to the view routes page.
+     * When the event is updated in the datastore, redirect to the home page.
      */
-    redirectToViewRoutes() {
-        console.log("Inside redirectToViewRoutes method.")
-        const route = this.dataStore.get('route');
-        if (route != null) {
-            window.location.href = `/viewRoutes.html?id=${route.routeId}`;
+    redirectToHomePage() {
+        console.log("Inside redirectToHomePage method.")
+        const event = this.dataStore.get('event');
+        if (event != null) {
+            window.location.href = `/index.html`;
         }
     }
 }
@@ -70,8 +66,8 @@ class CreateRoutes extends BindingClass {
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const createRoute = new CreateRoutes();
-    createRoute.mount();
+    const createEvent = new CreateEvents();
+    createEvent.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);

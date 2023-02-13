@@ -27,7 +27,8 @@ module.exports = {
     createProfile:path.resolve(__dirname, 'src', 'pages', 'createProfile.js'),
     viewProfile:path.resolve(__dirname, 'src', 'pages', 'viewProfile.js'),
     createRoutes:path.resolve(__dirname, 'src', 'pages', 'createRoutes.js'),
-    viewRoutes:path.resolve(__dirname, 'src', 'pages', 'viewRoutes.js')
+    viewRoutes:path.resolve(__dirname, 'src', 'pages', 'viewRoutes.js'),
+    createEvents:path.resolve(__dirname, 'src', 'pages', 'createEvents.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
