@@ -17,12 +17,12 @@ export default class AscendNashvilleClient extends BindingClass {
 
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 
                                 'logout', 'getMember', 'createMember', 
-                                'getRoutes', 'createRoutes'];
+                                'getRoutes', 'createRoutes', 'getEvents',
+                                'createEvent'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
         this.props = props;
-
         axios.defaults.baseURL = process.env.API_BASE_URL;
         this.axiosClient = axios;
         this.clientLoaded();
@@ -122,8 +122,7 @@ export default class AscendNashvilleClient extends BindingClass {
     }
 
         /**
-     * Gets the route for the given ID.
-     * @param routeId Unique identifier for a route
+     * Gets the routes from the database.
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The routes metadata.
      */
@@ -164,6 +163,48 @@ export default class AscendNashvilleClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+
+    /**
+     * Gets the events from the database.
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The events metadata.
+     */
+    async getEvents(errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`event`);
+            console.log("Inside the client getEvents method, response: ",response);
+            return response.data.eventsList;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    /**
+     * Create a new event.
+     * @param eventId The eventId of the event to create.
+     * @param date
+     * @param eventDetails
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The event that has been created.
+     */
+    async createEvent(eventId, date, eventDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can create an event.");
+            const response = await this.axiosClient.post(`event`, {
+                eventId: eventId,
+                date: date,
+                eventDetails: eventDetails,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.event;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

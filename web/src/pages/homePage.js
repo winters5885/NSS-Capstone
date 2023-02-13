@@ -9,7 +9,8 @@ import DataStore from '../util/DataStore';
 class HomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToCreateProfile'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 
+                'redirectToCreateProfile', 'redirectToCreateRoutesPage'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToCreateProfile);
         this.header = new Header(this.dataStore);
@@ -22,6 +23,7 @@ class HomePage extends BindingClass {
         //document.getElementById('create').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
+        this.displayEvents();
     }
 
     /**
@@ -40,6 +42,23 @@ class HomePage extends BindingClass {
         createButton.innerText = 'Loading...';
     }
 
+     async displayEvents() {
+        var eventsList = await this.client.getEvents();
+        console.log("Inside displayEvents method eventsList:" + eventsList);
+        let eventHtml = '';
+        let event;
+        for (event of eventsList) {
+            eventHtml += `
+                <li class="route">
+                        <span class="attribute">${"EventId: " + event.eventId }<br>
+                        <span class="attribute"></br>${"Date: " + event.date} <br></span>
+                        <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br></span>  
+                </li>
+            `;
+        }
+         document.getElementById('eventsList').innerHTML = eventHtml;
+         console.log("Inside displayRoutes method route: ", event);
+     }
     /**
      * When the member is updated in the datastore, redirect to the view profile page.
      */
@@ -53,7 +72,7 @@ class HomePage extends BindingClass {
     /**
      * When the route is updated in the datastore, redirect to the view routes page.
      */
-    redirectToCreateProfile() {
+    redirectToCreateRoutesPage() {
         const route = this.dataStore.get('route');
         if (route != null) {
             window.location.href = `/createRoutes.html?id=${route.id}`;
