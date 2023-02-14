@@ -6,6 +6,7 @@ import com.nashss.se.ascendnashville.activity.CreateRouteActivity;
 import com.nashss.se.ascendnashville.activity.GetEventActivity;
 import com.nashss.se.ascendnashville.activity.GetMemberActivity;
 import com.nashss.se.ascendnashville.activity.GetRouteActivity;
+import com.nashss.se.ascendnashville.activity.UpdateEventActivity;
 
 import dagger.Component;
 
@@ -52,4 +53,9 @@ public interface ServiceComponent {
      * @return CreateEventActivity
      */
     CreateEventActivity provideCreateEventActivity();
+    /**
+     * Provides the relevant activity.
+     * @return UpdateEventActivity
+     */
+    UpdateEventActivity provideUpdateEventActivity();
 }
