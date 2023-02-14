@@ -5,6 +5,7 @@ import com.nashss.se.ascendnashville.activity.results.UpdateEventResult;
 import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

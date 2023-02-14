@@ -48,7 +48,7 @@ public class EventDao {
      * Retrieves a single event in event table.
      * <p>
      * If not found, throws EventNotFoundException.
-     *
+     * @param eventId Event ID for a particular event.
      * @return Requested event from the event table
      */
     public Event getEvent(String eventId) {

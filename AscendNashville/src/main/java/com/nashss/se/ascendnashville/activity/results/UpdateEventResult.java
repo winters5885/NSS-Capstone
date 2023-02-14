@@ -2,9 +2,17 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.EventModel;
 
+/**
+ * UpdateEventResult Class.
+ */
 public class UpdateEventResult {
     private final EventModel eventModel;
 
+    /**
+     * Constructor for UpdateEventResult.
+     *
+     * @param eventModel to covert.
+     */
     private UpdateEventResult(EventModel eventModel) {
         this.eventModel = eventModel;
     }

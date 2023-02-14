@@ -1,9 +1,10 @@
 package com.nashss.se.ascendnashville.lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.ascendnashville.activity.requests.UpdateEventRequest;
 import com.nashss.se.ascendnashville.activity.results.UpdateEventResult;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 /**
  * Generates a LambdaResponse.

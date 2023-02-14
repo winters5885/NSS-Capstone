@@ -3,12 +3,23 @@ package com.nashss.se.ascendnashville.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+/**
+ * Instantiates a new UpdateEventRequest object.
+ *
+ */
 @JsonDeserialize(builder = UpdateEventRequest.Builder.class)
 public class UpdateEventRequest {
     private final String eventId;
     private final String date;
     private final String eventDetails;
 
+    /**
+     * Instantiates a new UpdateEventRequest object.
+     *
+     * @param eventId Event ID associated with a particular event.
+     * @param date Date for the event.
+     * @param eventDetails Details about the event.
+     */
     private UpdateEventRequest(String eventId, String date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
