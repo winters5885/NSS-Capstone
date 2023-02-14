@@ -27,12 +27,12 @@ public class CreateMemberLambda
              return input.fromUserClaims(claims -> CreateMemberRequest.builder()
                                 .withMemberId(unauthenticatedRequest.getMemberId())
                                 .withName(claims.get("name"))
-                                .withAge(Integer.valueOf(claims.get("age")))
-                                .withGender(claims.get("gender"))
-                                .withPhoneNumber(claims.get("phoneNumber"))
-                                .withAddress(claims.get("address"))
-                                .withEmailAddress(claims.get("emailAddress"))
-                                .withType(claims.get("type"))
+                                .withAge(unauthenticatedRequest.getAge())
+                                .withGender(unauthenticatedRequest.getGender())
+                                .withPhoneNumber(unauthenticatedRequest.getPhoneNumber())
+                                .withAddress(unauthenticatedRequest.getAddress())
+                                .withEmailAddress(claims.get("email"))
+                                .withType(unauthenticatedRequest.getType())
                                 .build());
                                 } ,
                                 (request, serviceComponent) ->
