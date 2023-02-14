@@ -47,17 +47,17 @@ public class UpdateEventRequest {
         private String date;
         private String eventDetails;
 
-        public Builder withEventId() {
+        public Builder withEventId(String eventId) {
             this.eventId = eventId;
             return this;
         }
 
-        private Builder withDate() {
+        public Builder withDate(String date) {
             this.date = date;
             return this;
         }
 
-        private Builder withEventDetails() {
+        public Builder withEventDetails(String eventDetails) {
             this.eventDetails = eventDetails;
             return this;
         }
