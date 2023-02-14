@@ -1,5 +1,6 @@
 package com.nashss.se.ascendnashville.dynamoDB;
 
+import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -36,7 +37,6 @@ public class EventDao {
      *
      * @return All events in event table
      */
-
     public List<Event> getEvents() {
         log.info("Inside EventDao getEvents.");
 
@@ -44,6 +44,22 @@ public class EventDao {
         return dynamoDBMapper.scan(Event.class, scanExpression);
     }
 
+    /**
+     * Retrieves a single event in event table.
+     * <p>
+     * If not found, throws EventNotFoundException.
+     *
+     * @return Requested event from the event table
+     */
+    public Event getEvent(String eventId) {
+        log.info("Inside EventDao getEvent");
+        Event event = this.dynamoDBMapper.load(Event.class, eventId);
+
+        if (event == null) {
+            throw new EventNotFoundException("Could not find event with id " + eventId);
+        }
+        return event;
+    }
     /**
      * Saves (creates or updates) the given event.
      *
