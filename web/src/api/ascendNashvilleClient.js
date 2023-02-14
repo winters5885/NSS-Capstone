@@ -216,7 +216,7 @@ export default class AscendNashvilleClient extends BindingClass {
     async updateEvent(eventId, date, eventDetails, errorCallback) {
         try {
             const token = await this.getTokenOrThrow("Only authenticated users can create an event.");
-            const response = await this.axiosClient.post(`event/${eventId}/eventDetails`, {
+            const response = await this.axiosClient.put(`event/${eventId}`, {
                 eventId: eventId,
                 date: date,
                 eventDetails: eventDetails,
@@ -225,7 +225,8 @@ export default class AscendNashvilleClient extends BindingClass {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data.event;
+            console.log("Inside updateEvent in the client, response", response);
+            return response.data.eventModel;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
