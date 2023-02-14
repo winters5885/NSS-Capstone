@@ -29,7 +29,7 @@ module.exports = {
     createRoutes:path.resolve(__dirname, 'src', 'pages', 'createRoutes.js'),
     viewRoutes:path.resolve(__dirname, 'src', 'pages', 'viewRoutes.js'),
     createEvents:path.resolve(__dirname, 'src', 'pages', 'createEvents.js'),
-    vieFilteredRoutes:path.resolve(__dirname, 'src', 'pages', 'viewFilteredRoutes.js')
+    viewFilteredRoutes:path.resolve(__dirname, 'src', 'pages', 'viewFilteredRoutes.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

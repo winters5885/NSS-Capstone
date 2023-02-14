@@ -9,7 +9,7 @@ import DataStore from "../util/DataStore";
 class ViewRoutes extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayRoutes', 'populateRouteDifficultyDropdown'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayRoutes', 'populateRouteDifficultyDropdown', 'submit'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         console.log("viewRoutes constructor");
@@ -19,6 +19,7 @@ class ViewRoutes extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
         mount() {
+            document.getElementById('theButton').addEventListener('click', this.submit);
             this.header.addHeaderToPage();
             this.client = new AscendNashvilleClient();
             this.clientLoaded();
@@ -81,6 +82,7 @@ class ViewRoutes extends BindingClass {
     async submit() {
         document.getElementById('theButton').innerText = 'Loading...';
         var difficultyRating = document.getElementById("displayDifficulty").value;
+        console.log("Inside submit function on viewRoutes, difficultyRating: " + difficultyRating)
         window.location.href = '/viewFilteredRoutes.html?difficultyRating=' + difficultyRating + '';
     }
 }
