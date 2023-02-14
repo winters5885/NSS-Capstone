@@ -78,6 +78,16 @@ class HomePage extends BindingClass {
             window.location.href = `/createRoutes.html?id=${route.id}`;
         }
     }
+
+    /**
+     * When the route is updated in the datastore, redirect to the view routes page.
+     */
+    redirectToUpdateEventPage() {
+        const event = this.dataStore.get('event');
+        if (event != null) {
+            window.location.href = `/updateEvent.html?id=${event.id}`;
+        }
+    }
 }
 
 /**

@@ -206,6 +206,33 @@ export default class AscendNashvilleClient extends BindingClass {
     }
 
     /**
+     * Update an existing event.
+     * @param eventId The eventId of the event to update.
+     * @param date
+     * @param eventDetails
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The event that has been updated.
+     */
+    async updateEvent(eventId, date, eventDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can create an event.");
+            const response = await this.axiosClient.put(`event/${eventId}`, {
+                eventId: eventId,
+                date: date,
+                eventDetails: eventDetails,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log("Inside updateEvent in the client, response", response);
+            return response.data.eventModel;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.
      * @param errorCallback (Optional) A function to execute if the call fails.
