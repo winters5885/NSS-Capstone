@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 /**
  * Logic needed for the create home page of the website.
  */
-class HomePage extends BindingClass {
+class AdminHomePage extends BindingClass {
     constructor() {
         super();
         this.bindClassMethods(['mount', 'submit', 'displayEvents', 
@@ -44,7 +44,12 @@ class HomePage extends BindingClass {
 
      async displayEvents() {
         var eventsList = await this.client.getEvents();
-        console.log("Inside displayEvents method eventsList:" + eventsList);
+        console.log("Inside displayEvents AdminHomePage method eventsList:" + eventsList);
+
+        const createButton = document.getElementById('create');
+        //const origButtonText = createButton.innerText;
+        //createButton.innerText = 'Loading...';
+
         let eventHtml = '';
         let event;
         for (event of eventsList) {
@@ -52,12 +57,13 @@ class HomePage extends BindingClass {
                 <li class="route">
                         <span class="attribute">${"EventId: " + event.eventId }<br>
                         <span class="attribute"></br>${"Date: " + event.date} <br></span>
-                        <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br></span>  
+                        <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
+                        <span class="button"></br>${createButton}<br></span>  
                 </li>
             `;
         }
          document.getElementById('eventsList').innerHTML = eventHtml;
-         console.log("Inside displayRoutes method route: ", event);
+         console.log("Inside displayRoutes AdminHomePage method route: ", event);
      }
     /**
      * When the member is updated in the datastore, redirect to the view profile page.
@@ -94,8 +100,8 @@ class HomePage extends BindingClass {
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const homePage = new HomePage();
-    homePage.mount();
+    const adminHomePage = new AdminHomePage();
+    adminHomePage.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);
