@@ -56,7 +56,7 @@ public class DeleteEventActivity {
         eventDao.deleteEvent(event);
 
         return DeleteEventResult.builder()
-                .withEvent(new ModelConverter().toDeletedEventModel(event))
+                .withEvent(new ModelConverter().toEventModel(event))
                 .build();
     }
 }

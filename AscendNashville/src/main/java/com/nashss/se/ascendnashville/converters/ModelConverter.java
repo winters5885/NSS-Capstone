@@ -90,17 +90,4 @@ public class ModelConverter {
         }
         return eventModels;
     }
-
-    /**
-     * Converts a provided {@link Event} into a {@link EventModel} representation.
-     *
-     * @param event the event to convert
-     * @return the converted event
-     */
-    public EventModel toDeletedEventModel(Event event) {
-        return EventModel.builder()
-                .withEventId(event.getEventId())
-                .withDeleteStatus(false)
-                .build();
-    }
 }

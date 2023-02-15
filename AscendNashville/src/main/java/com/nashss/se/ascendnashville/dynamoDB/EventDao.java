@@ -75,7 +75,7 @@ public class EventDao {
     /**
      * Deletes the given event associated with the provided event ID.
      *
-     * @param eventId The event to delete
+     * @param event The event to delete
      */
     public void deleteEvent(Event event) {
         this.dynamoDBMapper.delete(event);

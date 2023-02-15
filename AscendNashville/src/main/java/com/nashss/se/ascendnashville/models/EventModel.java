@@ -10,13 +10,11 @@ public class EventModel {
     private final String eventId;
     private final String date;
     private final String eventDetails;
-    private final Boolean deleted;
 
-    private EventModel(String eventId, String date, String eventDetails, Boolean deleted) {
+    private EventModel(String eventId, String date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
-        this.deleted = deleted;
     }
 
     public String getEventId() {
@@ -31,9 +29,6 @@ public class EventModel {
         return eventDetails;
     }
 
-    public Boolean getDeleted() {
-        return deleted;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -45,13 +40,12 @@ public class EventModel {
         EventModel that = (EventModel) o;
         return Objects.equals(eventId, that.eventId) &&
                 Objects.equals(date, that.date) &&
-                Objects.equals(eventDetails, that.eventDetails) &&
-                Objects.equals(deleted, that.deleted);
+                Objects.equals(eventDetails, that.eventDetails);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, date, eventDetails, deleted);
+        return Objects.hash(eventId, date, eventDetails);
     }
 
     //CHECKSTYLE:OFF:Builder
@@ -78,11 +72,6 @@ public class EventModel {
             return this;
         }
 
-        public Builder withDeleteStatus(Boolean deleted) {
-            this.deleted = deleted;
-            return this;
-        }
-
-        public EventModel build() { return new EventModel(eventId, date, eventDetails, deleted);}
+        public EventModel build() { return new EventModel(eventId, date, eventDetails);}
     }
 }

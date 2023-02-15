@@ -52,7 +52,6 @@ public interface ServiceComponent {
      * @return UpdateEventActivity
      */
     UpdateEventActivity provideUpdateEventActivity();
-
     /**
      * Provides the relevant activity.
      * @return DeleteEventActivity
