@@ -4,7 +4,7 @@ import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
 /**
- * Logic needed for the update event page of the website.
+ * Logic needed for the delete event page of the website.
  */
 class DeleteEvent extends BindingClass {
     constructor() {
@@ -25,7 +25,7 @@ class DeleteEvent extends BindingClass {
     }
 
     /**
-     * Method to run when the Update Event submit button is pressed. Call the AscendNashville service to update the
+     * Method to run when the Delete Event submit button is pressed. Call the AscendNashville service to delete the
      * event.
      */
     async submit(evt) {
@@ -40,10 +40,8 @@ class DeleteEvent extends BindingClass {
         createButton.innerText = 'Loading...';
 
         const eventId = document.getElementById('eventId').value;
-        //const date = document.getElementById('date').value;
-        //const eventDetails = document.getElementById('eventDetails').value;
 
-        const event = await this.client.deleteEvent(eventId,(error) => {
+        const event = await this.client.deleteEvent(eventId, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
@@ -53,10 +51,10 @@ class DeleteEvent extends BindingClass {
     }
 
     /**
-     * When the event is updated in the datastore, redirect to the home page.
+     * When the event is deleted in the datastore, redirect to the home page.
      */
     redirectToHomePage() {
-        console.log("Inside redirectToHomePage method in updateEvents.js.")
+        console.log("Inside redirectToHomePage method in deleteEvent.js.")
         const event = this.dataStore.get('event');
         if (event != null) {
             window.location.href = `/index.html`;
@@ -68,8 +66,8 @@ class DeleteEvent extends BindingClass {
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const updateEvent = new UpdateEvent();
-    updateEvent.mount();
+    const deleteEvent = new DeleteEvent();
+    deleteEvent.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);

@@ -5,13 +5,15 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.ascendnashville.activity.requests.DeleteEventRequest;
 
 import com.nashss.se.ascendnashville.activity.results.DeleteEventResult;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Generates a LambdaResponse.
  */
 public class DeleteEventLambda extends LambdaActivityRunner<DeleteEventRequest, DeleteEventResult>
         implements RequestHandler<AuthenticatedLambdaRequest<DeleteEventRequest>, LambdaResponse> {
-
+    private final Logger log = LogManager.getLogger();
     /**
      *
      * @param input The Authenticated Lambda Function input
@@ -20,13 +22,14 @@ public class DeleteEventLambda extends LambdaActivityRunner<DeleteEventRequest, 
      */
     @Override
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<DeleteEventRequest> input, Context context) {
-        DeleteEventRequest unauthenticatedRequest = input.fromBody(DeleteEventRequest.class);
+        log.info("Inside handleRequest for DeleteEventLambda unauthenticatedRequest:");
+
 
         return super.runActivity(() -> input.fromPath(path ->
                 DeleteEventRequest.builder()
-                        .withEventId(unauthenticatedRequest.getEventId())
-                        .withDate(unauthenticatedRequest.getDate())
-                        .withEventDetails(unauthenticatedRequest.getEventDetails())
+                        .withEventId(path.get("eventId"))
+                        //.withDate(unauthenticatedRequest.getDate())
+                        //.withEventDetails(unauthenticatedRequest.getEventDetails())
                         .build()),
                 (request, serviceComponent) ->
                 serviceComponent.provideDeleteEventActivity().handleRequest(request));

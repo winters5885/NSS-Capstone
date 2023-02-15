@@ -26,8 +26,8 @@ public class UpdateEventLambda extends LambdaActivityRunner<UpdateEventRequest, 
                     return input.fromUserClaims(claims ->
                             UpdateEventRequest.builder()
                                     .withEventId(unauthenticatedRequest.getEventId())
-                                    .withEventDetails(unauthenticatedRequest.getEventDetails())
                                     .withDate(unauthenticatedRequest.getDate())
+                                    .withEventDetails(unauthenticatedRequest.getEventDetails())
                                     .build());
                 },
                 (request, serviceComponent) ->
