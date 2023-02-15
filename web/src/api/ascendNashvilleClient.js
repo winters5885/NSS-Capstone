@@ -187,11 +187,10 @@ export default class AscendNashvilleClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The event that has been created.
      */
-    async createEvent(eventId, date, eventDetails, errorCallback) {
+    async createEvent(date, eventDetails, errorCallback) {
         try {
             const token = await this.getTokenOrThrow("Only authenticated users can create an event.");
             const response = await this.axiosClient.post(`event`, {
-                eventId: eventId,
                 date: date,
                 eventDetails: eventDetails,
             }, {
@@ -232,6 +231,28 @@ export default class AscendNashvilleClient extends BindingClass {
         }
     }
 
+    /**
+     * Delete an existing event.
+     * @param eventId The eventId of the event to update.
+     * @param date
+     * @param eventDetails
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The event that has been deleted.
+     */
+        async deleteEvent(eventId,  errorCallback) {
+            try {
+                const token = await this.getTokenOrThrow("Only authenticated users can create an event.");
+                const response = await this.axiosClient.delete(`event/${eventId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log("Inside deleteEvent in the client, response", response);
+                return response.data.eventModel;
+            } catch (error) {
+                this.handleError(error, errorCallback)
+            }
+        }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.
