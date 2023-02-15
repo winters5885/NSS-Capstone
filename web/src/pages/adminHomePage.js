@@ -9,7 +9,8 @@ import DataStore from '../util/DataStore';
 class HomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 
+                'redirectToCreateProfile', 'redirectToCreateRoutesPage'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToCreateProfile);
         this.header = new Header(this.dataStore);
@@ -23,7 +24,6 @@ class HomePage extends BindingClass {
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
         this.displayEvents();
-        this.displayRoutes();
     }
 
     /**
@@ -50,7 +50,8 @@ class HomePage extends BindingClass {
         for (event of eventsList) {
             eventHtml += `
                 <li class="route">
-                        <span class="attribute"></br>${"Event Date: " + event.date} <br>
+                        <span class="attribute">${"EventId: " + event.eventId }<br>
+                        <span class="attribute"></br>${"Date: " + event.date} <br></span>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br></span>  
                 </li>
             `;
@@ -58,24 +59,35 @@ class HomePage extends BindingClass {
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes method route: ", event);
      }
-
-     async displayRoutes() {
-        var routesList = await this.client.getRoutes();
-  
-        let routeHtml = '';
-        let route;
-        for (route of routesList) {
-            routeHtml += `
-                <li class="route">
-                        <span class="attribute">${"Route Number: " + route.routeId }<br>
-                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
-                        <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>  
-                </li>
-            `;
+    /**
+     * When the member is updated in the datastore, redirect to the view profile page.
+     */
+    redirectToCreateProfile() {
+        const member = this.dataStore.get('member');
+        if (member != null) {
+            window.location.href = `/createMemberProfile.html?id=${member.id}`;
         }
-         document.getElementById('route').innerHTML = routeHtml;
-         console.log("Inside displayRoutes method route: ", route);
-     }
+    }
+
+    /**
+     * When the route is updated in the datastore, redirect to the view routes page.
+     */
+    redirectToCreateRoutesPage() {
+        const route = this.dataStore.get('route');
+        if (route != null) {
+            window.location.href = `/createRoutes.html?id=${route.id}`;
+        }
+    }
+
+    /**
+     * When the route is updated in the datastore, redirect to the view routes page.
+     */
+    redirectToUpdateEventPage() {
+        const event = this.dataStore.get('event');
+        if (event != null) {
+            window.location.href = `/updateEvent.html?id=${event.id}`;
+        }
+    }
 }
 
 /**
