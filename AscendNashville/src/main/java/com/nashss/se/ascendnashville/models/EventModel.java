@@ -55,6 +55,7 @@ public class EventModel {
         private String eventId;
         private String date;
         private String eventDetails;
+        private Boolean deleted;
 
         public Builder withEventId(String eventId) {
             this.eventId = eventId;

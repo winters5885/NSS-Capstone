@@ -60,6 +60,7 @@ public class EventDao {
         }
         return event;
     }
+
     /**
      * Saves (creates or updates) the given event.
      *
@@ -70,4 +71,14 @@ public class EventDao {
         this.dynamoDBMapper.save(event);
         return event;
     }
+
+    /**
+     * Deletes the given event associated with the provided event ID.
+     *
+     * @param event The event to delete
+     */
+    public void deleteEvent(Event event) {
+        this.dynamoDBMapper.delete(event);
+    }
+
 }
