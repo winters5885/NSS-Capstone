@@ -1,12 +1,6 @@
 package com.nashss.se.ascendnashville.dependency;
 
-import com.nashss.se.ascendnashville.activity.CreateEventActivity;
-import com.nashss.se.ascendnashville.activity.CreateMemberActivity;
-import com.nashss.se.ascendnashville.activity.CreateRouteActivity;
-import com.nashss.se.ascendnashville.activity.GetEventActivity;
-import com.nashss.se.ascendnashville.activity.GetMemberActivity;
-import com.nashss.se.ascendnashville.activity.GetRouteActivity;
-import com.nashss.se.ascendnashville.activity.UpdateEventActivity;
+import com.nashss.se.ascendnashville.activity.*;
 
 import dagger.Component;
 
@@ -58,4 +52,10 @@ public interface ServiceComponent {
      * @return UpdateEventActivity
      */
     UpdateEventActivity provideUpdateEventActivity();
+
+    /**
+     * Provides the relevant activity.
+     * @return DeleteEventActivity
+     */
+    DeleteEventActivity provideDeleteEventActivity();
 }

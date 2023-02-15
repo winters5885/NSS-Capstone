@@ -10,11 +10,13 @@ public class EventModel {
     private final String eventId;
     private final String date;
     private final String eventDetails;
+    private final Boolean deleted;
 
-    private EventModel(String eventId, String date, String eventDetails) {
+    private EventModel(String eventId, String date, String eventDetails, Boolean deleted) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
+        this.deleted = deleted;
     }
 
     public String getEventId() {
@@ -29,6 +31,9 @@ public class EventModel {
         return eventDetails;
     }
 
+    public Boolean getDeleted() {
+        return deleted;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -40,12 +45,13 @@ public class EventModel {
         EventModel that = (EventModel) o;
         return Objects.equals(eventId, that.eventId) &&
                 Objects.equals(date, that.date) &&
-                Objects.equals(eventDetails, that.eventDetails);
+                Objects.equals(eventDetails, that.eventDetails) &&
+                Objects.equals(deleted, that.deleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, date, eventDetails);
+        return Objects.hash(eventId, date, eventDetails, deleted);
     }
 
     //CHECKSTYLE:OFF:Builder
@@ -55,6 +61,7 @@ public class EventModel {
         private String eventId;
         private String date;
         private String eventDetails;
+        private Boolean deleted;
 
         public Builder withEventId(String eventId) {
             this.eventId = eventId;
@@ -71,6 +78,11 @@ public class EventModel {
             return this;
         }
 
-        public EventModel build() { return new EventModel(eventId, date, eventDetails);}
+        public Builder withDeleteStatus(Boolean deleted) {
+            this.deleted = deleted;
+            return this;
+        }
+
+        public EventModel build() { return new EventModel(eventId, date, eventDetails, deleted);}
     }
 }
