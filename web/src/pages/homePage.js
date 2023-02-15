@@ -76,6 +76,13 @@ class HomePage extends BindingClass {
          document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
      }
+
+     redirectToUpdateAdminPage() {
+        const event = this.dataStore.get('event');
+        if (event != null) {
+            window.location.href = `/adminIndex.html?id=${event.id}`;
+        }
+    }
 }
 
 /**
