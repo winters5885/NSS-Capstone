@@ -61,7 +61,7 @@ class CreateRoutes extends BindingClass {
         console.log("Inside redirectToViewRoutes method.")
         const route = this.dataStore.get('route');
         if (route != null) {
-            window.location.href = `/viewRoutes.html?id=${route.routeId}`;
+            window.location.href = `/adminIndex.html`;
         }
     }
 }
