@@ -54,6 +54,7 @@ public class UpdateEventActivity {
         Event event = eventDao.getEvent(updateEventRequest.getEventId());
 
         event.setEventDetails(updateEventRequest.getEventDetails());
+        event.setDate(updateEventRequest.getDate());
         event = eventDao.saveEvent(event);
 
         return UpdateEventResult.builder()
