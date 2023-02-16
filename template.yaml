@@ -81,7 +81,7 @@ Resources:
         - !If
           - DeployCloudFront
           - !Sub "https://${CloudfrontDistribution.DomainName}"
-          - http://localhost:8000/index.html
+          - http://localhost:8000/adminIndex.html
       LogoutURLs:
         - !If
           - DeployCloudFront
