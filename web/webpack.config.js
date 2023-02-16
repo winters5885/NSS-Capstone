@@ -31,7 +31,8 @@ module.exports = {
     createEvents:path.resolve(__dirname, 'src', 'pages', 'createEvents.js'),
     updateEvent:path.resolve(__dirname, 'src', 'pages', 'updateEvent.js'),
     deleteEvent:path.resolve(__dirname, 'src', 'pages', 'deleteEvent.js'),
-    adminHomePage:path.resolve(__dirname, 'src', 'pages', 'adminHomePage.js')
+    adminHomePage:path.resolve(__dirname, 'src', 'pages', 'adminHomePage.js'),
+    deleteRoute:path.resolve(__dirname, 'src', 'pages', 'deleteRoute.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
