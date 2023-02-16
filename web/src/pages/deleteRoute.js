@@ -4,9 +4,9 @@ import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
 /**
- * Logic needed for the delete event page of the website.
+ * Logic needed for the delete route page of the website.
  */
-class DeleteEvent extends BindingClass {
+class DeleteRoute extends BindingClass {
     constructor() {
         super();
         this.bindClassMethods(['mount', 'submit', 'redirectToHomePage'], this);
@@ -40,25 +40,25 @@ class DeleteEvent extends BindingClass {
         createButton.innerText = 'Loading...';
         
         const urlParams = new URLSearchParams(window.location.search);
-        const eventIdFromURL = urlParams.get('eventId'); 
+        const routeIdFromURL = urlParams.get('routeId'); 
         //const eventId = document.getElementById('eventId').value;
 
-        const event = await this.client.deleteEvent(eventIdFromURL, (error) => {
+        const route = await this.client.deleteRoute(routeIdFromURL, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
         });
-        console.log("Inside submit for DeleteEvent, event:", event);
-        this.dataStore.set('event', event);
+        console.log("Inside submit for DeleteEvent, route:", route);
+        this.dataStore.set('route', route);
     }
 
     /**
      * When the event is deleted in the datastore, redirect to the home page.
      */
     redirectToHomePage() {
-        console.log("Inside redirectToHomePage method in deleteEvent.js.")
-        const event = this.dataStore.get('event');
-        if (event != null) {
+        console.log("Inside redirectToHomePage method in deleteRoute.js.")
+        const route = this.dataStore.get('route');
+        if (route != null) {
             window.location.href = `/index.html`;
         }
     }
@@ -68,8 +68,8 @@ class DeleteEvent extends BindingClass {
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const deleteEvent = new DeleteEvent();
-    deleteEvent.mount();
+    const deleteRoute = new DeleteRoute();
+    deleteRoute.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);

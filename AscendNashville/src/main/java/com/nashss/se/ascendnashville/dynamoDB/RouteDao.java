@@ -1,5 +1,8 @@
 package com.nashss.se.ascendnashville.dynamoDB;
 
+import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
+import com.nashss.se.ascendnashville.Exceptions.RouteNotFoundException;
+import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -53,6 +56,22 @@ public class RouteDao {
     }
 
     /**
+     * Retrieves a single route in route table.
+     * <p>
+     * If not found, throws RouteNotFoundException.
+     * @param routeId Route ID for a particular route.
+     * @return Requested route from the route table
+     */
+    public Route getRoute(String routeId) {
+        log.info("Inside RouteDao getRoute");
+        Route route = this.dynamoDBMapper.load(Route.class, routeId);
+
+        if (route == null) {
+            throw new RouteNotFoundException("Could not find event with id " + routeId);
+        }
+        return route;
+    }
+    /**
      * Retrieves all routes in route table filtered by difficulty rating.
      * <p>
      * If not found, throws RouteNotFoundException.
@@ -84,6 +103,15 @@ public class RouteDao {
     public Route saveRoute(Route route) {
         this.dynamoDBMapper.save(route);
         return route;
+    }
+
+    /**
+     * Deletes the given route associated with the provided route ID.
+     *
+     * @param route The route to delete
+     */
+    public void deleteRoute(Route route) {
+        this.dynamoDBMapper.delete(route);
     }
 }
 

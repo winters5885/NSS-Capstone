@@ -39,6 +39,12 @@ public interface ServiceComponent {
 
     /**
      * Provides the relevant activity.
+     * @return DeleteRouteActivity
+     */
+    DeleteRouteActivity provideDeleteRouteActivity();
+
+    /**
+     * Provides the relevant activity.
      * @return GetEventActivity
      */
     GetEventActivity provideGetEventActivity();

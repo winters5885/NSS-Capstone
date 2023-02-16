@@ -24,12 +24,9 @@ public class DeleteEventLambda extends LambdaActivityRunner<DeleteEventRequest, 
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<DeleteEventRequest> input, Context context) {
         log.info("Inside handleRequest for DeleteEventLambda unauthenticatedRequest:");
 
-
         return super.runActivity(() -> input.fromPath(path ->
                 DeleteEventRequest.builder()
                         .withEventId(path.get("eventId"))
-                        //.withDate(unauthenticatedRequest.getDate())
-                        //.withEventDetails(unauthenticatedRequest.getEventDetails())
                         .build()),
                 (request, serviceComponent) ->
                 serviceComponent.provideDeleteEventActivity().handleRequest(request));

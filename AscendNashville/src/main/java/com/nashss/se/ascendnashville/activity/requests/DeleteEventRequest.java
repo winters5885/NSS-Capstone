@@ -9,40 +9,24 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 @JsonDeserialize(builder = DeleteEventRequest.Builder.class)
 public class DeleteEventRequest {
     private final String eventId;
-    private final String date;
-    private final String eventDetails;
 
     /**
      * Instantiates a new DeleteEventRequest object.
      *
      * @param eventId Event ID associated with a particular event.
-     * @param date Date for the event.
-     * @param eventDetails Details about the event.
      */
-    private DeleteEventRequest(String eventId, String date, String eventDetails) {
+    private DeleteEventRequest(String eventId) {
         this.eventId = eventId;
-        this.date = date;
-        this.eventDetails = eventDetails;
     }
 
     public String getEventId() {
         return eventId;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getEventDetails() {
-        return eventDetails;
-    }
-
     @Override
     public String toString() {
         return "DeleteEventRequest{" +
                 "eventId='" + eventId + '\'' +
-                ", date='" + date + '\'' +
-                ", eventDetails='" + eventDetails + '\'' +
                 '}';
     }
 
@@ -54,26 +38,14 @@ public class DeleteEventRequest {
     @JsonPOJOBuilder
     public static class Builder {
         private String eventId;
-        private String date;
-        private String eventDetails;
 
         public DeleteEventRequest.Builder withEventId(String eventId) {
             this.eventId = eventId;
             return this;
         }
 
-        public DeleteEventRequest.Builder withDate(String date) {
-            this.date = date;
-            return this;
-        }
-
-        public DeleteEventRequest.Builder withEventDetails(String eventDetails) {
-            this.eventDetails = eventDetails;
-            return this;
-        }
-
         public DeleteEventRequest build() {
-            return new DeleteEventRequest(eventId, date, eventDetails);
+            return new DeleteEventRequest(eventId);
         }
     }
 }

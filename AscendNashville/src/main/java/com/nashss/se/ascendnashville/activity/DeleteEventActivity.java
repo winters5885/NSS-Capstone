@@ -3,7 +3,7 @@ package com.nashss.se.ascendnashville.activity;
 
 import com.nashss.se.ascendnashville.activity.requests.DeleteEventRequest;
 import com.nashss.se.ascendnashville.activity.results.DeleteEventResult;
-import com.nashss.se.ascendnashville.activity.results.UpdateEventResult;
+
 import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
@@ -18,7 +18,6 @@ import javax.inject.Inject;
  * This API allows the customer to delete an event.
  */
 public class DeleteEventActivity {
-
     private final Logger log = LogManager.getLogger();
     private final EventDao eventDao;
 
@@ -45,7 +44,7 @@ public class DeleteEventActivity {
      * If the request tries to update the event Id,
      * this should throw an InvalidAttributeChangeException
      *
-     * @param deleteEventRequest request object containing the event ID, date, and event details
+     * @param deleteEventRequest request object containing the event ID
      *                              associated with it
      */
     public DeleteEventResult handleRequest(final DeleteEventRequest deleteEventRequest) {

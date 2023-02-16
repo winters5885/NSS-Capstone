@@ -18,7 +18,7 @@ export default class AscendNashvilleClient extends BindingClass {
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 
                                 'logout', 'getMember', 'createMember', 
                                 'getRoutes', 'createRoutes', 'getEvents',
-                                'createEvent'];
+                                'createEvent', 'deleteRoute'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -137,6 +137,26 @@ export default class AscendNashvilleClient extends BindingClass {
     }
 
     /**
+     * Delete an existing route.
+     * @param routeId The routeId of the route to delete.
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The route that has been deleted.
+     */
+    async deleteRoute(routeId,  errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can delete a route.");
+            const response = await this.axiosClient.delete(`route/${routeId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log("Inside deleteEvent in the client, response", response);
+            return response.data.routeModel;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+    /**
      * Create a new route.
      * @param routeId The routeId of the route to create.
      * @param difficultyRating
@@ -234,8 +254,6 @@ export default class AscendNashvilleClient extends BindingClass {
     /**
      * Delete an existing event.
      * @param eventId The eventId of the event to update.
-     * @param date
-     * @param eventDetails
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The event that has been deleted.
      */
