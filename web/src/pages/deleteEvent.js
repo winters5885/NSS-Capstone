@@ -38,10 +38,12 @@ class DeleteEvent extends BindingClass {
         const createButton = document.getElementById('create');
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventIdFromURL = urlParams.get('eventId'); 
+        //const eventId = document.getElementById('eventId').value;
 
-        const eventId = document.getElementById('eventId').value;
-
-        const event = await this.client.deleteEvent(eventId, (error) => {
+        const event = await this.client.deleteEvent(eventIdFromURL, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');

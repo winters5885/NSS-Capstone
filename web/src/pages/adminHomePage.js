@@ -73,10 +73,10 @@ class AdminHomePage extends BindingClass {
                 <li class="route">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <span class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>${"Update this Event"}<span>  
+                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br><button>
+                        <button class="button" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br><button>  
                 </li>
             `;
-           // <span class="button" onclick="location.href = 'deleteEvent.html'"></br>${"Delete This Event"}<br><span>
         }
         
          document.getElementById('eventsList').innerHTML = eventHtml;
