@@ -25,7 +25,7 @@ class DeleteEvent extends BindingClass {
     }
 
     /**
-     * Method to run when the Delete Event submit button is pressed. Call the AscendNashville service to delete the
+     * Method to run when the Delete button is pressed. Call the AscendNashville service to delete the
      * event.
      */
     async submit(evt) {

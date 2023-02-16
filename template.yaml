@@ -263,6 +263,8 @@ Resources:
           Properties:
             Path: /member/{memberId}
             Method: get
+            Auth:
+              Authorizer: 'NONE'
 
 
   CreateMemberLambda:
@@ -325,6 +327,8 @@ Resources:
           Properties:
             Path: /route
             Method: get
+            Auth:
+              Authorizer: 'NONE'
 
   CreateEventLambda:
     Type: AWS::Serverless::Function
@@ -365,6 +369,8 @@ Resources:
           Properties:
             Path: /event
             Method: get
+            Auth:
+              Authorizer: 'NONE'
 
   UpdateEventLambda:
     Type: AWS::Serverless::Function

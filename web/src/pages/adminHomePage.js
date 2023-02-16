@@ -9,10 +9,9 @@ import DataStore from '../util/DataStore';
 class AdminHomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 
-                'redirectToCreateProfile', 'redirectToCreateRoutesPage'], this);
+        this.bindClassMethods(['mount', 'submit'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.redirectToCreateProfile);
+        this.dataStore.addChangeListener(this.redirectToUpdateEventPage);
         this.header = new Header(this.dataStore);
     }
 
@@ -40,6 +39,25 @@ class AdminHomePage extends BindingClass {
         const createButton = document.getElementById('create');
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        var eventIdtoUpdate = urlParams.get('eventId');
+
+        const event = await this.client.getEvent(eventIdtoUpdate, (error) => {
+            createButton.innerText = origButtonText;
+            errorMessageDisplay.innerText = `Error: ${error.message}`;
+            errorMessageDisplay.classList.remove('hidden');
+        });
+        this.dataStore.set('event', event);
+        // evt.preventDefault();
+
+        // const errorMessageDisplay = document.getElementById('error-message');
+        // errorMessageDisplay.innerText = ``;
+        // errorMessageDisplay.classList.add('hidden');
+
+        // const createButton = document.getElementById('create');
+        // const origButtonText = createButton.innerText;
+        // createButton.innerText = 'Loading...';
     }
 
      async displayEvents() {
@@ -55,45 +73,18 @@ class AdminHomePage extends BindingClass {
         for (event of eventsList) {
             eventHtml += `
                 <li class="route">
-                        <span class="attribute">${"EventId: " + event.eventId }<br>
-                        <span class="attribute"></br>${"Date: " + event.date} <br></span>
+                        <span class="attribute">${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <span class="button"></br>${createButton}<br></span>  
+                        <span class="button" onclick="location.href = 'updateEvent.html'"></br>${"Update this Event"}<br><span>
+                        <span class="button" onclick="location.href = 'deleteEvent.html'"></br>${"Delete this Event"}<br></span>  
                 </li>
             `;
         }
+        
+         //this.dataStore.set('event', event);
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes AdminHomePage method route: ", event);
      }
-    /**
-     * When the member is updated in the datastore, redirect to the view profile page.
-     */
-    redirectToCreateProfile() {
-        const member = this.dataStore.get('member');
-        if (member != null) {
-            window.location.href = `/createMemberProfile.html?id=${member.id}`;
-        }
-    }
-
-    /**
-     * When the route is updated in the datastore, redirect to the view routes page.
-     */
-    redirectToCreateRoutesPage() {
-        const route = this.dataStore.get('route');
-        if (route != null) {
-            window.location.href = `/createRoutes.html?id=${route.id}`;
-        }
-    }
-
-    /**
-     * When the route is updated in the datastore, redirect to the view routes page.
-     */
-    redirectToUpdateEventPage() {
-        const event = this.dataStore.get('event');
-        if (event != null) {
-            window.location.href = `/updateEvent.html?id=${event.id}`;
-        }
-    }
 }
 
 /**
