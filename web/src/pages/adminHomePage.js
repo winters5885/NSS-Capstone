@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class AdminHomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -22,6 +22,7 @@ class AdminHomePage extends BindingClass {
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
         this.displayEvents();
+        this.displayRoutes();
     }
 
     /**
@@ -81,6 +82,28 @@ class AdminHomePage extends BindingClass {
         
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes AdminHomePage method route: ", event);
+     }
+
+     async displayRoutes() {
+        var routesList = await this.client.getRoutes();
+  
+        let routeHtml = '';
+        let route;
+        for (route of routesList) {
+            var specificRouteId = route.routeId;
+            console.log("specificRouteId: " + specificRouteId);
+
+            routeHtml += `
+                <li class="route">
+                        <span class="attribute">${"Route Number: " + route.routeId }<br>
+                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+                        <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>
+                        <button class="button" onclick="location.href = 'deleteRoute.html?routeId=' + ${specificRouteId}"></br>Delete This Route</br><button>  
+                </li>
+            `;
+        }
+         document.getElementById('route').innerHTML = routeHtml;
+         console.log("Inside displayRoutes method route: ", route);
      }
 
 }

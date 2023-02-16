@@ -56,7 +56,7 @@ class HomePage extends BindingClass {
             `;
         }
          document.getElementById('eventsList').innerHTML = eventHtml;
-         console.log("Inside displayRoutes method route: ", event);
+         console.log("Inside displayRoutes method event: ", event);
      }
 
      async displayRoutes() {
