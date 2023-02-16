@@ -39,11 +39,13 @@ class UpdateEvent extends BindingClass {
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
 
-        const eventId = document.getElementById('eventId').value;
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventIdFromURL = urlParams.get('id'); 
+
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
 
-        const event = await this.client.updateEvent(eventId, date, eventDetails,(error) => {
+        const event = await this.client.updateEvent(eventIdFromURL, date, eventDetails,(error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');

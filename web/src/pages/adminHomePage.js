@@ -9,9 +9,8 @@ import DataStore from '../util/DataStore';
 class AdminHomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.redirectToUpdateEventPage);
         this.header = new Header(this.dataStore);
     }
 
@@ -71,21 +70,24 @@ class AdminHomePage extends BindingClass {
         let eventHtml = '';
         let event;
         for (event of eventsList) {
+            var specificEventId = event.eventId;
             eventHtml += `
                 <li class="route">
-                        <span class="attribute">${"Date: " + event.date} <br>
+                        <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <span class="button" onclick="location.href = 'updateEvent.html'"></br>${"Update this Event"}<br><span>
-                        <span class="button" onclick="location.href = 'deleteEvent.html'"></br>${"Delete this Event"}<br></span>  
+                        <span class="button" onclick="location.href = 'updateEvent.html?id=' + ${specificEventId}"></br>${"Update this Event"}<span>  
                 </li>
             `;
+            
         }
         
          //this.dataStore.set('event', event);
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes AdminHomePage method route: ", event);
      }
+
 }
+
 
 /**
  * Main method to run when the page contents have loaded.
