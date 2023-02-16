@@ -63,25 +63,22 @@ class AdminHomePage extends BindingClass {
         var eventsList = await this.client.getEvents();
         console.log("Inside displayEvents AdminHomePage method eventsList:" + eventsList);
 
-        const createButton = document.getElementById('create');
-        //const origButtonText = createButton.innerText;
-        //createButton.innerText = 'Loading...';
-
         let eventHtml = '';
         let event;
         for (event of eventsList) {
             var specificEventId = event.eventId;
+            console.log("specificEventId: " + specificEventId);
+
             eventHtml += `
                 <li class="route">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <span class="button" onclick="location.href = 'updateEvent.html?id=' + ${specificEventId}"></br>${"Update this Event"}<span>  
+                        <span class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>${"Update this Event"}<span>  
                 </li>
             `;
-            
+           // <span class="button" onclick="location.href = 'deleteEvent.html'"></br>${"Delete This Event"}<br><span>
         }
         
-         //this.dataStore.set('event', event);
          document.getElementById('eventsList').innerHTML = eventHtml;
          console.log("Inside displayRoutes AdminHomePage method route: ", event);
      }

@@ -40,7 +40,7 @@ class UpdateEvent extends BindingClass {
         createButton.innerText = 'Loading...';
 
         const urlParams = new URLSearchParams(window.location.search);
-        const eventIdFromURL = urlParams.get('id'); 
+        const eventIdFromURL = urlParams.get('eventId'); 
 
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
