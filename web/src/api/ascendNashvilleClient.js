@@ -18,7 +18,7 @@ export default class AscendNashvilleClient extends BindingClass {
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 
                                 'logout', 'getMember', 'createMember', 
                                 'getRoutes', 'createRoutes', 'getEvents',
-                                'createEvent', 'deleteRoute', 'verifyLogin'];
+                                'createEvent', 'deleteRoute', 'getEvent', 'verifyLogin'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -206,6 +206,22 @@ export default class AscendNashvilleClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+
+    /**
+     * Gets the event for the given ID.
+     * @param eventId Unique identifier for a member
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The event's metadata.
+     */
+        async getEvent(eventId, errorCallback) {
+            try {
+                const response = await this.axiosClient.get(`event/${eventId}`);
+                console.log("Inside the client getEvent method, response: ",response);
+                return response.data.eventModel;
+            } catch (error) {
+                this.handleError(error, errorCallback)
+            }
+        }
 
     /**
      * Create a new event.

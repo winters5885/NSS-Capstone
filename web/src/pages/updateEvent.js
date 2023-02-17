@@ -42,9 +42,6 @@ class UpdateEvent extends BindingClass {
          
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId');
-        var dateFromURL = eventIdFromURL.date;
-        
-
 
         document.createElement('dateForm').setAttribute('previousDate', previousDate); 
         const date = document.getElementById('date').value;
@@ -60,10 +57,16 @@ class UpdateEvent extends BindingClass {
     }
 
     async prepopulateForms() {
-        const currentDate = new URLSearchParams(window.location.search);
-        const dateFromURL = currentDate.get("date")
-        console.log("Inside prepopulateForms, datefromURL: " + dateFromURL)
-        document.getElementById('date').defaultValue = dateFromURL;
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventIdFromURL = urlParams.get('eventId');
+        console.log("Inside prepopulateForms, eventIdFromURL: " + eventIdFromURL)
+        
+        const currentEvent = await this.client.getEvent(eventIdFromURL);
+        console.log("Inside prepopulateForms, currentEvent: " + currentEvent)
+        //const currentDate = new URLSearchParams(window.location.search);
+        const dateFromRequest = currentEvent.date; //currentDate.get("date")
+        console.log("Inside prepopulateForms, dateFromRequest: " + dateFromRequest)
+        document.getElementById('date').defaultValue = dateFromRequest;
     }
     /**
      * When the event is updated in the datastore, redirect to the home page.
