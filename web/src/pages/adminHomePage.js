@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class AdminHomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes', 'confirmLogin'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -23,8 +23,16 @@ class AdminHomePage extends BindingClass {
         this.client = new AscendNashvilleClient();
         this.displayEvents();
         this.displayRoutes();
+        this.confirmLogin();
     }
 
+    async confirmLogin() {
+        var isLoggedIn = await this.client.verifyLogin();
+        console.log("Inside confirmLogin, isLoggedIn: " + isLoggedIn);
+        if(isLoggedIn == false) {
+            window.location.href = `/index.html`;
+        }
+    }
     /**
      * Method to run when the create member submit button is pressed. Call AscendNashville to create the
      * member.

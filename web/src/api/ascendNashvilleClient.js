@@ -18,7 +18,7 @@ export default class AscendNashvilleClient extends BindingClass {
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 
                                 'logout', 'getMember', 'createMember', 
                                 'getRoutes', 'createRoutes', 'getEvents',
-                                'createEvent', 'deleteRoute'];
+                                'createEvent', 'deleteRoute', 'verifyLogin'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -56,12 +56,20 @@ export default class AscendNashvilleClient extends BindingClass {
         }
     }
 
+    async verifyLogin() {
+        const isLoggedIn = await this.authenticator.isUserLoggedIn();
+
+        if (!isLoggedIn) {
+            return false;
+        }
+            return true;
+    }
     async login() {
-        this.authenticator.login();
+        await this.authenticator.login();
     }
 
     async logout() {
-        this.authenticator.logout();
+        await this.authenticator.logout();
     }
 
     async getTokenOrThrow(unauthenticatedErrorMessage) {

@@ -22,6 +22,7 @@ class UpdateEvent extends BindingClass {
         document.getElementById('create').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
+        
     }
 
     /**
@@ -41,7 +42,8 @@ class UpdateEvent extends BindingClass {
          
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId');
-        document.getElementById("demo").innterHTML = eventIdFromURL.date
+        var dateFromURL = eventIdFromURL.date;
+        
 
 
         document.createElement('dateForm').setAttribute('previousDate', previousDate); 
