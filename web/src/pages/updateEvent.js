@@ -35,12 +35,16 @@ class UpdateEvent extends BindingClass {
         errorMessageDisplay.innerText = ``;
         errorMessageDisplay.classList.add('hidden');
 
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
-
+         const createButton = document.getElementById('create');
+         const origButtonText = createButton.innerText;
+         createButton.innerText = 'Loading...';
+         
         const urlParams = new URLSearchParams(window.location.search);
-        const eventIdFromURL = urlParams.get('eventId'); 
+        const eventIdFromURL = urlParams.get('eventId');
+        document.getElementById("demo").innterHTML = eventIdFromURL.date
+
+
+        document.createElement('dateForm').setAttribute('previousDate', previousDate); 
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
 

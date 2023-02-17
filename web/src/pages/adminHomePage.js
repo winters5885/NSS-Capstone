@@ -49,15 +49,6 @@ class AdminHomePage extends BindingClass {
             errorMessageDisplay.classList.remove('hidden');
         });
         this.dataStore.set('event', event);
-        // evt.preventDefault();
-
-        // const errorMessageDisplay = document.getElementById('error-message');
-        // errorMessageDisplay.innerText = ``;
-        // errorMessageDisplay.classList.add('hidden');
-
-        // const createButton = document.getElementById('create');
-        // const origButtonText = createButton.innerText;
-        // createButton.innerText = 'Loading...';
     }
 
      async displayEvents() {
@@ -107,7 +98,6 @@ class AdminHomePage extends BindingClass {
      }
 
 }
-
 
 /**
  * Main method to run when the page contents have loaded.
