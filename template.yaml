@@ -80,13 +80,13 @@ Resources:
       CallbackURLs:
         - !If
           - DeployCloudFront
-          - !Sub "https://${CloudfrontDistribution.DomainName}"
+          - !Sub "https://${CloudfrontDistribution.DomainName}/adminIndex.html"
           - http://localhost:8000/adminIndex.html
       LogoutURLs:
         - !If
           - DeployCloudFront
           - !Sub "https://${CloudfrontDistribution.DomainName}"
-          - http://localhost:8000/index.html
+          - http://localhost:8000/
       AllowedOAuthFlows:
         - code
         - implicit
