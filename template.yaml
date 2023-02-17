@@ -413,7 +413,7 @@ Resources:
             Method: get
             Auth:
               Authorizer: 'NONE'
-              
+
   UpdateEventLambda:
     Type: AWS::Serverless::Function
     Properties:

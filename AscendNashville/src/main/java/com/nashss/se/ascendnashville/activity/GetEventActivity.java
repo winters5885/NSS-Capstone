@@ -1,24 +1,23 @@
 package com.nashss.se.ascendnashville.activity;
 
-import com.nashss.se.ascendnashville.activity.results.GetAllEventsResult;
+import com.nashss.se.ascendnashville.activity.requests.GetEventRequest;
+
+import com.nashss.se.ascendnashville.activity.results.GetEventResult;
 import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
-
 import com.nashss.se.ascendnashville.models.EventModel;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Implementation of the GetAllEventsActivity for Ascend Nashville's GetAllEvents API.
+ * Implementation of the GetEventActivity for Ascend Nashville's GetEvent API.
  * <p>
  * This API allows the customer to create a new event.
  */
-public class GetAllEventsActivity {
+public class GetEventActivity {
     private final Logger log = LogManager.getLogger();
     private final EventDao eventDao;
 
@@ -28,7 +27,7 @@ public class GetAllEventsActivity {
      * @param eventDao EventDao to access the event table.
      */
     @Inject
-    public GetAllEventsActivity(EventDao eventDao) {
+    public GetEventActivity(EventDao eventDao) {
         this.eventDao = eventDao;
     }
 
@@ -41,12 +40,13 @@ public class GetAllEventsActivity {
      *
      * @return getEventResult result object containing the API defined {@link EventModel}
      */
-    public GetAllEventsResult handleRequest() {
+    public GetEventResult handleRequest(final GetEventRequest getEventRequest) {
         log.info("In the GetEventActivity handleRequest.");
-        List<Event> events = eventDao.getEvents();
-        List<EventModel> eventModels = new ModelConverter().toEventsModelList(events);
-        return GetAllEventsResult.builder()
-                .withEventsList(eventModels)
+        String requestedEventId = getEventRequest.getEventId();
+        Event event = eventDao.getEvent(requestedEventId);
+        EventModel eventModel = new ModelConverter().toEventModel(event);
+        return GetEventResult.builder()
+                .withEvent(eventModel)
                 .build();
     }
 }

@@ -45,19 +45,28 @@ public interface ServiceComponent {
 
     /**
      * Provides the relevant activity.
+     * @return GetAllEventsActivity
+     */
+    GetAllEventsActivity provideGetAllEventsActivity();
+
+    /**
+     * Provides the relevant activity.
      * @return GetEventActivity
      */
-    GetAllEventsActivity provideGetEventActivity();
+    GetEventActivity provideGetEventActivity();
+
     /**
      * Provides the relevant activity.
      * @return CreateEventActivity
      */
     CreateEventActivity provideCreateEventActivity();
+
     /**
      * Provides the relevant activity.
      * @return UpdateEventActivity
      */
     UpdateEventActivity provideUpdateEventActivity();
+
     /**
      * Provides the relevant activity.
      * @return DeleteEventActivity
