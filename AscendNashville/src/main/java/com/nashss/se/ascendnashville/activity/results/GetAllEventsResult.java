@@ -26,7 +26,7 @@ public class GetAllEventsResult {
 
     @Override
     public String toString() {
-        return "GetEventResult{" +
+        return "GetAllEventsResult{" +
                 "eventsList=" + eventsList +
                 '}';
     }

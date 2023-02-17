@@ -43,7 +43,7 @@ public class GetAllEventsRequest {
 
     @Override
     public String toString() {
-        return "GetEventRequest{" +
+        return "GetAllEventsRequest{" +
                 "eventId='" + eventId + '\'' +
                 ", date=" + date +
                 ", eventDetails='" + eventDetails + '\'' +

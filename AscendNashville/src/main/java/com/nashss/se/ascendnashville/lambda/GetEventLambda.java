@@ -18,7 +18,9 @@ public class GetEventLambda extends  LambdaActivityRunner<GetEventRequest, GetEv
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetEventRequest> input, Context context) {
         return super.runActivity(() -> input.fromPath(path ->
                 GetEventRequest.builder()
-                        .build()), (request, serviceComponent) ->
+                        .withEventId(path.get("eventId"))
+                        .build()),
+                (request, serviceComponent) ->
                 serviceComponent.provideGetEventActivity().handleRequest(request));
     }
 }

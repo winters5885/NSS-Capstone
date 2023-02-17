@@ -215,6 +215,7 @@ export default class AscendNashvilleClient extends BindingClass {
      */
         async getEvent(eventId, errorCallback) {
             try {
+                console.log("Inside the client getEvent method, eventId: ",eventId);
                 const response = await this.axiosClient.get(`event/${eventId}`);
                 console.log("Inside the client getEvent method, response: ",response);
                 return response.data.eventModel;
