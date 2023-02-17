@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class UpdateEvent extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToHomePage'], this);
+        this.bindClassMethods(['mount', 'submit', 'redirectToHomePage', 'prepopulateForms'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToHomePage);
         this.header = new Header(this.dataStore);
@@ -22,7 +22,7 @@ class UpdateEvent extends BindingClass {
         document.getElementById('create').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
-        
+        this.prepopulateForms();
     }
 
     /**
@@ -59,6 +59,12 @@ class UpdateEvent extends BindingClass {
         this.dataStore.set('event', event);
     }
 
+    async prepopulateForms() {
+        const currentDate = new URLSearchParams(window.location.search);
+        const dateFromURL = currentDate.get("date")
+        console.log("Inside prepopulateForms, datefromURL: " + dateFromURL)
+        document.getElementById('date').defaultValue = dateFromURL;
+    }
     /**
      * When the event is updated in the datastore, redirect to the home page.
      */

@@ -67,13 +67,14 @@ class AdminHomePage extends BindingClass {
         let event;
         for (event of eventsList) {
             var specificEventId = event.eventId;
+            var specificDate = event.date;
             console.log("specificEventId: " + specificEventId);
-
+            console.log("specificDate: " + specificDate);
             eventHtml += `
                 <li class="route">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br><button>
+                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId} + '&date=' + '${specificDate}'"></br>Update this Event<br><button>
                         <button class="button" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br><button>  
                 </li>
             `;
@@ -91,6 +92,7 @@ class AdminHomePage extends BindingClass {
         for (route of routesList) {
             var specificRouteId = route.routeId;
             console.log("specificRouteId: " + specificRouteId);
+           
 
             routeHtml += `
                 <li class="route">
