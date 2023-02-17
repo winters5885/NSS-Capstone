@@ -59,7 +59,7 @@ class DeleteEvent extends BindingClass {
         console.log("Inside redirectToHomePage method in deleteEvent.js.")
         const event = this.dataStore.get('event');
         if (event != null) {
-            window.location.href = `/index.html`;
+            window.location.href = `/adminIndex.html`;
         }
     }
 }

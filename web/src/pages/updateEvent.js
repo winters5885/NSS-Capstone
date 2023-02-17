@@ -41,7 +41,6 @@ class UpdateEvent extends BindingClass {
 
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId'); 
-
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
 
@@ -61,7 +60,7 @@ class UpdateEvent extends BindingClass {
         console.log("Inside redirectToHomePage method in updateEvents.js.")
         const event = this.dataStore.get('event');
         if (event != null) {
-            window.location.href = `/index.html`;
+            window.location.href = `/adminIndex.html`;
         }
     }
 }

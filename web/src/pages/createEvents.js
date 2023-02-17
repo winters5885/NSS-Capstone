@@ -57,7 +57,7 @@ class CreateEvents extends BindingClass {
         console.log("Inside redirectToHomePage method.")
         const event = this.dataStore.get('event');
         if (event != null) {
-            window.location.href = `/index.html`;
+            window.location.href = `/adminIndex.html`;
         }
     }
 }

@@ -59,7 +59,7 @@ class DeleteRoute extends BindingClass {
         console.log("Inside redirectToHomePage method in deleteRoute.js.")
         const route = this.dataStore.get('route');
         if (route != null) {
-            window.location.href = `/index.html`;
+            window.location.href = `/adminIndex.html`;
         }
     }
 }
