@@ -9,8 +9,8 @@ import java.util.Date;
  * Instantiates a new GetEventRequest object.
  *
  */
-@JsonDeserialize(builder = GetEventRequest.Builder.class)
-public class GetEventRequest {
+@JsonDeserialize(builder = GetAllEventsRequest.Builder.class)
+public class GetAllEventsRequest {
 
     private final String eventId;
     private final Date date;
@@ -23,7 +23,7 @@ public class GetEventRequest {
      * @param date Date the event will take place.
      * @param eventDetails Details of the event.
      */
-    private GetEventRequest(String eventId, Date date, String eventDetails) {
+    private GetAllEventsRequest(String eventId, Date date, String eventDetails) {
         this.eventId = eventId;
         this.date = date;
         this.eventDetails = eventDetails;
@@ -51,7 +51,7 @@ public class GetEventRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static GetEventRequest.Builder builder() {return new GetEventRequest.Builder();}
+    public static GetAllEventsRequest.Builder builder() {return new GetAllEventsRequest.Builder();}
 
     @JsonPOJOBuilder
     public static class Builder {
@@ -59,23 +59,23 @@ public class GetEventRequest {
         private Date date;
         private String eventDetails;
 
-        public GetEventRequest.Builder withEventId(String eventId) {
+        public GetAllEventsRequest.Builder withEventId(String eventId) {
             this.eventId = eventId;
             return this;
         }
 
-        public GetEventRequest.Builder withDate(Date date) {
+        public GetAllEventsRequest.Builder withDate(Date date) {
             this.date = date;
             return this;
         }
 
-        public GetEventRequest.Builder withEventDetails(String eventDetails) {
+        public GetAllEventsRequest.Builder withEventDetails(String eventDetails) {
             this.eventDetails = eventDetails;
             return this;
         }
 
-        public GetEventRequest build() {
-            return new GetEventRequest(eventId, date, eventDetails);
+        public GetAllEventsRequest build() {
+            return new GetAllEventsRequest(eventId, date, eventDetails);
         }
     }
 }

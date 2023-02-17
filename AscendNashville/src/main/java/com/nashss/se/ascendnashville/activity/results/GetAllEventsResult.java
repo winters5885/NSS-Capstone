@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * GetEventResult Class.
  */
-public class GetEventResult {
+public class GetAllEventsResult {
     private final List<EventModel> eventsList;
 
     /**
@@ -16,7 +16,7 @@ public class GetEventResult {
      *
      * @param eventsList to covert.
      */
-    private GetEventResult(List<EventModel> eventsList) {
+    private GetAllEventsResult(List<EventModel> eventsList) {
         this.eventsList = eventsList;
     }
 
@@ -32,7 +32,7 @@ public class GetEventResult {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static GetEventResult.Builder builder() {return new GetEventResult.Builder();}
+    public static GetAllEventsResult.Builder builder() {return new GetAllEventsResult.Builder();}
 
     public static class Builder {
         private List<EventModel> eventsList;
@@ -42,6 +42,6 @@ public class GetEventResult {
             return this;
         }
 
-        public GetEventResult build() { return new GetEventResult(eventsList);}
+        public GetAllEventsResult build() { return new GetAllEventsResult(eventsList);}
     }
 }

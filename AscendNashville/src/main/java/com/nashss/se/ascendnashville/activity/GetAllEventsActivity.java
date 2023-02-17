@@ -1,6 +1,6 @@
 package com.nashss.se.ascendnashville.activity;
 
-import com.nashss.se.ascendnashville.activity.results.GetEventResult;
+import com.nashss.se.ascendnashville.activity.results.GetAllEventsResult;
 import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
@@ -18,7 +18,7 @@ import javax.inject.Inject;
  * <p>
  * This API allows the customer to create a new event.
  */
-public class GetEventActivity {
+public class GetAllEventsActivity {
     private final Logger log = LogManager.getLogger();
     private final EventDao eventDao;
 
@@ -28,7 +28,7 @@ public class GetEventActivity {
      * @param eventDao EventDao to access the event table.
      */
     @Inject
-    public GetEventActivity(EventDao eventDao) {
+    public GetAllEventsActivity(EventDao eventDao) {
         this.eventDao = eventDao;
     }
 
@@ -41,11 +41,11 @@ public class GetEventActivity {
      *
      * @return getEventResult result object containing the API defined {@link EventModel}
      */
-    public GetEventResult handleRequest() {
+    public GetAllEventsResult handleRequest() {
         log.info("In the GetEventActivity handleRequest.");
         List<Event> events = eventDao.getEvents();
         List<EventModel> eventModels = new ModelConverter().toEventsModelList(events);
-        return GetEventResult.builder()
+        return GetAllEventsResult.builder()
                 .withEventsList(eventModels)
                 .build();
     }

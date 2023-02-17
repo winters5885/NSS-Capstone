@@ -1,7 +1,7 @@
 package com.nashss.se.ascendnashville.lambda;
 
-import com.nashss.se.ascendnashville.activity.requests.GetEventRequest;
-import com.nashss.se.ascendnashville.activity.results.GetEventResult;
+import com.nashss.se.ascendnashville.activity.requests.GetAllEventsRequest;
+import com.nashss.se.ascendnashville.activity.results.GetAllEventsResult;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -9,8 +9,8 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 /**
  * Generates a LambdaResponse.
  */
-public class GetEventLambda extends  LambdaActivityRunner<GetEventRequest, GetEventResult>
-        implements RequestHandler<AuthenticatedLambdaRequest<GetEventRequest>, LambdaResponse> {
+public class GetAllEventsLambda extends  LambdaActivityRunner<GetAllEventsRequest, GetAllEventsResult>
+        implements RequestHandler<AuthenticatedLambdaRequest<GetAllEventsRequest>, LambdaResponse> {
 
     /**
      *
@@ -19,9 +19,9 @@ public class GetEventLambda extends  LambdaActivityRunner<GetEventRequest, GetEv
      * @return LambdaResponse
      */
     @Override
-    public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetEventRequest> input, Context context) {
+    public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetAllEventsRequest> input, Context context) {
         return super.runActivity(() -> input.fromPath(path ->
-                GetEventRequest.builder()
+                GetAllEventsRequest.builder()
                         .build()), (request, serviceComponent) ->
                 serviceComponent.provideGetEventActivity().handleRequest());
     }
