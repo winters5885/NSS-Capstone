@@ -44,6 +44,9 @@ public class GetEventActivity {
         log.info("In the GetEventActivity handleRequest.");
         String requestedEventId = getEventRequest.getEventId();
         Event event = eventDao.getEvent(requestedEventId);
+
+        //event.setEventId(getEventRequest.getEventId());
+
         EventModel eventModel = new ModelConverter().toEventModel(event);
         return GetEventResult.builder()
                 .withEvent(eventModel)

@@ -22,7 +22,7 @@ public class GetMemberLambda extends LambdaActivityRunner<GetMemberRequest, GetM
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<GetMemberRequest> input, Context context) {
         return super.runActivity(() -> input.fromPathAndQuery((path, query) ->
                 GetMemberRequest.builder()
-                        .withMember(path.get("memberId"))
+                        .withMemberId(path.get("memberId"))
                         .build()), (request, serviceComponent) ->
                 serviceComponent.provideGetMemberActivity().handleRequest(request));
     }

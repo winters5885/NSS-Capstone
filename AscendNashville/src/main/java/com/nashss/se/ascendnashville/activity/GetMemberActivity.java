@@ -47,8 +47,8 @@ public class GetMemberActivity {
         log.info("In the GetMemberActivity handleRequest");
         String requestedMemberId = getMemberRequest.getMemberId();
         Member member = memberDao.getMember(requestedMemberId);
-        MemberModel memberModel = new ModelConverter().toMemberModel(member);
 
+        MemberModel memberModel = new ModelConverter().toMemberModel(member);
         return GetMemberResult.builder()
                 .withMember(memberModel)
                 .build();

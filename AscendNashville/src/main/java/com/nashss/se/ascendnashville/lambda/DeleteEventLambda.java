@@ -14,8 +14,8 @@ import org.apache.logging.log4j.Logger;
 public class DeleteEventLambda extends LambdaActivityRunner<DeleteEventRequest, DeleteEventResult>
         implements RequestHandler<AuthenticatedLambdaRequest<DeleteEventRequest>, LambdaResponse> {
     private final Logger log = LogManager.getLogger();
+
     /**
-     *
      * @param input The Authenticated Lambda Function input
      * @param context The Lambda execution environment context object.
      * @return LambdaResponse

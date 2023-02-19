@@ -215,7 +215,7 @@ export default class AscendNashvilleClient extends BindingClass {
      */
         async getEvent(eventId, errorCallback) {
             try {
-                console.log("Inside the client getEvent method, eventId: ",eventId);
+                console.log("Inside the client getEvent method, eventId: ", eventId);
                 const response = await this.axiosClient.get(`event/${eventId}`);
                 console.log("Inside the client getEvent method, response: ",response);
                 return response.data.eventModel;
@@ -224,6 +224,20 @@ export default class AscendNashvilleClient extends BindingClass {
             }
         }
 
+        // async deleteRoute(routeId,  errorCallback) {
+        //     try {
+        //         const token = await this.getTokenOrThrow("Only authenticated users can delete a route.");
+        //         const response = await this.axiosClient.delete(`route/${routeId}`, {
+        //             headers: {
+        //                 Authorization: `Bearer ${token}`
+        //             }
+        //         });
+        //         console.log("Inside deleteEvent in the client, response", response);
+        //         return response.data.routeModel;
+        //     } catch (error) {
+        //         this.handleError(error, errorCallback)
+        //     }
+        // }
     /**
      * Create a new event.
      * @param eventId The eventId of the event to create.
