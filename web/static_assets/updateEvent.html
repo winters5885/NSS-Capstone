@@ -10,20 +10,17 @@
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card">
-        <h2>Update Event</h2>
+        <h2 id = "heading">Update Event</h2>
         <form class="card-content" id="create-playlist-form">
-            <p class="hidden error" id="error-message"> </p>
-            <p class="form-field">
+            <p class="form-field" required>
                 <label>Date</label>
-                <input type="text" id="date" class="tags" value='date' required>
+                <input type="text" id="date" required>
             </p>
             <p class="form-field">
                 <label>Event Details</label>
-                <input type="text" id="eventDetails" class="tags" required>
-            <p>
-                <a class="button" id="create">Submit</a>
-                <input type="submit" name="submit" value="Submit" />
+                <input type="text" id="eventDetails" required>
             </p>
         </form>
+        <a type="submit" class="button" id="create">Submit</a>
     </div>
 </body>
