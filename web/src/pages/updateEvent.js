@@ -67,6 +67,9 @@ class UpdateEvent extends BindingClass {
         const dateFromRequest = currentEvent.date; //currentDate.get("date")
         console.log("Inside prepopulateForms, dateFromRequest: " + dateFromRequest)
         document.getElementById('date').defaultValue = dateFromRequest;
+        const eventDetailsFromRequest = currentEvent.eventDetails;
+        console.log("Inside prepopulateForms, eventDetailsFromRequest: " + eventDetailsFromRequest);
+        document.getElementById('eventDetails').defaultValue = eventDetailsFromRequest;
     }
     /**
      * When the event is updated in the datastore, redirect to the home page.
