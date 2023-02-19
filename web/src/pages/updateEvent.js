@@ -43,7 +43,6 @@ class UpdateEvent extends BindingClass {
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId');
 
-        document.createElement('dateForm').setAttribute('previousDate', previousDate); 
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
 
@@ -63,10 +62,11 @@ class UpdateEvent extends BindingClass {
         
         const currentEvent = await this.client.getEvent(eventIdFromURL);
         console.log("Inside prepopulateForms, currentEvent: " + currentEvent)
-        //const currentDate = new URLSearchParams(window.location.search);
-        const dateFromRequest = currentEvent.date; //currentDate.get("date")
+        const dateFromRequest = currentEvent.date;
+         
         console.log("Inside prepopulateForms, dateFromRequest: " + dateFromRequest)
         document.getElementById('date').defaultValue = dateFromRequest;
+
         const eventDetailsFromRequest = currentEvent.eventDetails;
         console.log("Inside prepopulateForms, eventDetailsFromRequest: " + eventDetailsFromRequest);
         document.getElementById('eventDetails').defaultValue = eventDetailsFromRequest;
