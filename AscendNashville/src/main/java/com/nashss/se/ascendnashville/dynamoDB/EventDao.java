@@ -33,8 +33,6 @@ public class EventDao {
     /**
      * Retrieves all events in event table.
      * <p>
-     * If not found, throws EventNotFoundException.
-     *
      * @return All events in event table
      */
     public List<Event> getEvents() {
