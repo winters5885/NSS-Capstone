@@ -4,10 +4,10 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
 import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
-import com.nashss.se.ascendnashville.Exceptions.MemberNotFoundException;
+
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
-import com.nashss.se.ascendnashville.dynamoDB.models.Member;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -73,10 +73,25 @@ public class EventDaoTest {
     }
 
     @Test
+    public void getEvent_withEventId_callsMapperWithPartitionKey() {
+        // GIVEN
+        String expectedEventId = "expectedEventId";
+        when(dynamoDBMapper.load(Event.class, expectedEventId)).thenReturn(new Event());
+
+        // WHEN
+        Event event = eventDao.getEvent(expectedEventId);
+
+        // THEN
+        Assertions.assertNotNull(event);
+        verify(dynamoDBMapper).load(Event.class, expectedEventId);
+
+    }
+
+    @Test
     public void getEvent_eventIdNotFound_throwsEventNotFoundException() {
         // GIVEN
         String nonexistentEventId = "nonExistentEventId";
-        when(dynamoDBMapper.load(Member.class, nonexistentEventId)).thenReturn(null);
+        when(dynamoDBMapper.load(Event.class, nonexistentEventId)).thenReturn(null);
 
         // WHEN + THEN
         assertThrows(EventNotFoundException.class, () -> eventDao.getEvent(nonexistentEventId));
