@@ -1,5 +1,7 @@
 package com.nashss.se.ascendnashville.activity;
 
+import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
+import com.nashss.se.ascendnashville.Exceptions.InvalidAttributeValueException;
 import com.nashss.se.ascendnashville.activity.requests.GetEventRequest;
 
 import com.nashss.se.ascendnashville.activity.results.GetEventResult;
@@ -7,6 +9,7 @@ import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 import com.nashss.se.ascendnashville.models.EventModel;
+import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,8 +46,12 @@ public class GetEventActivity {
     public GetEventResult handleRequest(final GetEventRequest getEventRequest) {
         log.info("In the GetEventActivity handleRequest.");
         String requestedEventId = getEventRequest.getEventId();
+
         Event event = eventDao.getEvent(requestedEventId);
 
+        if (event == null) {
+            throw new EventNotFoundException("No event exists with eventID:" + requestedEventId);
+        }
         event.setEventId(getEventRequest.getEventId());
 
         EventModel eventModel = new ModelConverter().toEventModel(event);

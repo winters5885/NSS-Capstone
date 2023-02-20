@@ -1,5 +1,6 @@
 package com.nashss.se.ascendnashville.activity;
 
+import com.nashss.se.ascendnashville.Exceptions.InvalidAttributeValueException;
 import com.nashss.se.ascendnashville.activity.requests.CreateEventRequest;
 import com.nashss.se.ascendnashville.activity.results.CreateEventResult;
 import com.nashss.se.ascendnashville.converters.ModelConverter;
@@ -39,7 +40,7 @@ public class CreateEventActivity {
      * <p>
      * It then returns the newly created event.
      * <p>
-     * If the provided eventId, date,or event details has invalid characters,
+     * If the provided date,or event details has invalid characters,
      * throws an InvalidAttributeValueException.
      *
      * @param createEventRequest request object containing the eventId, date
@@ -48,6 +49,15 @@ public class CreateEventActivity {
      */
     public CreateEventResult handleRequest(final CreateEventRequest createEventRequest) {
         log.info("In the CreateEventActivity handleRequest.");
+        if(!AscendNashvilleUtils.isValidString(createEventRequest.getDate())) {
+            throw new InvalidAttributeValueException("Event date [" + createEventRequest.getDate() +
+                    "] contains illegal characters");
+        }
+
+        if(!AscendNashvilleUtils.isValidString(createEventRequest.getEventDetails())) {
+            throw new InvalidAttributeValueException("Event details [" + createEventRequest.getEventDetails() +
+                    "] contains illegal characters");
+        }
 
         Event newEvent = new Event();
         newEvent.setEventId(AscendNashvilleUtils.generateEventId());

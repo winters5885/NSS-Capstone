@@ -37,8 +37,6 @@ public class GetAllEventsActivity {
      * <p>
      * It then returns the events.
      * <p>
-     * If the event does not exist, this should throw a EventNotFoundException.
-     *
      * @return getEventResult result object containing the API defined {@link EventModel}
      */
     public GetAllEventsResult handleRequest() {
