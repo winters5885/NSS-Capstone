@@ -1,5 +1,6 @@
 package com.nashss.se.ascendnashville.activity;
 
+import com.nashss.se.ascendnashville.Exceptions.InvalidAttributeValueException;
 import com.nashss.se.ascendnashville.activity.requests.CreateRouteRequest;
 import com.nashss.se.ascendnashville.activity.results.CreateRouteResult;
 import com.nashss.se.ascendnashville.converters.ModelConverter;
@@ -9,6 +10,7 @@ import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 
 import com.nashss.se.ascendnashville.models.RouteModel;
 
+import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -51,6 +53,21 @@ public class CreateRouteActivity {
      */
     public CreateRouteResult handleRequest(final CreateRouteRequest createRouteRequest) {
         log.info("In the CreateRouteActivity handleRequest.");
+
+        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteId())) {
+            throw new InvalidAttributeValueException("RouteId: [" + createRouteRequest.getRouteId() +
+                    "} contains illegal characters");
+        }
+
+        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getDifficultyRating())) {
+            throw new InvalidAttributeValueException("Route Difficulty Rating [" +
+                    createRouteRequest.getDifficultyRating() + "] contains illegal characters");
+        }
+
+        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteType())) {
+            throw new InvalidAttributeValueException("Route type [" + createRouteRequest.getRouteType() +
+                    "} contains illegal characters");
+        }
 
         Route newRoute = new Route();
         newRoute.setRouteId(createRouteRequest.getRouteId());

@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class AdminHomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes', 'confirmLogin'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -23,8 +23,16 @@ class AdminHomePage extends BindingClass {
         this.client = new AscendNashvilleClient();
         this.displayEvents();
         this.displayRoutes();
+        this.confirmLogin();
     }
 
+    async confirmLogin() {
+        var isLoggedIn = await this.client.verifyLogin();
+        console.log("Inside confirmLogin, isLoggedIn: " + isLoggedIn);
+        if(isLoggedIn == false) {
+            window.location.href = `/index.html`;
+        }
+    }
     /**
      * Method to run when the create member submit button is pressed. Call AscendNashville to create the
      * member.
@@ -49,15 +57,6 @@ class AdminHomePage extends BindingClass {
             errorMessageDisplay.classList.remove('hidden');
         });
         this.dataStore.set('event', event);
-        // evt.preventDefault();
-
-        // const errorMessageDisplay = document.getElementById('error-message');
-        // errorMessageDisplay.innerText = ``;
-        // errorMessageDisplay.classList.add('hidden');
-
-        // const createButton = document.getElementById('create');
-        // const origButtonText = createButton.innerText;
-        // createButton.innerText = 'Loading...';
     }
 
      async displayEvents() {
@@ -68,8 +67,9 @@ class AdminHomePage extends BindingClass {
         let event;
         for (event of eventsList) {
             var specificEventId = event.eventId;
+            //var specificDate = event.date;
             console.log("specificEventId: " + specificEventId);
-
+            //console.log("specificDate: " + specificDate);
             eventHtml += `
                 <li class="route">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
@@ -92,6 +92,7 @@ class AdminHomePage extends BindingClass {
         for (route of routesList) {
             var specificRouteId = route.routeId;
             console.log("specificRouteId: " + specificRouteId);
+           
 
             routeHtml += `
                 <li class="route">
@@ -107,7 +108,6 @@ class AdminHomePage extends BindingClass {
      }
 
 }
-
 
 /**
  * Main method to run when the page contents have loaded.

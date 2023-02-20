@@ -50,7 +50,7 @@ public class GetMemberActivityTest {
         when(memberDao.getMember(memberId)).thenReturn(member);
 
         GetMemberRequest request = GetMemberRequest.builder()
-                .withMember(memberId)
+                .withMemberId(memberId)
                 .build();
 
         // WHEN

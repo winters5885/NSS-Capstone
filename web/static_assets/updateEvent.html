@@ -10,19 +10,18 @@
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card">
-        <h2>Update Event</h2>
-        <form class="card-content" id="create-playlist-form">
-            <p class="hidden error" id="error-message"> </p>
-            <p class="form-field">
+        <h2 id = "heading">Update Event</h2>
+        <form class="card-content" id="update-event-form">
+            <p class="form-field" required>
                 <label>Date</label>
-                <input type="text" id="date" class="tags" placeholder="enter date of event...">
+                <input type="text" id="date" required>
             </p>
             <p class="form-field">
                 <label>Event Details</label>
-                <input type="text" id="eventDetails" class="tags" placeholder="enter event details...">
-            <p>
-                <a href="index.html" class="button" id="create">Submit</a>
+                <input type="text" id="eventDetails" required>
             </p>
+            <button type="submit" class="button" id="create">Submit</button>
         </form>
+        
     </div>
 </body>

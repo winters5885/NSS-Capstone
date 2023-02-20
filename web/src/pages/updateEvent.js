@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class UpdateEvent extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToHomePage'], this);
+        this.bindClassMethods(['mount', 'submit', 'redirectToHomePage', 'prepopulateForms'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToHomePage);
         this.header = new Header(this.dataStore);
@@ -19,9 +19,10 @@ class UpdateEvent extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        document.getElementById('update-event-form').addEventListener('submit', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
+        this.prepopulateForms();
     }
 
     /**
@@ -30,17 +31,9 @@ class UpdateEvent extends BindingClass {
      */
     async submit(evt) {
         evt.preventDefault();
-
-        const errorMessageDisplay = document.getElementById('error-message');
-        errorMessageDisplay.innerText = ``;
-        errorMessageDisplay.classList.add('hidden');
-
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
-
         const urlParams = new URLSearchParams(window.location.search);
-        const eventIdFromURL = urlParams.get('eventId'); 
+        const eventIdFromURL = urlParams.get('eventId');
+
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
 
@@ -53,6 +46,22 @@ class UpdateEvent extends BindingClass {
         this.dataStore.set('event', event);
     }
 
+    async prepopulateForms() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventIdFromURL = urlParams.get('eventId');
+        console.log("Inside prepopulateForms, eventIdFromURL: " + eventIdFromURL)
+        
+        const currentEvent = await this.client.getEvent(eventIdFromURL);
+        console.log("Inside prepopulateForms, currentEvent: " + currentEvent)
+        const dateFromRequest = currentEvent.date;
+         
+        console.log("Inside prepopulateForms, dateFromRequest: " + dateFromRequest)
+        document.getElementById('date').defaultValue = dateFromRequest;
+
+        const eventDetailsFromRequest = currentEvent.eventDetails;
+        console.log("Inside prepopulateForms, eventDetailsFromRequest: " + eventDetailsFromRequest);
+        document.getElementById('eventDetails').defaultValue = eventDetailsFromRequest;
+    }
     /**
      * When the event is updated in the datastore, redirect to the home page.
      */

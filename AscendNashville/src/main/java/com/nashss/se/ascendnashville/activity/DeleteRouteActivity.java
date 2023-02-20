@@ -1,5 +1,7 @@
 package com.nashss.se.ascendnashville.activity;
 
+import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
+import com.nashss.se.ascendnashville.Exceptions.InvalidAttributeValueException;
 import com.nashss.se.ascendnashville.activity.requests.DeleteEventRequest;
 import com.nashss.se.ascendnashville.activity.requests.DeleteRouteRequest;
 import com.nashss.se.ascendnashville.activity.results.DeleteEventResult;
@@ -9,6 +11,7 @@ import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.RouteDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
+import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,18 +39,17 @@ public class DeleteRouteActivity {
      * <p>
      * If the route does not exist, this should throw a RouteNotFoundException.
      * <p>
-     * If the provided eventId has invalid characters, throws an
-     * InvalidAttributeValueException
-     * <p>
-     * If the request tries to update the routeId,
-     * this should throw an InvalidAttributeChangeException
-     *
      * @param deleteRouteRequest request object containing the event ID
      *                              associated with it
      */
     public DeleteRouteResult handleRequest(final DeleteRouteRequest deleteRouteRequest) {
         log.info("Inside DeleteRouteActivity handleRequest.");
         Route route = routeDao.getRoute(deleteRouteRequest.getRouteId());
+
+        if (route == null) {
+            throw new EventNotFoundException("No route exists associated with route Id:"
+                    + deleteRouteRequest.getRouteId());
+        }
 
         route.setRouteId(deleteRouteRequest.getRouteId());
         routeDao.deleteRoute(route);

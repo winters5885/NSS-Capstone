@@ -105,7 +105,7 @@ public class GetMemberRequest {
         private String type;
 
 
-        public Builder withMember(String memberId) {
+        public Builder withMemberId(String memberId) {
             this.memberId = memberId;
             return this;
         }

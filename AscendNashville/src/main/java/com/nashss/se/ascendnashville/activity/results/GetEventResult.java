@@ -9,25 +9,25 @@ import java.util.List;
  * GetEventResult Class.
  */
 public class GetEventResult {
-    private final List<EventModel> eventsList;
+    private final EventModel eventModel;
 
     /**
      * Constructor for GetEventResult.
      *
-     * @param eventsList to covert.
+     * @param eventModel to covert.
      */
-    private GetEventResult(List<EventModel> eventsList) {
-        this.eventsList = eventsList;
+    private GetEventResult(EventModel eventModel) {
+        this.eventModel = eventModel;
     }
 
-    public List<EventModel> getEventsList() {
-        return eventsList;
+    public EventModel getEvent() {
+        return eventModel;
     }
 
     @Override
     public String toString() {
         return "GetEventResult{" +
-                "eventsList=" + eventsList +
+                "eventModel=" + eventModel +
                 '}';
     }
 
@@ -35,13 +35,13 @@ public class GetEventResult {
     public static GetEventResult.Builder builder() {return new GetEventResult.Builder();}
 
     public static class Builder {
-        private List<EventModel> eventsList;
+        private EventModel eventModel;
 
-        public Builder withEventsList(List<EventModel> eventsList) {
-            this.eventsList = new ArrayList<>(eventsList);
+        public Builder withEvent(EventModel eventModel) {
+            this.eventModel = eventModel;
             return this;
         }
 
-        public GetEventResult build() { return new GetEventResult(eventsList);}
+        public GetEventResult build() { return new GetEventResult(eventModel);}
     }
 }

@@ -37,8 +37,6 @@ public class GetRouteActivity {
      * <p>
      * It then returns the routes.
      * <p>
-     * If the route does not exist, this should throw a RouteNotFoundException.
-     *
      * @return getRouteResult result object containing the API defined {@link RouteModel}
      */
     public GetRouteResult handleRequest() {
