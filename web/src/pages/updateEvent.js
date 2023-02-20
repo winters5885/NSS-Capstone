@@ -19,7 +19,7 @@ class UpdateEvent extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        document.getElementById('update-event-form').addEventListener('submit', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
         this.prepopulateForms();
