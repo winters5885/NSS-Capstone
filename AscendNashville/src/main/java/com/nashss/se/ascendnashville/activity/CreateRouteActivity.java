@@ -20,7 +20,7 @@ import javax.inject.Inject;
 /**
  * Implementation of the CreateRouteActivity for Ascend Nashville's CreateRoute API.
  * <p>
- * This API allows the customer to create a new route with routeID, difficulty rating,
+ * This API allows the admin to create a new route with routeID, difficulty rating,
  * route type, and member rating.
  */
 public class CreateRouteActivity {

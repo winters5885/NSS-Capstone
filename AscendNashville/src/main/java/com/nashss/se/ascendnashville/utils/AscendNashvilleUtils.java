@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 /**
- * Utility to create a random memberId and eventId.
+ * Utility to create a random memberId and eventId, or validate a string.
  */
 public class AscendNashvilleUtils {
     static final int MEMBER_ID_LENGTH = 6;

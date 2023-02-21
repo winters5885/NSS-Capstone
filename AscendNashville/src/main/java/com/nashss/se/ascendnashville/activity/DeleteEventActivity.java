@@ -37,7 +37,7 @@ public class DeleteEventActivity {
     /**
      * This method handles the incoming request by deleting the event in the event table.
      * <p>
-     * It then returns the updated event.
+     * It then returns the deleted event.
      * <p>
      * If the event does not exist, this should throw an EventNotFoundException.
      * <p>

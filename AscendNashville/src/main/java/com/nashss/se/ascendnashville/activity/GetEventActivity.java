@@ -35,9 +35,9 @@ public class GetEventActivity {
     }
 
     /**
-     * This method handles the incoming request by retrieving the events from the database.
+     * This method handles the incoming request by retrieving the event from the database.
      * <p>
-     * It then returns the events.
+     * It then returns the event.
      * <p>
      * If the event does not exist, this should throw a EventNotFoundException.
      *

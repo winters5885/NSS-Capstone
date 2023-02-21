@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * GetEventResult Class.
+ * GetAllEventsResult Class.
  */
 public class GetAllEventsResult {
     private final List<EventModel> eventsList;
 
     /**
-     * Constructor for GetEventResult.
+     * Constructor for GetAllEventsResult.
      *
      * @param eventsList to covert.
      */

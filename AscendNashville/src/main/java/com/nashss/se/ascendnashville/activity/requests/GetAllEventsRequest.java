@@ -17,7 +17,7 @@ public class GetAllEventsRequest {
     private final String eventDetails;
 
     /**
-     * Instantiates a new GetEventRequest object.
+     * Instantiates a new GetAllEventsRequest object.
      *
      * @param eventId A eventId tied to the event.
      * @param date Date the event will take place.
