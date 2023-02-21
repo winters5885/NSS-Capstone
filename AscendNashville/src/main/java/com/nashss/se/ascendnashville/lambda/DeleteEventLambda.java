@@ -1,10 +1,11 @@
 package com.nashss.se.ascendnashville.lambda;
 
+import com.nashss.se.ascendnashville.activity.requests.DeleteEventRequest;
+import com.nashss.se.ascendnashville.activity.results.DeleteEventResult;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.nashss.se.ascendnashville.activity.requests.DeleteEventRequest;
 
-import com.nashss.se.ascendnashville.activity.results.DeleteEventResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +29,7 @@ public class DeleteEventLambda extends LambdaActivityRunner<DeleteEventRequest, 
                 DeleteEventRequest.builder()
                         .withEventId(path.get("eventId"))
                         .build()),
-                (request, serviceComponent) ->
+            (request, serviceComponent) ->
                 serviceComponent.provideDeleteEventActivity().handleRequest(request));
     }
 }

@@ -16,7 +16,7 @@ import javax.inject.Inject;
 /**
  * Implementation of the GetMemberActivity for Ascend Nashville's GetMember API.
  * <p>
- * This API allows the customer to retrieve their member profile informaton.
+ * This API allows the customer to retrieve their member profile information.
  */
 public class GetMemberActivity {
 

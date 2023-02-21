@@ -75,6 +75,7 @@ public class GetEventRequest {
         }
 
         public GetEventRequest build() {
+
             return new GetEventRequest(eventId, date, eventDetails);
         }
     }

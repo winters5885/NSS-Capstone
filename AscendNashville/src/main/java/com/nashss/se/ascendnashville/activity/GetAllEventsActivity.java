@@ -23,7 +23,7 @@ public class GetAllEventsActivity {
     private final EventDao eventDao;
 
     /**
-     * Instantiates a new GetEventActivity object.
+     * Instantiates a new GetAllEventsActivity object.
      *
      * @param eventDao EventDao to access the event table.
      */

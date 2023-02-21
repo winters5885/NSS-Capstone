@@ -2,8 +2,12 @@ package com.nashss.se.ascendnashville.dynamoDBTest;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
+
+import com.nashss.se.ascendnashville.Exceptions.RouteNotFoundException;
 import com.nashss.se.ascendnashville.dynamoDB.RouteDao;
+
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -47,6 +51,20 @@ public class RouteDaoTest {
     }
 
     @Test
+    public void getRoute_withRouteId_callsMapperWithPartitionKey() {
+        // GIVEN
+        String expectedRouteId = "expectedRouteId";
+        when(dynamoDBMapper.load(Route.class, expectedRouteId)).thenReturn(new Route());
+
+        // WHEN
+        Route route = routeDao.getRoute(expectedRouteId);
+
+        // THEN
+        Assertions.assertNotNull(route);
+        verify(dynamoDBMapper).load(Route.class, expectedRouteId);
+
+    }
+    @Test
     void getRoutes_scansDynamoDbRouteTable_returnsRoutes() {
         // GIVEN
         when(dynamoDBMapper.scan(eq(Route.class), any())).thenReturn(scanResult);
@@ -64,6 +82,15 @@ public class RouteDaoTest {
         verify(dynamoDBMapper).scan(Route.class, scanExpression);
 
         assertEquals(scanResult, routes, "Expected method to return the results of the scan");
+    }
 
+    @Test
+    public void getRoute_routeIdNotFound_throwsRouteNotFoundException() {
+        // GIVEN
+        String nonExistentRouteId = "nonExistentRouteId";
+        when(dynamoDBMapper.load(Route.class, nonExistentRouteId)).thenReturn(null);
+
+        // WHEN + THEN
+        assertThrows(RouteNotFoundException.class, () -> routeDao.getRoute(nonExistentRouteId));
     }
 }

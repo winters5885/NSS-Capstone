@@ -51,13 +51,11 @@ public class GetRouteActivityTest {
         assertEquals(route1.getRouteType(), result.getRoutes().get(0).getRouteType());
         assertEquals(route1.getMemberRating(), result.getRoutes().get(0).getMemberRating());
 
-        assertEquals(3, result.getRoutes().size());
         assertEquals(route2.getRouteId(), result.getRoutes().get(1).getRouteId());
         assertEquals(route2.getDifficultyRating(), result.getRoutes().get(1).getDifficultyRating());
         assertEquals(route2.getRouteType(), result.getRoutes().get(1).getRouteType());
         assertEquals(route2.getMemberRating(), result.getRoutes().get(1).getMemberRating());
 
-        assertEquals(3, result.getRoutes().size());
         assertEquals(route3.getRouteId(), result.getRoutes().get(2).getRouteId());
         assertEquals(route3.getDifficultyRating(), result.getRoutes().get(2).getDifficultyRating());
         assertEquals(route3.getRouteType(), result.getRoutes().get(2).getRouteType());

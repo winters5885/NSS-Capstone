@@ -1,10 +1,11 @@
 package com.nashss.se.ascendnashville.lambda;
 
+import com.nashss.se.ascendnashville.activity.requests.DeleteRouteRequest;
+import com.nashss.se.ascendnashville.activity.results.DeleteRouteResult;
+
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-import com.nashss.se.ascendnashville.activity.requests.DeleteRouteRequest;
-import com.nashss.se.ascendnashville.activity.results.DeleteRouteResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +30,7 @@ public class DeleteRouteLambda
                         DeleteRouteRequest.builder()
                                 .withRouteId(path.get("routeId"))
                                 .build()),
-                (request, serviceComponent) ->
+            (request, serviceComponent) ->
                         serviceComponent.provideDeleteRouteActivity().handleRequest(request));
     }
 }

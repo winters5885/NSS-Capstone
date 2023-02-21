@@ -11,6 +11,7 @@ import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 import com.nashss.se.ascendnashville.models.RouteModel;
 
 import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,7 +20,7 @@ import javax.inject.Inject;
 /**
  * Implementation of the CreateRouteActivity for Ascend Nashville's CreateRoute API.
  * <p>
- * This API allows the customer to create a new route with routeID, difficulty rating,
+ * This API allows the admin to create a new route with routeID, difficulty rating,
  * route type, and member rating.
  */
 public class CreateRouteActivity {
@@ -54,17 +55,17 @@ public class CreateRouteActivity {
     public CreateRouteResult handleRequest(final CreateRouteRequest createRouteRequest) {
         log.info("In the CreateRouteActivity handleRequest.");
 
-        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteId())) {
+        if (!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteId())) {
             throw new InvalidAttributeValueException("RouteId: [" + createRouteRequest.getRouteId() +
                     "} contains illegal characters");
         }
 
-        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getDifficultyRating())) {
+        if (!AscendNashvilleUtils.isValidString(createRouteRequest.getDifficultyRating())) {
             throw new InvalidAttributeValueException("Route Difficulty Rating [" +
                     createRouteRequest.getDifficultyRating() + "] contains illegal characters");
         }
 
-        if(!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteType())) {
+        if (!AscendNashvilleUtils.isValidString(createRouteRequest.getRouteType())) {
             throw new InvalidAttributeValueException("Route type [" + createRouteRequest.getRouteType() +
                     "} contains illegal characters");
         }

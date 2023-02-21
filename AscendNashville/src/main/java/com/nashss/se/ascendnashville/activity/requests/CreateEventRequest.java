@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 /**
- * Instantiates a new CreateMemberRequest object.
+ * Instantiates a new CreateEventRequest object.
  *
  */
 @JsonDeserialize(builder = CreateEventRequest.Builder.class)

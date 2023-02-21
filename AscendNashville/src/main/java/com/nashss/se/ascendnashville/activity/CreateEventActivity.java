@@ -49,12 +49,12 @@ public class CreateEventActivity {
      */
     public CreateEventResult handleRequest(final CreateEventRequest createEventRequest) {
         log.info("In the CreateEventActivity handleRequest.");
-        if(!AscendNashvilleUtils.isValidString(createEventRequest.getDate())) {
+        if (!AscendNashvilleUtils.isValidString(createEventRequest.getDate())) {
             throw new InvalidAttributeValueException("Event date [" + createEventRequest.getDate() +
                     "] contains illegal characters");
         }
 
-        if(!AscendNashvilleUtils.isValidString(createEventRequest.getEventDetails())) {
+        if (!AscendNashvilleUtils.isValidString(createEventRequest.getEventDetails())) {
             throw new InvalidAttributeValueException("Event details [" + createEventRequest.getEventDetails() +
                     "] contains illegal characters");
         }

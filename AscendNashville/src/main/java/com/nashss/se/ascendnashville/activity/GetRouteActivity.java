@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 import javax.inject.Inject;
 
-
 /**
  * Implementation of the GetRouteActivity for Ascend Nashville's GetRoute API.
  * <p>

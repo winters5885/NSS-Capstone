@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 /**
- * Utility to create a random memberId and eventId.
+ * Utility to create a random memberId and eventId, or validate a string.
  */
 public class AscendNashvilleUtils {
     static final int MEMBER_ID_LENGTH = 6;
@@ -37,6 +37,13 @@ public class AscendNashvilleUtils {
         return String.valueOf(randomEventId);
     }
 
+    /**
+     * Method to validate a string.
+     *
+     * @param stringToValidate string that needs validation.
+     *
+     * @return boolean
+     */
     public static boolean isValidString(String stringToValidate) {
         if (StringUtils.isBlank(stringToValidate)) {
             return false;

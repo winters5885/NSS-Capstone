@@ -22,9 +22,9 @@ public class CreateMemberLambda
     @Override
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<CreateMemberRequest> input, Context context) {
         return super.runActivity(() -> {
-                CreateMemberRequest unauthenticatedRequest =
+            CreateMemberRequest unauthenticatedRequest =
                             input.fromBody(CreateMemberRequest.class);
-             return input.fromUserClaims(claims -> CreateMemberRequest.builder()
+            return input.fromUserClaims(claims -> CreateMemberRequest.builder()
                                 .withMemberId(unauthenticatedRequest.getMemberId())
                                 .withName(claims.get("name"))
                                 .withAge(unauthenticatedRequest.getAge())
@@ -34,8 +34,8 @@ public class CreateMemberLambda
                                 .withEmailAddress(claims.get("email"))
                                 .withType(unauthenticatedRequest.getType())
                                 .build());
-                                } ,
-                                (request, serviceComponent) ->
+        } ,
+            (request, serviceComponent) ->
                                 serviceComponent.provideCreateMemberActivity().handleRequest(request));
     }
 }
