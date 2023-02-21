@@ -1,7 +1,7 @@
 package com.nashss.se.ascendnashville.activity;
 
 import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
-import com.nashss.se.ascendnashville.Exceptions.InvalidAttributeValueException;
+
 import com.nashss.se.ascendnashville.activity.requests.GetEventRequest;
 
 import com.nashss.se.ascendnashville.activity.results.GetEventResult;
@@ -9,7 +9,7 @@ import com.nashss.se.ascendnashville.converters.ModelConverter;
 import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 import com.nashss.se.ascendnashville.models.EventModel;
-import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,6 +40,8 @@ public class GetEventActivity {
      * It then returns the events.
      * <p>
      * If the event does not exist, this should throw a EventNotFoundException.
+     *
+     * @param getEventRequest request object.
      *
      * @return getEventResult result object containing the API defined {@link EventModel}
      */

@@ -37,6 +37,13 @@ public class AscendNashvilleUtils {
         return String.valueOf(randomEventId);
     }
 
+    /**
+     * Method to validate a string.
+     *
+     * @param stringToValidate string that needs validation.
+     *
+     * @return boolean
+     */
     public static boolean isValidString(String stringToValidate) {
         if (StringUtils.isBlank(stringToValidate)) {
             return false;

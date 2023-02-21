@@ -1,8 +1,7 @@
 package com.nashss.se.ascendnashville.dynamoDB;
 
-import com.nashss.se.ascendnashville.Exceptions.EventNotFoundException;
 import com.nashss.se.ascendnashville.Exceptions.RouteNotFoundException;
-import com.nashss.se.ascendnashville.dynamoDB.models.Event;
+
 import com.nashss.se.ascendnashville.dynamoDB.models.Route;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;

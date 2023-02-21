@@ -1,9 +1,11 @@
 package com.nashss.se.ascendnashville.lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.ascendnashville.activity.requests.GetEventRequest;
 import com.nashss.se.ascendnashville.activity.results.GetEventResult;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +30,7 @@ public class GetEventLambda extends  LambdaActivityRunner<GetEventRequest, GetEv
                 GetEventRequest.builder()
                         .withEventId(path.get("eventId"))
                         .build()),
-                (request, serviceComponent) ->
+            (request, serviceComponent) ->
                 serviceComponent.provideGetEventActivity().handleRequest(request));
     }
 }

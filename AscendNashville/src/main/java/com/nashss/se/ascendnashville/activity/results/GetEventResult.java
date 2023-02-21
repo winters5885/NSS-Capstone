@@ -2,9 +2,6 @@ package com.nashss.se.ascendnashville.activity.results;
 
 import com.nashss.se.ascendnashville.models.EventModel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * GetEventResult Class.
  */

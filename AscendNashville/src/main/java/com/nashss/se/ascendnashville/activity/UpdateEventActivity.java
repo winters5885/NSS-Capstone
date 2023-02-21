@@ -9,6 +9,7 @@ import com.nashss.se.ascendnashville.dynamoDB.EventDao;
 import com.nashss.se.ascendnashville.dynamoDB.models.Event;
 
 import com.nashss.se.ascendnashville.utils.AscendNashvilleUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -53,12 +54,12 @@ public class UpdateEventActivity {
      */
     public UpdateEventResult handleRequest(final UpdateEventRequest updateEventRequest) {
         log.info("Inside UpdateEventActivity handleRequest.");
-        if(!AscendNashvilleUtils.isValidString(updateEventRequest.getDate())) {
+        if (!AscendNashvilleUtils.isValidString(updateEventRequest.getDate())) {
             throw new InvalidAttributeValueException("Event date [" + updateEventRequest.getDate() +
                     "} contains illegal characters");
         }
 
-        if(!AscendNashvilleUtils.isValidString(updateEventRequest.getEventDetails())) {
+        if (!AscendNashvilleUtils.isValidString(updateEventRequest.getEventDetails())) {
             throw new InvalidAttributeValueException("Event details [" + updateEventRequest.getEventDetails() +
                     "} contains illegal characters");
         }

@@ -21,16 +21,16 @@ public class UpdateEventLambda extends LambdaActivityRunner<UpdateEventRequest, 
     @Override
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<UpdateEventRequest> input, Context context) {
         return super.runActivity(
-                () -> {
-                    UpdateEventRequest unauthenticatedRequest = input.fromBody(UpdateEventRequest.class);
-                    return input.fromUserClaims(claims ->
+            () -> {
+                UpdateEventRequest unauthenticatedRequest = input.fromBody(UpdateEventRequest.class);
+                return input.fromUserClaims(claims ->
                             UpdateEventRequest.builder()
                                     .withEventId(unauthenticatedRequest.getEventId())
                                     .withDate(unauthenticatedRequest.getDate())
                                     .withEventDetails(unauthenticatedRequest.getEventDetails())
                                     .build());
-                },
-                (request, serviceComponent) ->
+            },
+            (request, serviceComponent) ->
                         serviceComponent.provideUpdateEventActivity().handleRequest(request)
         );
     }
