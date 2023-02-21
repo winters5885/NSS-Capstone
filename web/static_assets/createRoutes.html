@@ -11,22 +11,22 @@
     <header class="header" id="header"></header>
     <div class="card">
         <h2>Create Route</h2>
-        <form class="card-content" id="create-playlist-form">
+        <form class="card-content" id="create-route-form">
             <p class="hidden error" id="error-message"> </p>
             <p class="form-field">
                 <label>RouteId (1-30)</label>
-                <input type="text" id="routeId" class="tags" placeholder="enter routeId...">
+                <input type="text" id="routeId" placeholder="enter routeId..." required>
             </p>
             <p class="form-field">
                 <label>Difficulty Rating</label>
-                <input type="text" id="difficultyRating" class="tags" placeholder="enter difficultyRating...">
+                <input type="text" id="difficultyRating" placeholder="enter difficultyRating..." required>
             </p>
             <p class="form-field">
                 <label>Route Type (Boulder or Top Rope)</label>
-                <input type="text" id="routeType" class="tags" placeholder="enter routeType...">
+                <input type="text" id="routeType" placeholder="enter routeType..." required>
             </p>
             <p>
-                <a href="viewRoutes.html" class="button" id="create">Submit</a>
+                <button type="submit" class="button">Submit</button>
             </p>
         </form>
     </div>
