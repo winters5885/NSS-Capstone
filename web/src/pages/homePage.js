@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class HomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes', 'hideAdminButton'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToCreateProfile);
         this.header = new Header(this.dataStore);
@@ -24,6 +24,7 @@ class HomePage extends BindingClass {
         this.client = new AscendNashvilleClient();
         this.displayEvents();
         this.displayRoutes();
+        this.hideAdminButton();
     }
 
     /**
@@ -75,6 +76,14 @@ class HomePage extends BindingClass {
         }
          document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
+     }
+
+     async hideAdminButton() {
+        var isLoggedIn = await this.client.verifyLogin();
+        console.log("Inside hideAdminButton, isLoggedIn: " + isLoggedIn);
+        if(isLoggedIn == false) {
+            document.getElementById('admin-button').style.visibility = 'hidden';
+        }
      }
 }
 
