@@ -24,6 +24,7 @@
     padding: 4px 40px;
     padding-top: 25;
     opacity: 50%;
+    margin-bottom: 50px;
 }
 
 .button {
@@ -97,7 +98,7 @@
 
 .route {
     padding: 50px;
-    display: flex;
+    display: block;
 }
 
 .route .t.attribute {
