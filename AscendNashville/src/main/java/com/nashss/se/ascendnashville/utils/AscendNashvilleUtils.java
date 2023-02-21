@@ -3,7 +3,6 @@ package com.nashss.se.ascendnashville.utils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Random;
 import java.util.regex.Pattern;
 
 /**
@@ -11,6 +10,7 @@ import java.util.regex.Pattern;
  */
 public class AscendNashvilleUtils {
     static final int MEMBER_ID_LENGTH = 6;
+    static final int EVENT_ID_LENGTH = 4;
     private static final Pattern INVALID_CHARACTER_PATTERN = Pattern.compile("[\"'\\\\]");
     private AscendNashvilleUtils() {
     }
@@ -28,13 +28,7 @@ public class AscendNashvilleUtils {
      * @return randomly generated numeric string.
      */
     public static String generateEventId() {
-        Random rand = new Random();
-        int max = 5;
-        int min = 1;
-
-        int randomEventId = rand.nextInt((max - min) + 1) + min;
-
-        return String.valueOf(randomEventId);
+        return RandomStringUtils.randomNumeric(EVENT_ID_LENGTH);
     }
 
     /**

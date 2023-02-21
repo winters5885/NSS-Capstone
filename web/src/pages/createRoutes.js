@@ -19,10 +19,8 @@ class CreateRoutes extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
-
+        document.getElementById('create-route-form').addEventListener('submit', this.submit);
         this.header.addHeaderToPage();
-
         this.client = new AscendNashvilleClient();
     }
 
@@ -36,10 +34,6 @@ class CreateRoutes extends BindingClass {
         const errorMessageDisplay = document.getElementById('error-message');
         errorMessageDisplay.innerText = ``;
         errorMessageDisplay.classList.add('hidden');
-
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
 
         const routeId = document.getElementById('routeId').value;
         const difficultyRating = document.getElementById('difficultyRating').value;

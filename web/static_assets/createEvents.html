@@ -11,17 +11,17 @@
     <header class="header" id="header"></header>
     <div class="card">
         <h2>Add Event</h2>
-        <form class="card-content" id="create-playlist-form">
+        <form class="card-content" id="create-event-form">
             <p class="hidden error" id="error-message"> </p>
             <p class="form-field">
                 <label>Date</label>
-                <input type="text" id="date" class="tags" placeholder="enter date of event...">
+                <input type="text" id="date" placeholder="enter date of event..." required>
             </p>
             <p class="form-field">
                 <label>Event Details</label>
-                <input type="text" id="eventDetails" class="tags" placeholder="enter event details...">
+                <input type="text" id="eventDetails" placeholder="enter event details..." required>
             <p>
-                <a href="index.html" class="button" id="create">Submit</a>
+                <button class="button">Submit</button>
             </p>
         </form>
     </div>

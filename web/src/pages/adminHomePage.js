@@ -18,7 +18,6 @@ class AdminHomePage extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        //document.getElementById('create').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
         this.displayEvents();
@@ -44,10 +43,6 @@ class AdminHomePage extends BindingClass {
         errorMessageDisplay.innerText = ``;
         errorMessageDisplay.classList.add('hidden');
 
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
-
         const urlParams = new URLSearchParams(window.location.search);
         var eventIdtoUpdate = urlParams.get('eventId');
 
@@ -67,11 +62,10 @@ class AdminHomePage extends BindingClass {
         let event;
         for (event of eventsList) {
             var specificEventId = event.eventId;
-            //var specificDate = event.date;
             console.log("specificEventId: " + specificEventId);
-            //console.log("specificDate: " + specificDate);
+            
             eventHtml += `
-                <li class="route">
+                <li class="event-display">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
                         <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br><button>
@@ -80,7 +74,7 @@ class AdminHomePage extends BindingClass {
             `;
         }
         
-         document.getElementById('eventsList').innerHTML = eventHtml;
+         document.getElementById('event-display').innerHTML = eventHtml;
          console.log("Inside displayRoutes AdminHomePage method route: ", event);
      }
 
@@ -95,7 +89,7 @@ class AdminHomePage extends BindingClass {
            
 
             routeHtml += `
-                <li class="route">
+                <li class="route-display">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
                         <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
                         <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>
@@ -103,7 +97,7 @@ class AdminHomePage extends BindingClass {
                 </li>
             `;
         }
-         document.getElementById('route').innerHTML = routeHtml;
+         document.getElementById('route-display').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
      }
 

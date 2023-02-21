@@ -19,7 +19,7 @@ class DeleteEvent extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        document.getElementById('delete').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
     }
@@ -41,7 +41,6 @@ class DeleteEvent extends BindingClass {
         
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId'); 
-        //const eventId = document.getElementById('eventId').value;
 
         const event = await this.client.deleteEvent(eventIdFromURL, (error) => {
             createButton.innerText = origButtonText;

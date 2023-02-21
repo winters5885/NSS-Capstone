@@ -19,7 +19,7 @@ class CreateEvents extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        document.getElementById('create-event-form').addEventListener('submit', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
     }
@@ -34,10 +34,6 @@ class CreateEvents extends BindingClass {
         const errorMessageDisplay = document.getElementById('error-message');
         errorMessageDisplay.innerText = ``;
         errorMessageDisplay.classList.add('hidden');
-
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
 
         const date = document.getElementById('date').value;
         const eventDetails = document.getElementById('eventDetails').value;
