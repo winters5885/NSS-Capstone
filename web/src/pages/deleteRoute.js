@@ -19,7 +19,7 @@ class DeleteRoute extends BindingClass {
      * Add the header to the page and load the AscendNashvilleClient.
      */
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        document.getElementById('delete').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.client = new AscendNashvilleClient();
     }
