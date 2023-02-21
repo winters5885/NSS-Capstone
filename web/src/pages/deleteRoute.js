@@ -34,10 +34,6 @@ class DeleteRoute extends BindingClass {
         const errorMessageDisplay = document.getElementById('error-message');
         errorMessageDisplay.innerText = ``;
         errorMessageDisplay.classList.add('hidden');
-
-        const createButton = document.getElementById('create');
-        const origButtonText = createButton.innerText;
-        createButton.innerText = 'Loading...';
         
         const urlParams = new URLSearchParams(window.location.search);
         const routeIdFromURL = urlParams.get('routeId'); 
