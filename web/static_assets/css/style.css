@@ -139,7 +139,7 @@ a {
 }
 
 .card {
-    background: rgba(204, 204, 204, 0.2);
+    opacity: 100%;
     margin: auto;
     width: 25%;
     padding: 10px 20px;
@@ -266,4 +266,8 @@ p {
     width: 472px;
     background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
     animation: rotation_481 5000ms infinite linear;
+}
+
+button {
+background: rgba(204, 204, 204, 0.2);
 }
