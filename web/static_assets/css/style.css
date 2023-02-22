@@ -14,33 +14,135 @@
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
+button {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   button::before,
+   button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   button::before {
+    left: -10px;
+    background: #240046;
+   }
+   
+   button::after {
+    right: -10px;
+    background: #5a189a;
+   }
+   
+   button:hover::before,
+   button:hover::after {
+    width: 58%;
+   }
+   
+   button:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+   }
+   
+   button span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+   }
+
+   
 .header {
     /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    color: var(--secondary-color);
+
     padding: 4px 40px;
     padding-top: 25;
     margin-bottom: 50px;
     background: rgba(204, 204, 204, 0.2);
 }
 
-
+a {
+    display: inline-block;
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 45px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   a::before,
+   a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   a::before {
+    left: -10px;
+    background: #1b89f7;
+   }
+   
+   a::after {
+    right: -10px;
+    background: #21ce66;
+   }
+   
+   a:hover::before,
+   a:hover::after {
+    width: 58%;
+   }
+   
+   a:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+   }
+   
+   a span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+   }
 .header_home {
     font-size: 36px;
     line-height: 40px;
-    height: 100px;
     text-decoration: none;
     color: var(--secondary-color);
 }
 
 .card {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    margin: 20px;
+    background: rgba(204, 204, 204, 0.2);
+    margin: auto;
+    width: 25%;
     padding: 10px 20px;
+    text-align: center;
 }
 
 .error {
