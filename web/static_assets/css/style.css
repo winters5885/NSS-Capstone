@@ -184,15 +184,6 @@ a {
     border-radius: 16px;
 }
 
-.route {
-    padding: 25px;
-    display: block;
-}
-
-.route .t.attribute {
-    flex: 80%;
-}
-
 .displayRoutes {
     background: rgba(204, 204, 204, 0.2);
     float: left;
@@ -229,6 +220,15 @@ Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
 */
+
+.route {
+    padding: 25px;
+    display: block;
+}
+
+.route .t.attribute {
+    flex: 80%;
+}
 .route:before {
     position: absolute;
     margin-left: -40px;
@@ -270,4 +270,8 @@ p {
 
 button {
 background: rgba(204, 204, 204, 0.2);
+}
+
+.attribute {
+    padding-top: 50px;
 }
