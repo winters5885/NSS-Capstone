@@ -210,6 +210,21 @@ a {
     margin-top: -20px;
 }
 
+.displayRoutes-for-admin {
+    background: rgba(204, 204, 204, 0.2);
+    float: left;
+    width: 25%;
+    margin-top: -20px;
+    font-weight: bold;
+}
+
+.displayEvents-for-admin {
+    background: rgba(204, 204, 204, 0.2);
+    float: right;
+    width: 25%;
+    font-weight: bold;
+    margin-top: -20px;
+}
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093

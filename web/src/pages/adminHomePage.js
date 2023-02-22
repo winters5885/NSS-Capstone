@@ -68,8 +68,8 @@ class AdminHomePage extends BindingClass {
                 <li class="event-display">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br><button>
-                        <button class="button" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br><button>  
+                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br></button>
+                        <button class="button" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br></button>  
                 </li>
             `;
         }
@@ -94,8 +94,7 @@ class AdminHomePage extends BindingClass {
                 <li class="route-display">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
                         <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
-                        <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>
-                        <button class="button" onclick="location.href = 'deleteRoute.html?routeId=' + ${specificRouteId}"></br>Delete This Route</br><button>  
+                        <button class="button" onclick="location.href = 'deleteRoute.html?routeId=' + ${specificRouteId}"></br>Delete This Route</br></button>  
                 </li>
             `;
         }
