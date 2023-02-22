@@ -138,13 +138,6 @@ a {
     color: var(--secondary-color);
 }
 
-.card {
-    opacity: 100%;
-    margin: auto;
-    width: 25%;
-    padding: 10px 20px;
-    text-align: center;
-}
 
 .error {
     color: var(--error-color);
@@ -160,13 +153,21 @@ a {
     color: var(--error-color);
 }
 
+.card {
+    opacity: 100%;
+    margin: auto;
+    width: 25%;
+    padding: 10px 20px;
+    text-align: center;
+}
 .card-content {
-    max-width: 500px;
+    max-width: 100px;
 }
 
 .card-content .form-field {
     display: flex;
     flex-direction: column;
+    width: 200%;
 }
 
 .tags {
