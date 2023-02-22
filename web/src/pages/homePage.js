@@ -51,8 +51,8 @@ class HomePage extends BindingClass {
         for (event of eventsList) {
             eventHtml += `
                 <li class="route">
-                        <span class="attribute"></br>${"Event Date: " + event.date} <br>
-                        <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br></span>  
+                        <span></br>${"Event Date: " + event.date} <br>
+                        <span></br>${"Event Details: " + event.eventDetails}<br></span>  
                 </li>
             `;
         }
