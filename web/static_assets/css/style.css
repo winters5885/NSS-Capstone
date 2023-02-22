@@ -14,22 +14,22 @@
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-a {
+.admin-buttons {
     display: inline-block;
-    width: 260px;
+    width: 175px;
     height: 50px;
     border-radius: 10px;
     text-align: center;
-    line-height: 45px;
     white-space: nowrap;
     position: relative;
     overflow: hidden;
     transition: all 0.5s ease-in;
     z-index: 1;
+    line-height: 3px;
    }
    
-   button::before,
-   button::after {
+   .admin-buttons::before,
+   .admin-buttons::after {
     content: '';
     position: absolute;
     top: 0;
@@ -41,33 +41,32 @@ a {
     z-index: -1;
    }
    
-   button::before {
+   .admin-buttons::before {
     left: -10px;
-    background: #358fea;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
    }
    
-   button::after {
+   .admin-buttons::after {
     right: -10px;
-    background: #21ce66;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
    }
    
-   button:hover::before,
-   button:hover::after {
+   .admin-buttons:hover::before,
+   .admin-buttons:hover::after {
     width: 58%;
    }
    
-   button:hover span {
+   .admin-buttons:hover span {
     color: #e0aaff;
     transition: 0.3s;
    }
    
-   button span {
+   .admin-buttons span {
     color: #03045e;
     font-size: 18px;
     transition: all 0.3s ease-in;
    }
 
-   
 .header {
     /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
     display: flex;
