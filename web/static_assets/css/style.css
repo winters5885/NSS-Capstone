@@ -26,10 +26,10 @@
     transition: all 0.5s ease-in;
     z-index: 1;
     line-height: 3px;
-   }
-   
-   .admin-buttons::before,
-   .admin-buttons::after {
+}
+
+.admin-buttons::before,
+.admin-buttons::after {
     content: '';
     position: absolute;
     top: 0;
@@ -39,33 +39,33 @@
     transition: all 0.5s;
     overflow: hidden;
     z-index: -1;
-   }
-   
-   .admin-buttons::before {
+}
+
+.admin-buttons::before {
     left: -10px;
     background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-   }
-   
-   .admin-buttons::after {
+}
+
+.admin-buttons::after {
     right: -10px;
     background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-   }
-   
-   .admin-buttons:hover::before,
-   .admin-buttons:hover::after {
+}
+
+.admin-buttons:hover::before,
+.admin-buttons:hover::after {
     width: 58%;
-   }
-   
-   .admin-buttons:hover span {
+}
+
+.admin-buttons:hover span {
     color: #e0aaff;
     transition: 0.3s;
-   }
-   
-   .admin-buttons span {
+}
+
+.admin-buttons span {
     color: #03045e;
     font-size: 18px;
     transition: all 0.3s ease-in;
-   }
+}
 
 .header {
     /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
@@ -91,10 +91,10 @@ a {
     overflow: hidden;
     transition: all 0.5s ease-in;
     z-index: 1;
-   }
-   
-   a::before,
-   a::after {
+}
+
+a::before,
+a::after {
     content: '';
     position: absolute;
     top: 0;
@@ -104,33 +104,34 @@ a {
     transition: all 0.5s;
     overflow: hidden;
     z-index: -1;
-   }
-   
-   a::before {
+}
+
+a::before {
     left: -10px;
     background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-   }
-   
-   a::after {
+}
+
+a::after {
     right: -10px;
     background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
-   }
-   
-   a:hover::before,
-   a:hover::after {
+}
+
+a:hover::before,
+a:hover::after {
     width: 58%;
-   }
-   
-   a:hover span {
+}
+
+a:hover span {
     color: #e0aaff;
     transition: 0.3s;
-   }
-   
-   a span {
+}
+
+a span {
     color: #03045e;
     font-size: 18px;
     transition: all 0.3s ease-in;
-   }
+}
+
 .header_home {
     font-size: 34px;
     line-height: 40px;
@@ -160,6 +161,7 @@ a {
     padding: 10px 20px;
     text-align: center;
 }
+
 .card-content {
     max-width: 100px;
 }
@@ -167,8 +169,15 @@ a {
 .card-content .form-field {
     display: flex;
     flex-direction: column;
-    width: 200%;
+    width: 460%;
 }
+
+.card-content .form-field .dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 .tags {
     display: flex;
@@ -216,6 +225,7 @@ a {
     font-weight: bold;
     margin-top: -20px;
 }
+
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093
@@ -230,6 +240,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CS
 .route .t.attribute {
     flex: 80%;
 }
+
 .route:before {
     position: absolute;
     margin-left: -40px;
@@ -270,7 +281,7 @@ p {
 }
 
 button {
-background: rgba(204, 204, 204, 0.2);
+    background: rgba(204, 204, 204, 0.2);
 }
 
 .attribute {
