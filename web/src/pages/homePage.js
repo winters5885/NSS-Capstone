@@ -62,7 +62,10 @@ class HomePage extends BindingClass {
 
      async displayRoutes() {
         var routesList = await this.client.getRoutes();
-  
+            routesList.sort(function(a,b) {
+            return a.routeId-b.routeId
+            });
+
         let routeHtml = '';
         let route;
         for (route of routesList) {

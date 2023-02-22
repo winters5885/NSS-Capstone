@@ -9,6 +9,7 @@ import com.nashss.se.ascendnashville.models.RouteModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collections;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -17,7 +18,7 @@ import javax.inject.Inject;
  * <p>
  * This API allows the customer to retrieve the routes.
  */
-public class GetRouteActivity {
+public class GetRouteActivity  {
     private final Logger log = LogManager.getLogger();
     private final RouteDao routeDao;
 
@@ -41,6 +42,8 @@ public class GetRouteActivity {
     public GetRouteResult handleRequest() {
         log.info("In the GetRouteActivity handleRequest.");
         List<Route> routes = routeDao.getRoutes();
+        Collections.sort(routes);
+
         List<RouteModel> routeModels = new ModelConverter().toRoutesModelList(routes);
         return GetRouteResult.builder()
                 .withRouteList(routeModels)
