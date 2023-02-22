@@ -19,12 +19,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
+    
     color: var(--secondary-color);
     padding: 4px 40px;
     padding-top: 25;
     margin-bottom: 50px;
-    opacity: 50%;
+    background: rgba(204, 204, 204, 0.2);
 }
 
 
@@ -91,18 +91,17 @@
 }
 
 .displayRoutes {
-    background-color: gray;
+    background: rgba(204, 204, 204, 0.2);
     float: left;
     width: 25%;
-    opacity: 50%;
+ 
     font-weight: bold;
 }
 
 .displayEvents {
-    background-color: grey;
+    background: rgba(204, 204, 204, 0.2);
     float: right;
     width: 25%;
-    opacity: 50%;
     font-weight: bold;
 }
 
