@@ -73,7 +73,7 @@ class HomePage extends BindingClass {
             routeHtml += `
                 <li class="route">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
-                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating}<br></span>
                         <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>  
                 </li>
             `;
