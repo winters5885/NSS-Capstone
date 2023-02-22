@@ -14,12 +14,14 @@
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-button {
+a {
     display: inline-block;
-    width: 150px;
+    width: 260px;
     height: 50px;
     border-radius: 10px;
-    border: 1px solid #03045e;
+    text-align: center;
+    line-height: 45px;
+    white-space: nowrap;
     position: relative;
     overflow: hidden;
     transition: all 0.5s ease-in;
@@ -41,12 +43,12 @@ button {
    
    button::before {
     left: -10px;
-    background: #240046;
+    background: #358fea;
    }
    
    button::after {
     right: -10px;
-    background: #5a189a;
+    background: #21ce66;
    }
    
    button:hover::before,
@@ -74,7 +76,7 @@ button {
 
     padding: 4px 40px;
     padding-top: 25;
-    margin-bottom: 50px;
+    margin-bottom: -30px;
     background: rgba(204, 204, 204, 0.2);
 }
 
@@ -107,7 +109,7 @@ a {
    
    a::before {
     left: -10px;
-    background: #1b89f7;
+    background: #358fea;
    }
    
    a::after {
@@ -196,7 +198,7 @@ a {
     background: rgba(204, 204, 204, 0.2);
     float: left;
     width: 25%;
- 
+    margin-top: -20px;
     font-weight: bold;
 }
 
@@ -205,6 +207,7 @@ a {
     float: right;
     width: 25%;
     font-weight: bold;
+    margin-top: -20px;
 }
 
 /*
@@ -236,4 +239,15 @@ th {
 a {
     color: var(--tertiary-color);
     text-decoration: none;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 36px;
+}
+
+p {
+    width: 472px;
 }

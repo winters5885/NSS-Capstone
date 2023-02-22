@@ -69,6 +69,7 @@ class HomePage extends BindingClass {
         let routeHtml = '';
         let route;
         for (route of routesList) {
+            '<li class="routes-title"><span>Routes</span></li>'
             routeHtml += `
                 <li class="route">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
@@ -77,9 +78,11 @@ class HomePage extends BindingClass {
                 </li>
             `;
         }
+        // document.getElementById("routes-title").innerHTML = routeTitle;
          document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
      }
+    
 
      async hideAdminButton() {
         var isLoggedIn = await this.client.verifyLogin();
