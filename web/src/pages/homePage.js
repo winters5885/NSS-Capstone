@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class HomePage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes'], this);
+        this.bindClassMethods(['mount', 'submit', 'displayEvents', 'displayRoutes', 'hideAdminButton'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToCreateProfile);
         this.header = new Header(this.dataStore);
@@ -24,6 +24,7 @@ class HomePage extends BindingClass {
         this.client = new AscendNashvilleClient();
         this.displayEvents();
         this.displayRoutes();
+        this.hideAdminButton();
     }
 
     /**
@@ -50,8 +51,8 @@ class HomePage extends BindingClass {
         for (event of eventsList) {
             eventHtml += `
                 <li class="route">
-                        <span class="attribute"></br>${"Event Date: " + event.date} <br>
-                        <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br></span>  
+                        <span></br>${"Event Date: " + event.date} <br>
+                        <span></br>${"Event Details: " + event.eventDetails}<br></span>  
                 </li>
             `;
         }
@@ -61,20 +62,34 @@ class HomePage extends BindingClass {
 
      async displayRoutes() {
         var routesList = await this.client.getRoutes();
-  
+            routesList.sort(function(a,b) {
+            return a.routeId-b.routeId
+            });
+
         let routeHtml = '';
         let route;
         for (route of routesList) {
+            '<li class="routes-title"><span>Routes</span></li>'
             routeHtml += `
                 <li class="route">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
-                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating}<br></span>
                         <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>  
                 </li>
             `;
         }
+        // document.getElementById("routes-title").innerHTML = routeTitle;
          document.getElementById('route').innerHTML = routeHtml;
          console.log("Inside displayRoutes method route: ", route);
+     }
+    
+
+     async hideAdminButton() {
+        var isLoggedIn = await this.client.verifyLogin();
+        console.log("Inside hideAdminButton, isLoggedIn: " + isLoggedIn);
+        if(isLoggedIn == false) {
+            document.getElementById('admin-button').style.visibility = 'hidden';
+        }
      }
 }
 

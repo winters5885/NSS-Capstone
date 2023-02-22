@@ -2,56 +2,148 @@
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
     --primary-color: #5D5E5E;
     --secondary-color: #ffffff;
-    --tertiary-color: #F5881F;
+    --tertiary-color: #050506;
     --error-color: #EE3A23;
 }
 
+
 .background {
-    background-color: #0404189c;
+    background-color: #2117e19c;
     margin: 0;
     counter-reset: section;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
+
+.admin-buttons {
+    display: inline-block;
+    width: 175px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    line-height: 3px;
+   }
+   
+   .admin-buttons::before,
+   .admin-buttons::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   .admin-buttons::before {
+    left: -10px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+   }
+   
+   .admin-buttons::after {
+    right: -10px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+   }
+   
+   .admin-buttons:hover::before,
+   .admin-buttons:hover::after {
+    width: 58%;
+   }
+   
+   .admin-buttons:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+   }
+   
+   .admin-buttons span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+   }
 
 .header {
     /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 4px 20px;
+
+    padding: 4px 40px;
+    padding-top: 25;
+    margin-bottom: -30px;
+    background: rgba(204, 204, 204, 0.2);
 }
 
-.button {
-    background-color: var(--tertiary-color);
-    border: none;
-    color: var(--secondary-color);
-    padding: 6px 8px 4px 8px;
+a {
+    display: inline-block;
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
     text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.button-group {
-    display: flex;
-    justify-content: space-between;
-}
-
+    line-height: 45px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   a::before,
+   a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   a::before {
+    left: -10px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+   }
+   
+   a::after {
+    right: -10px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+   }
+   
+   a:hover::before,
+   a:hover::after {
+    width: 58%;
+   }
+   
+   a:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+   }
+   
+   a span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+   }
 .header_home {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 40px;
-    height: 100px;
     text-decoration: none;
     color: var(--secondary-color);
 }
 
 .card {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    margin: 20px;
+    opacity: 100%;
+    margin: auto;
+    width: 25%;
     padding: 10px 20px;
+    text-align: center;
 }
 
 .error {
@@ -92,32 +184,51 @@
     border-radius: 16px;
 }
 
-.route {
-    padding: 50px;
-    display: flex;
-}
-
-.route .t.attribute {
-    flex: 80%;
-}
-
 .displayRoutes {
-    background-color: lightcoral;
+    background: rgba(204, 204, 204, 0.2);
     float: left;
-    width: 50%;
+    width: 25%;
+    margin-top: -20px;
+    font-weight: bold;
 }
 
 .displayEvents {
-    background-color: aqua;
-    float: left;
-    width: 50%;
+    background: rgba(204, 204, 204, 0.2);
+    float: right;
+    width: 25%;
+    font-weight: bold;
+    margin-top: -20px;
 }
 
+.displayRoutes-for-admin {
+    background: rgba(204, 204, 204, 0.2);
+    float: left;
+    width: 25%;
+    margin-top: -10px;
+    font-weight: bold;
+}
+
+.displayEvents-for-admin {
+    background: rgba(204, 204, 204, 0.2);
+    float: right;
+    width: 25%;
+    font-weight: bold;
+    margin-top: -20px;
+}
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
 */
+
+.route {
+    padding: 25px;
+    display: block;
+}
+
+.route .t.attribute {
+    flex: 80%;
+}
 .route:before {
     position: absolute;
     margin-left: -40px;
@@ -142,4 +253,25 @@ th {
 a {
     color: var(--tertiary-color);
     text-decoration: none;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 36px;
+}
+
+p {
+    width: 472px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+    animation: rotation_481 5000ms infinite linear;
+}
+
+button {
+background: rgba(204, 204, 204, 0.2);
+}
+
+.attribute {
+    padding-top: 50px;
 }

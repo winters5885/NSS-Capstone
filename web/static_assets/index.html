@@ -6,15 +6,24 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body class="background">
-    <header class="header" id="header">
-        <p class="button-group">
-            <a href="adminIndex.html" class="button">To Admin Page</a>
-        </p>
-    </header>
-    <div class = "displayRoutes" id = "route"></div>
-    <div class = "displayEvents" id= "eventsList"></div>
-    </div>
+<body>
+    <style>
+        body {
+            background-image: url('JoshuaTree2.jpg');
+            height: 10vh;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+        <header class="header" id="header">
+                <span >
+                    <a class="button" id='admin-button' href="adminIndex.html">To Admin Page</a>
+                </span>
+        </header>
+        <div class="titles"><div class="route-title"><p>Routes</p></div><p>Announcements</p></div>
+            <div class="displayRoutes" id="route">Routes</div>
+            <div class="displayEvents" id="eventsList">Announcements</div>
+        </div>
 </body>
 
 </html>

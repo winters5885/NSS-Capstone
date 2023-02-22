@@ -65,35 +65,37 @@ class AdminHomePage extends BindingClass {
             console.log("specificEventId: " + specificEventId);
             
             eventHtml += `
-                <li class="event-display">
+                <li class="route">
                         <span class="attribute"></br>${"Date: " + event.date} <br>
                         <span class="attribute"></br>${"Event Details: " + event.eventDetails}<br><span>
-                        <button class="button" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br><button>
-                        <button class="button" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br><button>  
+                        <button class= "admin-buttons" onclick="location.href = 'updateEvent.html?eventId=' + ${specificEventId}"></br>Update this Event<br></button>
+                        <button class= "admin-buttons" onclick="location.href = 'deleteEvent.html?eventId=' + ${specificEventId}"></br>Delete This Event</br></button>  
                 </li>
             `;
         }
         
          document.getElementById('event-display').innerHTML = eventHtml;
-         console.log("Inside displayRoutes AdminHomePage method route: ", event);
+         console.log("Inside displayRoutes AdminHomePage method event: ", event);
      }
 
      async displayRoutes() {
         var routesList = await this.client.getRoutes();
-  
+              routesList.sort(function(a,b) {
+              return a.routeId-b.routeId
+              });
+
         let routeHtml = '';
         let route;
         for (route of routesList) {
             var specificRouteId = route.routeId;
             console.log("specificRouteId: " + specificRouteId);
-           
 
             routeHtml += `
-                <li class="route-display">
+                <li class="route">
                         <span class="attribute">${"Route Number: " + route.routeId }<br>
-                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating} <br></span>
+                        <span class="attribute"></br>${"Difficulty Rating: " + route.difficultyRating}<br></span>
                         <span class="attribute"></br>${"Route Type: " + route.routeType}<br></span>
-                        <button class="button" onclick="location.href = 'deleteRoute.html?routeId=' + ${specificRouteId}"></br>Delete This Route</br><button>  
+                        <button class= "admin-buttons" onclick="location.href = 'deleteRoute.html?routeId=' + ${specificRouteId}"></br>Delete This Route</br></button>  
                 </li>
             `;
         }

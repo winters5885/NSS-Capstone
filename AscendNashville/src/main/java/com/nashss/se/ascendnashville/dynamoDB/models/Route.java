@@ -12,7 +12,7 @@ import java.util.Objects;
  * Represents a record in the route table.
  */
 @DynamoDBTable(tableName = "route")
-public class Route {
+public class Route implements Comparable<Route> {
     public static final String Route_Difficulty_GSI = "RouteDifficultyGSI";
     private String routeId;
     private String difficultyRating;
@@ -104,5 +104,10 @@ public class Route {
                 ", routeType='" + routeType + '\'' +
                 ", memberRating=" + memberRating +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Route o) {
+        return this.routeId.compareTo(o.routeId);
     }
 }

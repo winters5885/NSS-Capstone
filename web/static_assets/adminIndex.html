@@ -7,9 +7,18 @@
 </head>
 
 <body class="background">
+    <style>
+        body {
+            background-image: url('JoshuaTree2.jpg');
+            height: 10vh;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
     <header class="header" id="header">
         <h2>Admin Page</h2>
     </header>
+
     <div class="card">
         </form>
         <p class="button-group">
@@ -21,8 +30,11 @@
         <p class="button-group">
             <a href="createEvents.html" class="button">Create Event</a>
         </p>
-        <p class="button-group">
-        <div class="displayRoutes" id="route-display"></div>
-        <div class="displayEvents" id="event-display"> </div>
-        </p>
     </div>
+        <div class="titles"><div class="route-title"><p>Routes</p></div><p>Announcements</p></div>
+        <p class="button-group">
+        <div class="displayRoutes-for-admin" id="route-display">Routes</div>
+        <div class="displayEvents-for-admin" id="event-display">Events</div>
+        </p>
+    </body>
+</html>
