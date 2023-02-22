@@ -109,12 +109,12 @@ a {
    
    a::before {
     left: -10px;
-    background: #358fea;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
    }
    
    a::after {
     right: -10px;
-    background: #21ce66;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
    }
    
    a:hover::before,
@@ -250,4 +250,6 @@ a {
 
 p {
     width: 472px;
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+    animation: rotation_481 5000ms infinite linear;
 }
