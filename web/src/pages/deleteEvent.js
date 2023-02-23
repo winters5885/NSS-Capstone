@@ -31,10 +31,6 @@ class DeleteEvent extends BindingClass {
     async submit(evt) {
         evt.preventDefault();
 
-        const errorMessageDisplay = document.getElementById('error-message');
-        errorMessageDisplay.innerText = ``;
-        errorMessageDisplay.classList.add('hidden');
-        
         const urlParams = new URLSearchParams(window.location.search);
         const eventIdFromURL = urlParams.get('eventId'); 
 
