@@ -35,9 +35,9 @@ public class GetRouteActivityTest {
         Route route3 = new Route("3", "difficultyRating3", "routeType3", 1);
 
         List<Route> routesList = new ArrayList<>();
-        routesList.add(route3);
-        routesList.add(route2);
         routesList.add(route1);
+        routesList.add(route2);
+        routesList.add(route3);
 
         when(routeDao.getRoutes()).thenReturn(routesList);
 
