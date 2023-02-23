@@ -291,3 +291,7 @@ button {
 .admin-title {
     padding-right: 160px;
 }
+
+.bold {
+    font-size: 25px;
+}
