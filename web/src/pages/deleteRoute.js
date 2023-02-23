@@ -30,14 +30,9 @@ class DeleteRoute extends BindingClass {
      */
     async submit(evt) {
         evt.preventDefault();
-
-        const errorMessageDisplay = document.getElementById('error-message');
-        errorMessageDisplay.innerText = ``;
-        errorMessageDisplay.classList.add('hidden');
         
         const urlParams = new URLSearchParams(window.location.search);
         const routeIdFromURL = urlParams.get('routeId'); 
-        //const eventId = document.getElementById('eventId').value;
 
         const route = await this.client.deleteRoute(routeIdFromURL, (error) => {
             createButton.innerText = origButtonText;

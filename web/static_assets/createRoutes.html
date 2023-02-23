@@ -8,9 +8,11 @@
 </head>
 
 <body class="background">
-    
-    <header class="header" id="header"></header>
-     <style>
+
+    <header class="header" id="header">
+        <h3 class="admin-title">Admin Page</h3>
+    </header>
+    <style>
         body {
             background-image: url('JoshuaTree2.jpg');
             height: 10vh;
@@ -19,11 +21,11 @@
         }
     </style>
     <div class="card">
-        <h2>Create Route</h2>
+        <h1>Create Route</h1>
         <form class="card-content" id="create-route-form">
             <p class="hidden error" id="error-message"> </p>
             <p class="form-field">
-                <label>RouteId (1-30)</label>
+                <label>Route Number</label>
                 <input type="text" id="routeId" placeholder="enter routeId..." required>
             </p>
             <p class="form-field">
@@ -31,8 +33,8 @@
                 <input type="text" id="difficultyRating" placeholder="enter difficultyRating..." required>
             </p>
             <p class="form-field">
-                <label>Route Type (Boulder or Top Rope)</label>
-                <input type="text" id="routeType" placeholder="enter routeType..." required>
+                <label>Route Type</label>
+                <input type="text" id="routeType" placeholder="enter route type..." required>
             </p>
             <p>
                 <button type="submit" class="button">Submit</button>

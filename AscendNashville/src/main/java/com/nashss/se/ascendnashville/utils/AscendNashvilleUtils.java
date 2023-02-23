@@ -28,7 +28,12 @@ public class AscendNashvilleUtils {
      * @return randomly generated numeric string.
      */
     public static String generateEventId() {
-        return RandomStringUtils.randomNumeric(EVENT_ID_LENGTH);
+        String randomString = RandomStringUtils.randomNumeric(EVENT_ID_LENGTH);
+
+        if (randomString.charAt(0) == 0) {
+            return randomString.replace('0', '1');
+        }
+        return randomString;
     }
 
     /**
