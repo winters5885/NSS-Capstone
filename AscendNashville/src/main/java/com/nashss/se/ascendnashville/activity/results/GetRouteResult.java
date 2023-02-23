@@ -3,7 +3,6 @@ package com.nashss.se.ascendnashville.activity.results;
 import com.nashss.se.ascendnashville.models.RouteModel;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
